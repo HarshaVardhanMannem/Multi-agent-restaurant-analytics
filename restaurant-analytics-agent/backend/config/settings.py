@@ -25,13 +25,25 @@ class Settings(BaseSettings):
     supabase_key: str | None = None  # Not used for direct DB, but allowed
     supabase_password: str | None = None  # DB password
 
-    # NVIDIA API
-    nvidia_api_key: str
+    # LLM Provider Selection
+    llm_provider: str = "nvidia"  # Options: nvidia, openai, grok, gemini
+
+    # NVIDIA API Configuration
+    nvidia_api_key: str | None = None
     nvidia_model: str = "ai-nemotron-3-nano-30b-a3b"
     nvidia_model_fast: str = "ai-nemotron-3-nano-30b-a3b"  # Same model for all agents
 
-    # LLM Provider
-    llm_provider: str = "nvidia"  # Default to nvidia
+    # OpenAI API Configuration
+    openai_api_key: str | None = None
+    openai_model: str = "gpt-4o"
+
+    # Grok API Configuration (xAI)
+    grok_api_key: str | None = None
+    grok_model: str = "grok-beta"
+
+    # Gemini API Configuration (Google)
+    gemini_api_key: str | None = None
+    gemini_model: str = "gemini-2.0-flash-exp"
 
     # JWT Authentication
     jwt_secret_key: str | None = None  # Optional - will derive from nvidia_api_key if not set

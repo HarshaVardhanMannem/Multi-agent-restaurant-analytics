@@ -11,10 +11,11 @@ asyncpg==0.29.0
 # LangChain & LangGraph
 langchain==0.1.9
 langchain-nvidia-ai-endpoints==0.0.2
-# langchain-openai: Using 0.0.14 which is compatible with langchain-core<0.2
+# langchain-openai: Using 0.0.8 which is compatible with langchain-core<0.2
 # Note: 0.1.x versions require langchain-core>=0.2.35 (incompatible with langchain 0.1.9)
-# Version 0.0.14 works with langchain-core 0.1.x
-  # For Grok/XAI API (OpenAI-compatible)
+# Version 0.0.8 is the latest 0.0.x version that works with langchain-core 0.1.x
+langchain-openai==0.0.8  # For OpenAI and Grok/XAI API (OpenAI-compatible)
+langchain-google-genai==0.0.5  # For Gemini API
 langgraph==0.0.25
 
 # Pydantic & Settings

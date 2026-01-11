@@ -387,7 +387,7 @@ def intent_and_schema_agent(state: AgentState) -> AgentState:
             "\n".join(
                 [
                     f"{msg.get('role', 'user')}: {msg.get('content', '')}"
-                    for msg in history[-3:]  # Last 3 messages for context
+                    for msg in history[-2:]  # Last 3 messages for context
                 ]
             )
             if history
