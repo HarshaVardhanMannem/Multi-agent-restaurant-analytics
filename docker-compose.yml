@@ -58,8 +58,8 @@ services:
       - LOG_LEVEL=${LOG_LEVEL:-INFO}
       - MAX_QUERY_TIMEOUT=${MAX_QUERY_TIMEOUT:-30}
       - MAX_RETRIES=${MAX_RETRIES:-2}
-      - DB_POOL_MIN_SIZE=${DB_POOL_MIN_SIZE:-5}
-      - DB_POOL_MAX_SIZE=${DB_POOL_MAX_SIZE:-20}
+      - DB_POOL_MIN_SIZE=${DB_POOL_MIN_SIZE:-10}
+      - DB_POOL_MAX_SIZE=${DB_POOL_MAX_SIZE:-50}
     extra_hosts:
       - "host.docker.internal:host-gateway"
     restart: unless-stopped
