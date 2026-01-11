@@ -1,0 +1,1584 @@
+{
+  "merchant": {
+    "merchant_id": "mrc_dd_9921",
+    "business_name": "Multi-Location Restaurant Group",
+    "currency": "USD"
+  },
+  "stores": [
+    {
+      "store_id": "str_downtown_001",
+      "name": "Downtown",
+      "address": {
+        "street": "123 Main St",
+        "city": "New York",
+        "state": "NY",
+        "zip_code": "10001",
+        "country": "US"
+      },
+      "timezone": "America/New_York"
+    },
+    {
+      "store_id": "str_airport_002",
+      "name": "Airport",
+      "address": {
+        "street": "456 Terminal Blvd",
+        "city": "New York",
+        "state": "NY",
+        "zip_code": "11430",
+        "country": "US"
+      },
+      "timezone": "America/New_York"
+    },
+    {
+      "store_id": "str_mall_003",
+      "name": "Mall Location",
+      "address": {
+        "street": "789 Shopping Center Dr",
+        "city": "New York",
+        "state": "NY",
+        "zip_code": "10019",
+        "country": "US"
+      },
+      "timezone": "America/New_York"
+    },
+    {
+      "store_id": "str_university_004",
+      "name": "University",
+      "address": {
+        "street": "321 College Ave",
+        "city": "New York",
+        "state": "NY",
+        "zip_code": "10027",
+        "country": "US"
+      },
+      "timezone": "America/New_York"
+    }
+  ],
+  "orders": [
+    {
+      "external_delivery_id": "D-2025010100001",
+      "store_id": "str_downtown_001",
+      "order_fulfillment_method": "MERCHANT_DELIVERY",
+      "order_status": "DELIVERED",
+      "created_at": "2025-01-01T10:00:00Z",
+      "pickup_time": "2025-01-01T10:25:00Z",
+      "delivery_time": "2025-01-01T10:45:00Z",
+      "customer": {
+        "first_name": "John",
+        "last_name": "D.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": {
+        "street": "450 Park Ave",
+        "city": "New York",
+        "state": "NY",
+        "zip_code": "10022"
+      },
+      "order_items": [
+        {
+          "item_id": "itm_001",
+          "name": "Classic Burger",
+          "quantity": 1,
+          "unit_price": 1299,
+          "total_price": 1299,
+          "special_instructions": "",
+          "options": [],
+          "category": "Entrees"
+        },
+        {
+          "item_id": "itm_002",
+          "name": "Fries - Large",
+          "quantity": 1,
+          "unit_price": 499,
+          "total_price": 499,
+          "special_instructions": "",
+          "options": [],
+          "category": "🍟 Sides"
+        }
+      ],
+      "order_subtotal": 1798,
+      "delivery_fee": 399,
+      "service_fee": 150,
+      "dasher_tip": 500,
+      "tax_amount": 148,
+      "total_charged_to_consumer": 2995,
+      "commission": 540,
+      "merchant_payout": 1104,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010100002",
+      "store_id": "str_downtown_001",
+      "order_fulfillment_method": "MERCHANT_DELIVERY",
+      "order_status": "DELIVERED",
+      "created_at": "2025-01-01T13:00:00Z",
+      "pickup_time": "2025-01-01T13:30:00Z",
+      "delivery_time": "2025-01-01T13:55:00Z",
+      "customer": {
+        "first_name": "Sarah",
+        "last_name": "M.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": {
+        "street": "200 E 42nd St",
+        "city": "New York",
+        "state": "NY",
+        "zip_code": "10017"
+      },
+      "order_items": [
+        {
+          "item_id": "itm_003",
+          "name": "Griled Chiken Sandwich",
+          "quantity": 2,
+          "unit_price": 1199,
+          "total_price": 2398,
+          "special_instructions": "No mayo",
+          "options": [
+            {"name": "Extra lettuce", "price": 0}
+          ],
+          "category": "ENTREES"
+        },
+        {
+          "item_id": "itm_004",
+          "name": "Onion Rings",
+          "quantity": 2,
+          "unit_price": 599,
+          "total_price": 1198,
+          "special_instructions": "",
+          "options": [],
+          "category": "Sides"
+        }
+      ],
+      "order_subtotal": 3596,
+      "delivery_fee": 399,
+      "service_fee": 225,
+      "dasher_tip": 700,
+      "tax_amount": 296,
+      "total_charged_to_consumer": 5216,
+      "commission": 1079,
+      "merchant_payout": 3058,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010100003",
+      "store_id": "str_airport_002",
+      "order_fulfillment_method": "MERCHANT_DELIVERY",
+      "order_status": "DELIVERED",
+      "created_at": "2025-01-01T15:00:00Z",
+      "pickup_time": "2025-01-01T15:20:00Z",
+      "delivery_time": "2025-01-01T15:45:00Z",
+      "customer": {
+        "first_name": "Michael",
+        "last_name": "K.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": {
+        "street": "JFK Airport Terminal 4",
+        "city": "Jamaica",
+        "state": "NY",
+        "zip_code": "11430"
+      },
+      "order_items": [
+        {
+          "item_id": "itm_005",
+          "name": "Caesar Salad",
+          "quantity": 1,
+          "unit_price": 1099,
+          "total_price": 1099,
+          "special_instructions": "Dressing on the side",
+          "options": [
+            {"name": "Add Grilled Chicken", "price": 400}
+          ],
+          "category": "Salads"
+        }
+      ],
+      "order_subtotal": 1499,
+      "delivery_fee": 499,
+      "service_fee": 125,
+      "dasher_tip": 400,
+      "tax_amount": 124,
+      "total_charged_to_consumer": 2647,
+      "commission": 450,
+      "merchant_payout": 1173,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010100004",
+      "store_id": "str_airport_002",
+      "order_fulfillment_method": "PICKUP",
+      "order_status": "PICKED_UP",
+      "created_at": "2025-01-01T18:00:00Z",
+      "pickup_time": "2025-01-01T18:25:00Z",
+      "delivery_time": null,
+      "customer": {
+        "first_name": "Emily",
+        "last_name": "R.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": null,
+      "order_items": [
+        {
+          "item_id": "itm_006",
+          "name": "Fish Tacos",
+          "quantity": 2,
+          "unit_price": 1399,
+          "total_price": 2798,
+          "special_instructions": "",
+          "options": [],
+          "category": "Entrees"
+        }
+      ],
+      "order_subtotal": 2798,
+      "delivery_fee": 0,
+      "service_fee": 175,
+      "dasher_tip": 0,
+      "tax_amount": 231,
+      "total_charged_to_consumer": 3204,
+      "commission": 420,
+      "merchant_payout": 2378,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010100005",
+      "store_id": "str_mall_003",
+      "order_fulfillment_method": "MERCHANT_DELIVERY",
+      "order_status": "DELIVERED",
+      "created_at": "2025-01-01T12:00:00Z",
+      "pickup_time": "2025-01-01T12:30:00Z",
+      "delivery_time": "2025-01-01T12:55:00Z",
+      "customer": {
+        "first_name": "David",
+        "last_name": "L.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": {
+        "street": "1 Columbus Circle",
+        "city": "New York",
+        "state": "NY",
+        "zip_code": "10019"
+      },
+      "order_items": [
+        {
+          "item_id": "itm_007",
+          "name": "BBQ Pulled Pork",
+          "quantity": 1,
+          "unit_price": 1499,
+          "total_price": 1499,
+          "special_instructions": "",
+          "options": [],
+          "category": "Entrees"
+        },
+        {
+          "item_id": "itm_008",
+          "name": "Coleslaw",
+          "quantity": 1,
+          "unit_price": 399,
+          "total_price": 399,
+          "special_instructions": "",
+          "options": [],
+          "category": "Sides"
+        },
+        {
+          "item_id": "itm_009",
+          "name": "Lg Coke",
+          "quantity": 1,
+          "unit_price": 299,
+          "total_price": 299,
+          "special_instructions": "",
+          "options": [],
+          "category": "🥤 Drinks"
+        }
+      ],
+      "order_subtotal": 2197,
+      "delivery_fee": 399,
+      "service_fee": 175,
+      "dasher_tip": 500,
+      "tax_amount": 181,
+      "total_charged_to_consumer": 3452,
+      "commission": 659,
+      "merchant_payout": 1863,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010100006",
+      "store_id": "str_mall_003",
+      "order_fulfillment_method": "MERCHANT_DELIVERY",
+      "order_status": "DELIVERED",
+      "created_at": "2025-01-01T19:30:00Z",
+      "pickup_time": "2025-01-01T20:00:00Z",
+      "delivery_time": "2025-01-01T20:25:00Z",
+      "customer": {
+        "first_name": "Jennifer",
+        "last_name": "W.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": {
+        "street": "350 W 50th St",
+        "city": "New York",
+        "state": "NY",
+        "zip_code": "10019"
+      },
+      "order_items": [
+        {
+          "item_id": "itm_010",
+          "name": "Pasta Primavera",
+          "quantity": 1,
+          "unit_price": 1599,
+          "total_price": 1599,
+          "special_instructions": "Extra vegetables",
+          "options": [],
+          "category": "Entrees"
+        }
+      ],
+      "order_subtotal": 1599,
+      "delivery_fee": 399,
+      "service_fee": 150,
+      "dasher_tip": 400,
+      "tax_amount": 132,
+      "total_charged_to_consumer": 2680,
+      "commission": 480,
+      "merchant_payout": 1359,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010100007",
+      "store_id": "str_university_004",
+      "order_fulfillment_method": "MERCHANT_DELIVERY",
+      "order_status": "DELIVERED",
+      "created_at": "2025-01-01T14:00:00Z",
+      "pickup_time": "2025-01-01T14:25:00Z",
+      "delivery_time": "2025-01-01T14:45:00Z",
+      "customer": {
+        "first_name": "Chris",
+        "last_name": "B.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": {
+        "street": "116th St & Broadway",
+        "city": "New York",
+        "state": "NY",
+        "zip_code": "10027"
+      },
+      "order_items": [
+        {
+          "item_id": "itm_001",
+          "name": "Classic Burger",
+          "quantity": 3,
+          "unit_price": 1299,
+          "total_price": 3897,
+          "special_instructions": "",
+          "options": [],
+          "category": "Entrees"
+        },
+        {
+          "item_id": "itm_002",
+          "name": "French Fries",
+          "quantity": 3,
+          "unit_price": 499,
+          "total_price": 1497,
+          "special_instructions": "",
+          "options": [],
+          "category": "Sides"
+        }
+      ],
+      "order_subtotal": 5394,
+      "delivery_fee": 299,
+      "service_fee": 325,
+      "dasher_tip": 800,
+      "tax_amount": 445,
+      "total_charged_to_consumer": 7263,
+      "commission": 1618,
+      "merchant_payout": 4585,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010100008",
+      "store_id": "str_university_004",
+      "order_fulfillment_method": "MERCHANT_DELIVERY",
+      "order_status": "DELIVERED",
+      "created_at": "2025-01-01T20:00:00Z",
+      "pickup_time": "2025-01-01T20:30:00Z",
+      "delivery_time": "2025-01-01T20:55:00Z",
+      "customer": {
+        "first_name": "Amanda",
+        "last_name": "S.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": {
+        "street": "560 Riverside Dr",
+        "city": "New York",
+        "state": "NY",
+        "zip_code": "10027"
+      },
+      "order_items": [
+        {
+          "item_id": "itm_011",
+          "name": "Veggie Wrap",
+          "quantity": 2,
+          "unit_price": 1099,
+          "total_price": 2198,
+          "special_instructions": "No onions",
+          "options": [],
+          "category": "Entrees"
+        }
+      ],
+      "order_subtotal": 2198,
+      "delivery_fee": 299,
+      "service_fee": 150,
+      "dasher_tip": 500,
+      "tax_amount": 181,
+      "total_charged_to_consumer": 3328,
+      "commission": 660,
+      "merchant_payout": 1868,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010200001",
+      "store_id": "str_downtown_001",
+      "order_fulfillment_method": "MERCHANT_DELIVERY",
+      "order_status": "DELIVERED",
+      "created_at": "2025-01-02T11:00:00Z",
+      "pickup_time": "2025-01-02T11:35:00Z",
+      "delivery_time": "2025-01-02T12:00:00Z",
+      "customer": {
+        "first_name": "Robert",
+        "last_name": "J.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": {
+        "street": "100 Wall St",
+        "city": "New York",
+        "state": "NY",
+        "zip_code": "10005"
+      },
+      "order_items": [
+        {
+          "item_id": "itm_012",
+          "name": "Ribeye Steak",
+          "quantity": 1,
+          "unit_price": 2999,
+          "total_price": 2999,
+          "special_instructions": "Medium rare",
+          "options": [],
+          "category": "Entrees"
+        },
+        {
+          "item_id": "itm_013",
+          "name": "Loaded Baked Potato",
+          "quantity": 1,
+          "unit_price": 699,
+          "total_price": 699,
+          "special_instructions": "",
+          "options": [],
+          "category": "Sides"
+        },
+        {
+          "item_id": "itm_014",
+          "name": "House Wine",
+          "quantity": 1,
+          "unit_price": 699,
+          "total_price": 699,
+          "special_instructions": "Red",
+          "options": [],
+          "category": "Beverages"
+        }
+      ],
+      "order_subtotal": 4397,
+      "delivery_fee": 499,
+      "service_fee": 275,
+      "dasher_tip": 1000,
+      "tax_amount": 363,
+      "total_charged_to_consumer": 6534,
+      "commission": 1319,
+      "merchant_payout": 3737,
+      "contains_alcohol": true,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010200002",
+      "store_id": "str_downtown_001",
+      "order_fulfillment_method": "PICKUP",
+      "order_status": "PICKED_UP",
+      "created_at": "2025-01-02T13:30:00Z",
+      "pickup_time": "2025-01-02T13:55:00Z",
+      "delivery_time": null,
+      "customer": {
+        "first_name": "Lisa",
+        "last_name": "P.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": null,
+      "order_items": [
+        {
+          "item_id": "itm_015",
+          "name": "Club Sandwich",
+          "quantity": 1,
+          "unit_price": 1199,
+          "total_price": 1199,
+          "special_instructions": "",
+          "options": [],
+          "category": "Entrees"
+        },
+        {
+          "item_id": "itm_002",
+          "name": "French Fries",
+          "quantity": 1,
+          "unit_price": 499,
+          "total_price": 499,
+          "special_instructions": "",
+          "options": [],
+          "category": "Sides"
+        }
+      ],
+      "order_subtotal": 1698,
+      "delivery_fee": 0,
+      "service_fee": 125,
+      "dasher_tip": 0,
+      "tax_amount": 140,
+      "total_charged_to_consumer": 1963,
+      "commission": 255,
+      "merchant_payout": 1443,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010200003",
+      "store_id": "str_airport_002",
+      "order_fulfillment_method": "MERCHANT_DELIVERY",
+      "order_status": "DELIVERED",
+      "created_at": "2025-01-02T07:00:00Z",
+      "pickup_time": "2025-01-02T07:25:00Z",
+      "delivery_time": "2025-01-02T07:50:00Z",
+      "customer": {
+        "first_name": "Mark",
+        "last_name": "T.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": {
+        "street": "JFK Airport Terminal 1",
+        "city": "Jamaica",
+        "state": "NY",
+        "zip_code": "11430"
+      },
+      "order_items": [
+        {
+          "item_id": "itm_016",
+          "name": "Shrimp Scampi",
+          "quantity": 1,
+          "unit_price": 2299,
+          "total_price": 2299,
+          "special_instructions": "",
+          "options": [],
+          "category": "Entrees"
+        }
+      ],
+      "order_subtotal": 2299,
+      "delivery_fee": 499,
+      "service_fee": 175,
+      "dasher_tip": 600,
+      "tax_amount": 190,
+      "total_charged_to_consumer": 3763,
+      "commission": 690,
+      "merchant_payout": 1954,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010200004",
+      "store_id": "str_airport_002",
+      "order_fulfillment_method": "MERCHANT_DELIVERY",
+      "order_status": "DELIVERED",
+      "created_at": "2025-01-02T12:00:00Z",
+      "pickup_time": "2025-01-02T12:30:00Z",
+      "delivery_time": "2025-01-02T12:55:00Z",
+      "customer": {
+        "first_name": "Nicole",
+        "last_name": "C.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": {
+        "street": "JFK Airport Terminal 8",
+        "city": "Jamaica",
+        "state": "NY",
+        "zip_code": "11430"
+      },
+      "order_items": [
+        {
+          "item_id": "itm_017",
+          "name": "Lobster Roll",
+          "quantity": 1,
+          "unit_price": 2499,
+          "total_price": 2499,
+          "special_instructions": "",
+          "options": [],
+          "category": "Entrees"
+        },
+        {
+          "item_id": "itm_018",
+          "name": "Clam Chowder",
+          "quantity": 1,
+          "unit_price": 799,
+          "total_price": 799,
+          "special_instructions": "",
+          "options": [],
+          "category": "Appetizers"
+        }
+      ],
+      "order_subtotal": 3298,
+      "delivery_fee": 499,
+      "service_fee": 225,
+      "dasher_tip": 800,
+      "tax_amount": 272,
+      "total_charged_to_consumer": 5094,
+      "commission": 990,
+      "merchant_payout": 2803,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010200005",
+      "store_id": "str_mall_003",
+      "order_fulfillment_method": "MERCHANT_DELIVERY",
+      "order_status": "DELIVERED",
+      "created_at": "2025-01-02T18:00:00Z",
+      "pickup_time": "2025-01-02T18:30:00Z",
+      "delivery_time": "2025-01-02T18:55:00Z",
+      "customer": {
+        "first_name": "Brian",
+        "last_name": "H.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": {
+        "street": "225 W 57th St",
+        "city": "New York",
+        "state": "NY",
+        "zip_code": "10019"
+      },
+      "order_items": [
+        {
+          "item_id": "itm_019",
+          "name": "Chicken Alfredo",
+          "quantity": 2,
+          "unit_price": 1499,
+          "total_price": 2998,
+          "special_instructions": "",
+          "options": [],
+          "category": "Entrees"
+        }
+      ],
+      "order_subtotal": 2998,
+      "delivery_fee": 399,
+      "service_fee": 200,
+      "dasher_tip": 600,
+      "tax_amount": 247,
+      "total_charged_to_consumer": 4444,
+      "commission": 900,
+      "merchant_payout": 2548,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010200006",
+      "store_id": "str_mall_003",
+      "order_fulfillment_method": "PICKUP",
+      "order_status": "PICKED_UP",
+      "created_at": "2025-01-02T20:00:00Z",
+      "pickup_time": "2025-01-02T20:25:00Z",
+      "delivery_time": null,
+      "customer": {
+        "first_name": "Karen",
+        "last_name": "F.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": null,
+      "order_items": [
+        {
+          "item_id": "itm_020",
+          "name": "Margherita Pizza",
+          "quantity": 2,
+          "unit_price": 1499,
+          "total_price": 2998,
+          "special_instructions": "",
+          "options": [],
+          "category": "Entrees"
+        }
+      ],
+      "order_subtotal": 2998,
+      "delivery_fee": 0,
+      "service_fee": 175,
+      "dasher_tip": 0,
+      "tax_amount": 247,
+      "total_charged_to_consumer": 3420,
+      "commission": 450,
+      "merchant_payout": 2548,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010200007",
+      "store_id": "str_university_004",
+      "order_fulfillment_method": "MERCHANT_DELIVERY",
+      "order_status": "DELIVERED",
+      "created_at": "2025-01-02T16:00:00Z",
+      "pickup_time": "2025-01-02T16:25:00Z",
+      "delivery_time": "2025-01-02T16:45:00Z",
+      "customer": {
+        "first_name": "Steven",
+        "last_name": "G.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": {
+        "street": "415 W 120th St",
+        "city": "New York",
+        "state": "NY",
+        "zip_code": "10027"
+      },
+      "order_items": [
+        {
+          "item_id": "itm_021",
+          "name": "Buffalo Chicken Wrap",
+          "quantity": 4,
+          "unit_price": 1199,
+          "total_price": 4796,
+          "special_instructions": "",
+          "options": [],
+          "category": "Entrees"
+        }
+      ],
+      "order_subtotal": 4796,
+      "delivery_fee": 299,
+      "service_fee": 275,
+      "dasher_tip": 800,
+      "tax_amount": 396,
+      "total_charged_to_consumer": 6566,
+      "commission": 1439,
+      "merchant_payout": 4077,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010200008",
+      "store_id": "str_university_004",
+      "order_fulfillment_method": "MERCHANT_DELIVERY",
+      "order_status": "DELIVERED",
+      "created_at": "2025-01-02T21:00:00Z",
+      "pickup_time": "2025-01-02T21:30:00Z",
+      "delivery_time": "2025-01-02T21:55:00Z",
+      "customer": {
+        "first_name": "Rachel",
+        "last_name": "N.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": {
+        "street": "501 W 113th St",
+        "city": "New York",
+        "state": "NY",
+        "zip_code": "10025"
+      },
+      "order_items": [
+        {
+          "item_id": "itm_022",
+          "name": "Wings 12pc",
+          "quantity": 2,
+          "unit_price": 1299,
+          "total_price": 2598,
+          "special_instructions": "Extra crispy",
+          "options": [
+            {"name": "Buffalo Sauce", "price": 0}
+          ],
+          "category": "🍗 Appetizers"
+        },
+        {
+          "item_id": "itm_023",
+          "name": "nachos supreme",
+          "quantity": 1,
+          "unit_price": 1199,
+          "total_price": 1199,
+          "special_instructions": "",
+          "options": [],
+          "category": "🍗 Appetizers"
+        }
+      ],
+      "order_subtotal": 3797,
+      "delivery_fee": 299,
+      "service_fee": 225,
+      "dasher_tip": 700,
+      "tax_amount": 313,
+      "total_charged_to_consumer": 5334,
+      "commission": 1139,
+      "merchant_payout": 3228,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010300001",
+      "store_id": "str_downtown_001",
+      "order_fulfillment_method": "MERCHANT_DELIVERY",
+      "order_status": "DELIVERED",
+      "created_at": "2025-01-03T10:00:00Z",
+      "pickup_time": "2025-01-03T10:30:00Z",
+      "delivery_time": "2025-01-03T10:55:00Z",
+      "customer": {
+        "first_name": "Thomas",
+        "last_name": "E.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": {
+        "street": "55 Water St",
+        "city": "New York",
+        "state": "NY",
+        "zip_code": "10041"
+      },
+      "order_items": [
+        {
+          "item_id": "itm_024",
+          "name": "Fish & Chips",
+          "quantity": 1,
+          "unit_price": 1699,
+          "total_price": 1699,
+          "special_instructions": "",
+          "options": [],
+          "category": "Entrees"
+        },
+        {
+          "item_id": "itm_005",
+          "name": "Caesar Salad",
+          "quantity": 1,
+          "unit_price": 1099,
+          "total_price": 1099,
+          "special_instructions": "",
+          "options": [],
+          "category": "Salads"
+        }
+      ],
+      "order_subtotal": 2798,
+      "delivery_fee": 399,
+      "service_fee": 175,
+      "dasher_tip": 600,
+      "tax_amount": 231,
+      "total_charged_to_consumer": 4203,
+      "commission": 840,
+      "merchant_payout": 2378,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010300002",
+      "store_id": "str_downtown_001",
+      "order_fulfillment_method": "PICKUP",
+      "order_status": "PICKED_UP",
+      "created_at": "2025-01-03T12:30:00Z",
+      "pickup_time": "2025-01-03T12:55:00Z",
+      "delivery_time": null,
+      "customer": {
+        "first_name": "Patricia",
+        "last_name": "A.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": null,
+      "order_items": [
+        {
+          "item_id": "itm_025",
+          "name": "Philly Cheesesteak",
+          "quantity": 2,
+          "unit_price": 1399,
+          "total_price": 2798,
+          "special_instructions": "Extra cheese",
+          "options": [],
+          "category": "Entrees"
+        }
+      ],
+      "order_subtotal": 2798,
+      "delivery_fee": 0,
+      "service_fee": 175,
+      "dasher_tip": 0,
+      "tax_amount": 231,
+      "total_charged_to_consumer": 3204,
+      "commission": 420,
+      "merchant_payout": 2378,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010300003",
+      "store_id": "str_airport_002",
+      "order_fulfillment_method": "MERCHANT_DELIVERY",
+      "order_status": "DELIVERED",
+      "created_at": "2025-01-03T06:00:00Z",
+      "pickup_time": "2025-01-03T06:25:00Z",
+      "delivery_time": "2025-01-03T06:50:00Z",
+      "customer": {
+        "first_name": "Kevin",
+        "last_name": "O.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": {
+        "street": "JFK Airport Terminal 5",
+        "city": "Jamaica",
+        "state": "NY",
+        "zip_code": "11430"
+      },
+      "order_items": [
+        {
+          "item_id": "itm_026",
+          "name": "Crab Cakes",
+          "quantity": 1,
+          "unit_price": 1899,
+          "total_price": 1899,
+          "special_instructions": "",
+          "options": [],
+          "category": "Entrees"
+        }
+      ],
+      "order_subtotal": 1899,
+      "delivery_fee": 499,
+      "service_fee": 150,
+      "dasher_tip": 500,
+      "tax_amount": 157,
+      "total_charged_to_consumer": 3205,
+      "commission": 570,
+      "merchant_payout": 1614,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010300004",
+      "store_id": "str_airport_002",
+      "order_fulfillment_method": "MERCHANT_DELIVERY",
+      "order_status": "DELIVERED",
+      "created_at": "2025-01-03T14:00:00Z",
+      "pickup_time": "2025-01-03T14:30:00Z",
+      "delivery_time": "2025-01-03T14:55:00Z",
+      "customer": {
+        "first_name": "Sandra",
+        "last_name": "V.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": {
+        "street": "JFK Airport Terminal 7",
+        "city": "Jamaica",
+        "state": "NY",
+        "zip_code": "11430"
+      },
+      "order_items": [
+        {
+          "item_id": "itm_027",
+          "name": "Ahi Tuna Bowl",
+          "quantity": 1,
+          "unit_price": 1999,
+          "total_price": 1999,
+          "special_instructions": "",
+          "options": [],
+          "category": "Entrees"
+        },
+        {
+          "item_id": "itm_028",
+          "name": "Edamame",
+          "quantity": 1,
+          "unit_price": 599,
+          "total_price": 599,
+          "special_instructions": "",
+          "options": [],
+          "category": "Appetizers"
+        }
+      ],
+      "order_subtotal": 2598,
+      "delivery_fee": 499,
+      "service_fee": 175,
+      "dasher_tip": 600,
+      "tax_amount": 214,
+      "total_charged_to_consumer": 4086,
+      "commission": 780,
+      "merchant_payout": 2208,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010300005",
+      "store_id": "str_mall_003",
+      "order_fulfillment_method": "MERCHANT_DELIVERY",
+      "order_status": "DELIVERED",
+      "created_at": "2025-01-03T11:00:00Z",
+      "pickup_time": "2025-01-03T11:30:00Z",
+      "delivery_time": "2025-01-03T11:55:00Z",
+      "customer": {
+        "first_name": "Daniel",
+        "last_name": "I.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": {
+        "street": "10 Columbus Circle",
+        "city": "New York",
+        "state": "NY",
+        "zip_code": "10019"
+      },
+      "order_items": [
+        {
+          "item_id": "itm_029",
+          "name": "Lobster Mac & Cheese",
+          "quantity": 1,
+          "unit_price": 2199,
+          "total_price": 2199,
+          "special_instructions": "",
+          "options": [],
+          "category": "Entrees"
+        }
+      ],
+      "order_subtotal": 2199,
+      "delivery_fee": 399,
+      "service_fee": 175,
+      "dasher_tip": 500,
+      "tax_amount": 181,
+      "total_charged_to_consumer": 3454,
+      "commission": 660,
+      "merchant_payout": 1869,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010300006",
+      "store_id": "str_mall_003",
+      "order_fulfillment_method": "PICKUP",
+      "order_status": "PICKED_UP",
+      "created_at": "2025-01-03T17:00:00Z",
+      "pickup_time": "2025-01-03T17:25:00Z",
+      "delivery_time": null,
+      "customer": {
+        "first_name": "Michelle",
+        "last_name": "Z.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": null,
+      "order_items": [
+        {
+          "item_id": "itm_030",
+          "name": "BBQ Chicken Pizza",
+          "quantity": 1,
+          "unit_price": 1699,
+          "total_price": 1699,
+          "special_instructions": "",
+          "options": [],
+          "category": "Entrees"
+        },
+        {
+          "item_id": "itm_031",
+          "name": "Buffalo Wings 12pc",
+          "quantity": 1,
+          "unit_price": 1299,
+          "total_price": 1299,
+          "special_instructions": "",
+          "options": [],
+          "category": "Appitizers"
+        }
+      ],
+      "order_subtotal": 2998,
+      "delivery_fee": 0,
+      "service_fee": 175,
+      "dasher_tip": 0,
+      "tax_amount": 247,
+      "total_charged_to_consumer": 3420,
+      "commission": 450,
+      "merchant_payout": 2548,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010300007",
+      "store_id": "str_university_004",
+      "order_fulfillment_method": "MERCHANT_DELIVERY",
+      "order_status": "DELIVERED",
+      "created_at": "2025-01-03T13:00:00Z",
+      "pickup_time": "2025-01-03T13:30:00Z",
+      "delivery_time": "2025-01-03T13:55:00Z",
+      "customer": {
+        "first_name": "Andrew",
+        "last_name": "Q.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": {
+        "street": "2920 Broadway",
+        "city": "New York",
+        "state": "NY",
+        "zip_code": "10027"
+      },
+      "order_items": [
+        {
+          "item_id": "itm_032",
+          "name": "Quesadilla",
+          "quantity": 3,
+          "unit_price": 1099,
+          "total_price": 3297,
+          "special_instructions": "",
+          "options": [],
+          "category": "Entrees"
+        },
+        {
+          "item_id": "itm_033",
+          "name": "Guacamole & Chips",
+          "quantity": 1,
+          "unit_price": 799,
+          "total_price": 799,
+          "special_instructions": "",
+          "options": [],
+          "category": "Appetizers"
+        }
+      ],
+      "order_subtotal": 4096,
+      "delivery_fee": 299,
+      "service_fee": 250,
+      "dasher_tip": 700,
+      "tax_amount": 338,
+      "total_charged_to_consumer": 5683,
+      "commission": 1229,
+      "merchant_payout": 3482,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010300008",
+      "store_id": "str_university_004",
+      "order_fulfillment_method": "MERCHANT_DELIVERY",
+      "order_status": "DELIVERED",
+      "created_at": "2025-01-03T19:00:00Z",
+      "pickup_time": "2025-01-03T19:30:00Z",
+      "delivery_time": "2025-01-03T19:55:00Z",
+      "customer": {
+        "first_name": "Jessica",
+        "last_name": "U.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": {
+        "street": "600 W 125th St",
+        "city": "New York",
+        "state": "NY",
+        "zip_code": "10027"
+      },
+      "order_items": [
+        {
+          "item_id": "itm_034",
+          "name": "Veggie Burger",
+          "quantity": 2,
+          "unit_price": 1199,
+          "total_price": 2398,
+          "special_instructions": "",
+          "options": [],
+          "category": "Entrees"
+        }
+      ],
+      "order_subtotal": 2398,
+      "delivery_fee": 299,
+      "service_fee": 175,
+      "dasher_tip": 500,
+      "tax_amount": 198,
+      "total_charged_to_consumer": 3570,
+      "commission": 720,
+      "merchant_payout": 2038,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010400001",
+      "store_id": "str_downtown_001",
+      "order_fulfillment_method": "MERCHANT_DELIVERY",
+      "order_status": "DELIVERED",
+      "created_at": "2025-01-04T09:00:00Z",
+      "pickup_time": "2025-01-04T09:30:00Z",
+      "delivery_time": "2025-01-04T09:55:00Z",
+      "customer": {
+        "first_name": "William",
+        "last_name": "Y.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": {
+        "street": "1 Liberty Plaza",
+        "city": "New York",
+        "state": "NY",
+        "zip_code": "10006"
+      },
+      "order_items": [
+        {
+          "item_id": "itm_035",
+          "name": "Brunch Platter",
+          "quantity": 2,
+          "unit_price": 1699,
+          "total_price": 3398,
+          "special_instructions": "",
+          "options": [],
+          "category": "Breakfast"
+        }
+      ],
+      "order_subtotal": 3398,
+      "delivery_fee": 399,
+      "service_fee": 225,
+      "dasher_tip": 700,
+      "tax_amount": 280,
+      "total_charged_to_consumer": 5002,
+      "commission": 1020,
+      "merchant_payout": 2888,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010400002",
+      "store_id": "str_downtown_001",
+      "order_fulfillment_method": "PICKUP",
+      "order_status": "PICKED_UP",
+      "created_at": "2025-01-04T12:00:00Z",
+      "pickup_time": "2025-01-04T12:25:00Z",
+      "delivery_time": null,
+      "customer": {
+        "first_name": "Elizabeth",
+        "last_name": "X.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": null,
+      "order_items": [
+        {
+          "item_id": "itm_036",
+          "name": "Reuben Sandwich",
+          "quantity": 1,
+          "unit_price": 1399,
+          "total_price": 1399,
+          "special_instructions": "",
+          "options": [],
+          "category": "Entrees"
+        },
+        {
+          "item_id": "itm_037",
+          "name": "Pickle Spear",
+          "quantity": 1,
+          "unit_price": 199,
+          "total_price": 199,
+          "special_instructions": "",
+          "options": [],
+          "category": "Sides"
+        },
+        {
+          "item_id": "itm_038",
+          "name": "Iced Tea",
+          "quantity": 1,
+          "unit_price": 299,
+          "total_price": 299,
+          "special_instructions": "",
+          "options": [],
+          "category": "Beverages"
+        }
+      ],
+      "order_subtotal": 1897,
+      "delivery_fee": 0,
+      "service_fee": 125,
+      "dasher_tip": 0,
+      "tax_amount": 157,
+      "total_charged_to_consumer": 2179,
+      "commission": 285,
+      "merchant_payout": 1612,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010400003",
+      "store_id": "str_airport_002",
+      "order_fulfillment_method": "MERCHANT_DELIVERY",
+      "order_status": "DELIVERED",
+      "created_at": "2025-01-04T08:00:00Z",
+      "pickup_time": "2025-01-04T08:30:00Z",
+      "delivery_time": "2025-01-04T08:55:00Z",
+      "customer": {
+        "first_name": "George",
+        "last_name": "W.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": {
+        "street": "JFK Airport Terminal 2",
+        "city": "Jamaica",
+        "state": "NY",
+        "zip_code": "11430"
+      },
+      "order_items": [
+        {
+          "item_id": "itm_039",
+          "name": "Eggs Benedict",
+          "quantity": 1,
+          "unit_price": 1399,
+          "total_price": 1399,
+          "special_instructions": "",
+          "options": [],
+          "category": "Breakfast"
+        },
+        {
+          "item_id": "itm_040",
+          "name": "Fresh Fruit",
+          "quantity": 1,
+          "unit_price": 599,
+          "total_price": 599,
+          "special_instructions": "",
+          "options": [],
+          "category": "Sides"
+        }
+      ],
+      "order_subtotal": 1998,
+      "delivery_fee": 499,
+      "service_fee": 150,
+      "dasher_tip": 500,
+      "tax_amount": 165,
+      "total_charged_to_consumer": 3312,
+      "commission": 600,
+      "merchant_payout": 1698,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010400004",
+      "store_id": "str_airport_002",
+      "order_fulfillment_method": "MERCHANT_DELIVERY",
+      "order_status": "DELIVERED",
+      "created_at": "2025-01-04T18:00:00Z",
+      "pickup_time": "2025-01-04T18:35:00Z",
+      "delivery_time": "2025-01-04T19:00:00Z",
+      "customer": {
+        "first_name": "Catherine",
+        "last_name": "D.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": {
+        "street": "JFK Airport Terminal 4",
+        "city": "Jamaica",
+        "state": "NY",
+        "zip_code": "11430"
+      },
+      "order_items": [
+        {
+          "item_id": "itm_041",
+          "name": "Prime Rib",
+          "quantity": 1,
+          "unit_price": 3499,
+          "total_price": 3499,
+          "special_instructions": "Medium",
+          "options": [],
+          "category": "Entrees"
+        },
+        {
+          "item_id": "itm_042",
+          "name": "Mashed Potatoes",
+          "quantity": 1,
+          "unit_price": 599,
+          "total_price": 599,
+          "special_instructions": "",
+          "options": [],
+          "category": "Sides"
+        }
+      ],
+      "order_subtotal": 4098,
+      "delivery_fee": 499,
+      "service_fee": 275,
+      "dasher_tip": 1000,
+      "tax_amount": 338,
+      "total_charged_to_consumer": 6210,
+      "commission": 1230,
+      "merchant_payout": 3483,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010400005",
+      "store_id": "str_mall_003",
+      "order_fulfillment_method": "MERCHANT_DELIVERY",
+      "order_status": "DELIVERED",
+      "created_at": "2025-01-04T19:00:00Z",
+      "pickup_time": "2025-01-04T19:35:00Z",
+      "delivery_time": "2025-01-04T20:00:00Z",
+      "customer": {
+        "first_name": "Joseph",
+        "last_name": "B.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": {
+        "street": "300 W 55th St",
+        "city": "New York",
+        "state": "NY",
+        "zip_code": "10019"
+      },
+      "order_items": [
+        {
+          "item_id": "itm_043",
+          "name": "Filet Mignon",
+          "quantity": 1,
+          "unit_price": 3899,
+          "total_price": 3899,
+          "special_instructions": "Medium rare",
+          "options": [],
+          "category": "Entrees"
+        },
+        {
+          "item_id": "itm_044",
+          "name": "Truffle Fries",
+          "quantity": 1,
+          "unit_price": 999,
+          "total_price": 999,
+          "special_instructions": "",
+          "options": [],
+          "category": "Sides"
+        }
+      ],
+      "order_subtotal": 4898,
+      "delivery_fee": 399,
+      "service_fee": 300,
+      "dasher_tip": 1200,
+      "tax_amount": 404,
+      "total_charged_to_consumer": 7201,
+      "commission": 1470,
+      "merchant_payout": 4163,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010400006",
+      "store_id": "str_mall_003",
+      "order_fulfillment_method": "PICKUP",
+      "order_status": "PICKED_UP",
+      "created_at": "2025-01-04T13:00:00Z",
+      "pickup_time": "2025-01-04T13:25:00Z",
+      "delivery_time": null,
+      "customer": {
+        "first_name": "Laura",
+        "last_name": "M.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": null,
+      "order_items": [
+        {
+          "item_id": "itm_045",
+          "name": "Turkey Club",
+          "quantity": 2,
+          "unit_price": 1299,
+          "total_price": 2598,
+          "special_instructions": "",
+          "options": [],
+          "category": "Entrees"
+        },
+        {
+          "item_id": "itm_046",
+          "name": "Chips",
+          "quantity": 2,
+          "unit_price": 299,
+          "total_price": 598,
+          "special_instructions": "",
+          "options": [],
+          "category": "Sides"
+        }
+      ],
+      "order_subtotal": 3196,
+      "delivery_fee": 0,
+      "service_fee": 175,
+      "dasher_tip": 0,
+      "tax_amount": 264,
+      "total_charged_to_consumer": 3635,
+      "commission": 480,
+      "merchant_payout": 2717,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010400007",
+      "store_id": "str_university_004",
+      "order_fulfillment_method": "MERCHANT_DELIVERY",
+      "order_status": "DELIVERED",
+      "created_at": "2025-01-04T10:00:00Z",
+      "pickup_time": "2025-01-04T10:25:00Z",
+      "delivery_time": "2025-01-04T10:45:00Z",
+      "customer": {
+        "first_name": "Ryan",
+        "last_name": "K.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": {
+        "street": "530 W 114th St",
+        "city": "New York",
+        "state": "NY",
+        "zip_code": "10025"
+      },
+      "order_items": [
+        {
+          "item_id": "itm_047",
+          "name": "Avocado Toast",
+          "quantity": 2,
+          "unit_price": 999,
+          "total_price": 1998,
+          "special_instructions": "",
+          "options": [],
+          "category": "Breakfast"
+        }
+      ],
+      "order_subtotal": 1998,
+      "delivery_fee": 299,
+      "service_fee": 150,
+      "dasher_tip": 400,
+      "tax_amount": 165,
+      "total_charged_to_consumer": 3012,
+      "commission": 600,
+      "merchant_payout": 1698,
+      "contains_alcohol": false,
+      "is_catering": false
+    },
+    {
+      "external_delivery_id": "D-2025010400008",
+      "store_id": "str_university_004",
+      "order_fulfillment_method": "MERCHANT_DELIVERY",
+      "order_status": "DELIVERED",
+      "created_at": "2025-01-04T18:00:00Z",
+      "pickup_time": "2025-01-04T18:30:00Z",
+      "delivery_time": "2025-01-04T18:55:00Z",
+      "customer": {
+        "first_name": "Megan",
+        "last_name": "L.",
+        "phone_number": "+1555XXXXXXX"
+      },
+      "dropoff_address": {
+        "street": "2880 Broadway",
+        "city": "New York",
+        "state": "NY",
+        "zip_code": "10025"
+      },
+      "order_items": [
+        {
+          "item_id": "itm_001",
+          "name": "Classic Burger",
+          "quantity": 4,
+          "unit_price": 1299,
+          "total_price": 5196,
+          "special_instructions": "",
+          "options": [],
+          "category": "Entrees"
+        },
+        {
+          "item_id": "itm_002",
+          "name": "French Fries",
+          "quantity": 4,
+          "unit_price": 499,
+          "total_price": 1996,
+          "special_instructions": "",
+          "options": [],
+          "category": "Sides"
+        }
+      ],
+      "order_subtotal": 7192,
+      "delivery_fee": 299,
+      "service_fee": 425,
+      "dasher_tip": 1200,
+      "tax_amount": 593,
+      "total_charged_to_consumer": 9709,
+      "commission": 2158,
+      "merchant_payout": 6113,
+      "contains_alcohol": false,
+      "is_catering": true
+    }
+  ]
+}

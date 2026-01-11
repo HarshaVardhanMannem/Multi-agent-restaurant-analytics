@@ -1,0 +1,65 @@
+{
+  "locations": [
+    {
+      "id": "LCN001DOWNTOWN",
+      "name": "Downtown",
+      "address": {
+        "address_line_1": "123 Main St",
+        "locality": "New York",
+        "administrative_district_level_1": "NY",
+        "postal_code": "10001",
+        "country": "US"
+      },
+      "timezone": "America/New_York",
+      "status": "ACTIVE",
+      "type": "PHYSICAL",
+      "merchant_id": "MLSQ7734XYZABC"
+    },
+    {
+      "id": "LCN002AIRPORT",
+      "name": "Airport",
+      "address": {
+        "address_line_1": "456 Terminal Blvd",
+        "locality": "Jamaica",
+        "administrative_district_level_1": "NY",
+        "postal_code": "11430",
+        "country": "US"
+      },
+      "timezone": "America/New_York",
+      "status": "ACTIVE",
+      "type": "PHYSICAL",
+      "merchant_id": "MLSQ7734XYZABC"
+    },
+    {
+      "id": "LCN003MALL",
+      "name": "Mall Location",
+      "address": {
+        "address_line_1": "789 Shopping Center Dr",
+        "locality": "New York",
+        "administrative_district_level_1": "NY",
+        "postal_code": "10019",
+        "country": "US"
+      },
+      "timezone": "America/New_York",
+      "status": "ACTIVE",
+      "type": "PHYSICAL",
+      "merchant_id": "MLSQ7734XYZABC"
+    },
+    {
+      "id": "LCN004UNIV",
+      "name": "University",
+      "address": {
+        "address_line_1": "321 College Ave",
+        "locality": "New York",
+        "administrative_district_level_1": "NY",
+        "postal_code": "10027",
+        "country": "US"
+      },
+      "timezone": "America/New_York",
+      "status": "ACTIVE",
+      "type": "PHYSICAL",
+      "merchant_id": "MLSQ7734XYZABC"
+    }
+  ]
+}
+

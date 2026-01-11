@@ -1,0 +1,428 @@
+{
+  "payments": [
+    {
+      "id": "pay_SQ2025010100001",
+      "order_id": "ord_SQ2025010100001",
+      "location_id": "LCN001DOWNTOWN",
+      "created_at": "2025-01-01T15:35:00.000Z",
+      "updated_at": "2025-01-01T15:35:00.000Z",
+      "amount_money": { "amount": 5778, "currency": "USD" },
+      "tip_money": { "amount": 800, "currency": "USD" },
+      "total_money": { "amount": 5778, "currency": "USD" },
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "card_details": {
+        "status": "CAPTURED",
+        "card": {
+          "card_brand": "VISA",
+          "last_4": "1234",
+          "exp_month": 12,
+          "exp_year": 2026
+        },
+        "entry_method": "EMV"
+      }
+    },
+    {
+      "id": "pay_SQ2025010100002",
+      "order_id": "ord_SQ2025010100002",
+      "location_id": "LCN001DOWNTOWN",
+      "created_at": "2025-01-01T17:20:00.000Z",
+      "updated_at": "2025-01-01T17:20:00.000Z",
+      "amount_money": { "amount": 4170, "currency": "USD" },
+      "tip_money": { "amount": 600, "currency": "USD" },
+      "total_money": { "amount": 4170, "currency": "USD" },
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "card_details": {
+        "status": "CAPTURED",
+        "card": {
+          "card_brand": "MASTERCARD",
+          "last_4": "5678",
+          "exp_month": 8,
+          "exp_year": 2025
+        },
+        "entry_method": "KEYED"
+      }
+    },
+    {
+      "id": "pay_SQ2025010100003",
+      "order_id": "ord_SQ2025010100003",
+      "location_id": "LCN001DOWNTOWN",
+      "created_at": "2025-01-01T19:48:00.000Z",
+      "updated_at": "2025-01-01T19:48:00.000Z",
+      "amount_money": { "amount": 2812, "currency": "USD" },
+      "tip_money": { "amount": 0, "currency": "USD" },
+      "total_money": { "amount": 2812, "currency": "USD" },
+      "status": "COMPLETED",
+      "source_type": "CASH",
+      "cash_details": {
+        "buyer_supplied_money": { "amount": 3000, "currency": "USD" },
+        "change_back_money": { "amount": 188, "currency": "USD" }
+      }
+    },
+    {
+      "id": "pay_SQ2025010100004",
+      "order_id": "ord_SQ2025010100004",
+      "location_id": "LCN002AIRPORT",
+      "created_at": "2025-01-01T11:05:00.000Z",
+      "updated_at": "2025-01-01T11:05:00.000Z",
+      "amount_money": { "amount": 2191, "currency": "USD" },
+      "tip_money": { "amount": 300, "currency": "USD" },
+      "total_money": { "amount": 2191, "currency": "USD" },
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "card_details": {
+        "status": "CAPTURED",
+        "card": {
+          "card_brand": "AMEX",
+          "last_4": "0001",
+          "exp_month": 3,
+          "exp_year": 2027
+        },
+        "entry_method": "CONTACTLESS"
+      }
+    },
+    {
+      "id": "pay_SQ2025010100005",
+      "order_id": "ord_SQ2025010100005",
+      "location_id": "LCN002AIRPORT",
+      "created_at": "2025-01-01T18:40:00.000Z",
+      "updated_at": "2025-01-01T18:40:00.000Z",
+      "amount_money": { "amount": 6950, "currency": "USD" },
+      "tip_money": { "amount": 1000, "currency": "USD" },
+      "total_money": { "amount": 6950, "currency": "USD" },
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "card_details": {
+        "status": "CAPTURED",
+        "card": {
+          "card_brand": "VISA",
+          "last_4": "9012",
+          "exp_month": 11,
+          "exp_year": 2026
+        },
+        "entry_method": "EMV"
+      }
+    },
+    {
+      "id": "pay_SQ2025010100006",
+      "order_id": "ord_SQ2025010100006",
+      "location_id": "LCN002AIRPORT",
+      "created_at": "2025-01-01T23:15:00.000Z",
+      "updated_at": "2025-01-01T23:15:00.000Z",
+      "amount_money": { "amount": 10254, "currency": "USD" },
+      "tip_money": { "amount": 1600, "currency": "USD" },
+      "total_money": { "amount": 10254, "currency": "USD" },
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "card_details": {
+        "status": "CAPTURED",
+        "card": {
+          "card_brand": "VISA",
+          "last_4": "3456",
+          "exp_month": 6,
+          "exp_year": 2027
+        },
+        "entry_method": "EMV"
+      }
+    },
+    {
+      "id": "pay_SQ2025010100007",
+      "order_id": "ord_SQ2025010100007",
+      "location_id": "LCN003MALL",
+      "created_at": "2025-01-01T16:08:00.000Z",
+      "updated_at": "2025-01-01T16:08:00.000Z",
+      "amount_money": { "amount": 2100, "currency": "USD" },
+      "tip_money": { "amount": 300, "currency": "USD" },
+      "total_money": { "amount": 2100, "currency": "USD" },
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "card_details": {
+        "status": "CAPTURED",
+        "card": {
+          "card_brand": "DISCOVER",
+          "last_4": "7890",
+          "exp_month": 9,
+          "exp_year": 2025
+        },
+        "entry_method": "SWIPED"
+      }
+    },
+    {
+      "id": "pay_SQ2025010100008",
+      "order_id": "ord_SQ2025010100008",
+      "location_id": "LCN003MALL",
+      "created_at": "2025-01-01T19:12:00.000Z",
+      "updated_at": "2025-01-01T19:12:00.000Z",
+      "amount_money": { "amount": 4310, "currency": "USD" },
+      "tip_money": { "amount": 700, "currency": "USD" },
+      "total_money": { "amount": 4310, "currency": "USD" },
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "card_details": {
+        "status": "CAPTURED",
+        "card": {
+          "card_brand": "VISA",
+          "last_4": "2345",
+          "exp_month": 4,
+          "exp_year": 2026
+        },
+        "entry_method": "EMV"
+      }
+    },
+    {
+      "id": "pay_SQ2025010100009",
+      "order_id": "ord_SQ2025010100009",
+      "location_id": "LCN003MALL",
+      "created_at": "2025-01-01T21:45:00.000Z",
+      "updated_at": "2025-01-01T21:45:00.000Z",
+      "amount_money": { "amount": 2764, "currency": "USD" },
+      "tip_money": { "amount": 0, "currency": "USD" },
+      "total_money": { "amount": 2764, "currency": "USD" },
+      "status": "COMPLETED",
+      "source_type": "WALLET",
+      "wallet_details": {
+        "status": "CAPTURED",
+        "brand": "APPLE_PAY"
+      }
+    },
+    {
+      "id": "pay_SQ2025010100010",
+      "order_id": "ord_SQ2025010100010",
+      "location_id": "LCN004UNIV",
+      "created_at": "2025-01-01T16:35:00.000Z",
+      "updated_at": "2025-01-01T16:35:00.000Z",
+      "amount_money": { "amount": 1612, "currency": "USD" },
+      "tip_money": { "amount": 0, "currency": "USD" },
+      "total_money": { "amount": 1612, "currency": "USD" },
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "card_details": {
+        "status": "CAPTURED",
+        "card": {
+          "card_brand": "VISA",
+          "last_4": "4567",
+          "exp_month": 10,
+          "exp_year": 2026
+        },
+        "entry_method": "CONTACTLESS"
+      }
+    },
+    {
+      "id": "pay_SQ2025010100011",
+      "order_id": "ord_SQ2025010100011",
+      "location_id": "LCN004UNIV",
+      "created_at": "2025-01-01T18:10:00.000Z",
+      "updated_at": "2025-01-01T18:10:00.000Z",
+      "amount_money": { "amount": 4938, "currency": "USD" },
+      "tip_money": { "amount": 700, "currency": "USD" },
+      "total_money": { "amount": 4938, "currency": "USD" },
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "card_details": {
+        "status": "CAPTURED",
+        "card": {
+          "card_brand": "MASTERCARD",
+          "last_4": "8901",
+          "exp_month": 2,
+          "exp_year": 2027
+        },
+        "entry_method": "EMV"
+      }
+    },
+    {
+      "id": "pay_SQ2025010100012",
+      "order_id": "ord_SQ2025010100012",
+      "location_id": "LCN004UNIV",
+      "created_at": "2025-01-01T22:20:00.000Z",
+      "updated_at": "2025-01-01T22:20:00.000Z",
+      "amount_money": { "amount": 6625, "currency": "USD" },
+      "tip_money": { "amount": 1000, "currency": "USD" },
+      "total_money": { "amount": 6625, "currency": "USD" },
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "card_details": {
+        "status": "CAPTURED",
+        "card": {
+          "card_brand": "VISA",
+          "last_4": "1122",
+          "exp_month": 5,
+          "exp_year": 2026
+        },
+        "entry_method": "EMV"
+      }
+    },
+    {
+      "id": "pay_SQ2025010200001",
+      "order_id": "ord_SQ2025010200001",
+      "location_id": "LCN001DOWNTOWN",
+      "created_at": "2025-01-02T14:10:00.000Z",
+      "updated_at": "2025-01-02T14:10:00.000Z",
+      "amount_money": { "amount": 2061, "currency": "USD" },
+      "tip_money": { "amount": 400, "currency": "USD" },
+      "total_money": { "amount": 2061, "currency": "USD" },
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "card_details": {
+        "status": "CAPTURED",
+        "card": {
+          "card_brand": "VISA",
+          "last_4": "3344",
+          "exp_month": 8,
+          "exp_year": 2027
+        },
+        "entry_method": "EMV"
+      }
+    },
+    {
+      "id": "pay_SQ2025010200002",
+      "order_id": "ord_SQ2025010200002",
+      "location_id": "LCN001DOWNTOWN",
+      "created_at": "2025-01-02T17:38:00.000Z",
+      "updated_at": "2025-01-02T17:38:00.000Z",
+      "amount_money": { "amount": 4796, "currency": "USD" },
+      "tip_money": { "amount": 0, "currency": "USD" },
+      "total_money": { "amount": 4796, "currency": "USD" },
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "card_details": {
+        "status": "CAPTURED",
+        "card": {
+          "card_brand": "MASTERCARD",
+          "last_4": "5566",
+          "exp_month": 11,
+          "exp_year": 2028
+        },
+        "entry_method": "ON_FILE"
+      }
+    },
+    {
+      "id": "pay_SQ2025010200003",
+      "order_id": "ord_SQ2025010200003",
+      "location_id": "LCN001DOWNTOWN",
+      "created_at": "2025-01-03T00:00:00.000Z",
+      "updated_at": "2025-01-03T00:00:00.000Z",
+      "amount_money": { "amount": 11538, "currency": "USD" },
+      "tip_money": { "amount": 1800, "currency": "USD" },
+      "total_money": { "amount": 11538, "currency": "USD" },
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "card_details": {
+        "status": "CAPTURED",
+        "card": {
+          "card_brand": "AMEX",
+          "last_4": "7788",
+          "exp_month": 5,
+          "exp_year": 2028
+        },
+        "entry_method": "EMV"
+      }
+    },
+    {
+      "id": "pay_SQ2025010200004",
+      "order_id": "ord_SQ2025010200004",
+      "location_id": "LCN002AIRPORT",
+      "created_at": "2025-01-02T10:50:00.000Z",
+      "updated_at": "2025-01-02T10:50:00.000Z",
+      "amount_money": { "amount": 1295, "currency": "USD" },
+      "tip_money": { "amount": 0, "currency": "USD" },
+      "total_money": { "amount": 1295, "currency": "USD" },
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "card_details": {
+        "status": "CAPTURED",
+        "card": {
+          "card_brand": "VISA",
+          "last_4": "9900",
+          "exp_month": 4,
+          "exp_year": 2026
+        },
+        "entry_method": "CONTACTLESS"
+      }
+    },
+    {
+      "id": "pay_SQ2025010200005",
+      "order_id": "ord_SQ2025010200005",
+      "location_id": "LCN002AIRPORT",
+      "created_at": "2025-01-02T19:15:00.000Z",
+      "updated_at": "2025-01-02T19:15:00.000Z",
+      "amount_money": { "amount": 7118, "currency": "USD" },
+      "tip_money": { "amount": 1200, "currency": "USD" },
+      "total_money": { "amount": 7118, "currency": "USD" },
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "card_details": {
+        "status": "CAPTURED",
+        "card": {
+          "card_brand": "MASTERCARD",
+          "last_4": "1212",
+          "exp_month": 6,
+          "exp_year": 2027
+        },
+        "entry_method": "EMV"
+      }
+    },
+    {
+      "id": "pay_SQ2025010300001",
+      "order_id": "ord_SQ2025010300001",
+      "location_id": "LCN003MALL",
+      "created_at": "2025-01-03T16:42:00.000Z",
+      "updated_at": "2025-01-03T16:42:00.000Z",
+      "amount_money": { "amount": 3736, "currency": "USD" },
+      "tip_money": { "amount": 600, "currency": "USD" },
+      "total_money": { "amount": 3736, "currency": "USD" },
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "card_details": {
+        "status": "CAPTURED",
+        "card": {
+          "card_brand": "MASTERCARD",
+          "last_4": "3434",
+          "exp_month": 12,
+          "exp_year": 2025
+        },
+        "entry_method": "SWIPED"
+      }
+    },
+    {
+      "id": "pay_SQ2025010300002",
+      "order_id": "ord_SQ2025010300002",
+      "location_id": "LCN003MALL",
+      "created_at": "2025-01-03T20:10:00.000Z",
+      "updated_at": "2025-01-03T20:10:00.000Z",
+      "amount_money": { "amount": 1612, "currency": "USD" },
+      "tip_money": { "amount": 0, "currency": "USD" },
+      "total_money": { "amount": 1612, "currency": "USD" },
+      "status": "COMPLETED",
+      "source_type": "CASH",
+      "cash_details": {
+        "buyer_supplied_money": { "amount": 2000, "currency": "USD" },
+        "change_back_money": { "amount": 388, "currency": "USD" }
+      }
+    },
+    {
+      "id": "pay_SQ2025010300003",
+      "order_id": "ord_SQ2025010300003",
+      "location_id": "LCN004UNIV",
+      "created_at": "2025-01-03T14:38:00.000Z",
+      "updated_at": "2025-01-03T14:38:00.000Z",
+      "amount_money": { "amount": 3040, "currency": "USD" },
+      "tip_money": { "amount": 500, "currency": "USD" },
+      "total_money": { "amount": 3040, "currency": "USD" },
+      "status": "COMPLETED",
+      "source_type": "CARD",
+      "card_details": {
+        "status": "CAPTURED",
+        "card": {
+          "card_brand": "VISA",
+          "last_4": "5656",
+          "exp_month": 3,
+          "exp_year": 2027
+        },
+        "entry_method": "CONTACTLESS"
+      }
+    }
+  ],
+  "cursor": null
+}
+

@@ -1,0 +1,2528 @@
+{
+  "restaurant": {
+    "guid": "rst_a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+    "name": "Multi-Location Restaurant Group",
+    "managementGroupGuid": "mgmt_0001-0002-0003-0004-000000000001"
+  },
+  "locations": [
+    {
+      "guid": "loc_downtown_001",
+      "name": "Downtown",
+      "address": {
+        "line1": "123 Main St",
+        "city": "New York",
+        "state": "NY",
+        "zip": "10001",
+        "country": "US"
+      },
+      "timezone": "America/New_York"
+    },
+    {
+      "guid": "loc_airport_002",
+      "name": "Airport",
+      "address": {
+        "line1": "456 Terminal Blvd",
+        "city": "Jamaica",
+        "state": "NY",
+        "zip": "11430",
+        "country": "US"
+      },
+      "timezone": "America/New_York"
+    },
+    {
+      "guid": "loc_mall_003",
+      "name": "Mall Location",
+      "address": {
+        "line1": "789 Shopping Center Dr",
+        "city": "New York",
+        "state": "NY",
+        "zip": "10019",
+        "country": "US"
+      },
+      "timezone": "America/New_York"
+    },
+    {
+      "guid": "loc_univ_004",
+      "name": "University",
+      "address": {
+        "line1": "321 College Ave",
+        "city": "New York",
+        "state": "NY",
+        "zip": "10027",
+        "country": "US"
+      },
+      "timezone": "America/New_York"
+    }
+  ],
+  "orders": [
+    {
+      "guid": "ord_toast_00000001-0001-0001-0001-000000000001",
+      "entityType": "Order",
+      "externalId": null,
+      "revenueCenter": {
+        "guid": "revctr_001",
+        "name": "Main Dining",
+        "entityType": "RevenueCenter"
+      },
+      "server": {
+        "guid": "emp_001",
+        "firstName": "Alex",
+        "lastName": "Smith",
+        "entityType": "RestaurantUser"
+      },
+      "restaurantGuid": "loc_downtown_001",
+      "businessDate": "2025-01-01",
+      "openedDate": "2025-01-01T14:15:00.000Z",
+      "closedDate": "2025-01-01T14:22:00.000Z",
+      "paidDate": "2025-01-01T14:22:00.000Z",
+      "voided": false,
+      "deleted": false,
+      "diningOption": {
+        "guid": "dining_001",
+        "name": "Dine In",
+        "behavior": "DINE_IN",
+        "entityType": "DiningOption"
+      },
+      "checks": [
+        {
+          "guid": "chk_00000001-0001-0001-0001-000000000001",
+          "entityType": "Check",
+          "displayNumber": "1",
+          "openedDate": "2025-01-01T14:15:00.000Z",
+          "closedDate": "2025-01-01T14:22:00.000Z",
+          "paidDate": "2025-01-01T14:22:00.000Z",
+          "voided": false,
+          "deleted": false,
+          "selections": [
+            {
+              "guid": "sel_001",
+              "entityType": "MenuItemSelection",
+              "displayName": "Classic Burger",
+              "itemGroup": {
+                "guid": "grp_001",
+                "name": "🍔 Burgers",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_burger_001",
+                "name": "Classic Burger",
+                "entityType": "MenuItem"
+              },
+              "quantity": 2,
+              "preDiscountPrice": 2598,
+              "price": 2598,
+              "tax": 214,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_002",
+              "entityType": "MenuItemSelection",
+              "displayName": "French Fries",
+              "itemGroup": {
+                "guid": "grp_002",
+                "name": "🍟 Sides",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_fries_001",
+                "name": "French Fries",
+                "entityType": "MenuItem"
+              },
+              "quantity": 2,
+              "preDiscountPrice": 998,
+              "price": 998,
+              "tax": 82,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_003",
+              "entityType": "MenuItemSelection",
+              "displayName": "Soft Drink",
+              "itemGroup": {
+                "guid": "grp_003",
+                "name": "🥤 Beverages",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_soda_001",
+                "name": "Soft Drink",
+                "entityType": "MenuItem"
+              },
+              "quantity": 2,
+              "preDiscountPrice": 598,
+              "price": 598,
+              "tax": 49,
+              "voided": false,
+              "modifiers": []
+            }
+          ],
+          "payments": [
+            {
+              "guid": "pmt_001",
+              "entityType": "Payment",
+              "paidDate": "2025-01-01T14:22:00.000Z",
+              "paidBusinessDate": "2025-01-01",
+              "type": "CREDIT",
+              "cardType": "VISA",
+              "last4Digits": "1234",
+              "amount": 5339,
+              "tipAmount": 800,
+              "originalProcessingFee": 155,
+              "refundStatus": "NONE"
+            }
+          ],
+          "amount": 4194,
+          "taxAmount": 345,
+          "totalAmount": 5339,
+          "tipAmount": 800
+        }
+      ],
+      "source": "POS",
+      "voidDate": null,
+      "voidBusinessDate": null
+    },
+    {
+      "guid": "ord_toast_00000001-0001-0001-0001-000000000002",
+      "entityType": "Order",
+      "externalId": null,
+      "revenueCenter": {
+        "guid": "revctr_001",
+        "name": "Main Dining",
+        "entityType": "RevenueCenter"
+      },
+      "server": {
+        "guid": "emp_002",
+        "firstName": "Maria",
+        "lastName": "Johnson",
+        "entityType": "RestaurantUser"
+      },
+      "restaurantGuid": "loc_downtown_001",
+      "businessDate": "2025-01-01",
+      "openedDate": "2025-01-01T16:30:00.000Z",
+      "closedDate": "2025-01-01T16:45:00.000Z",
+      "paidDate": "2025-01-01T16:45:00.000Z",
+      "voided": false,
+      "deleted": false,
+      "diningOption": {
+        "guid": "dining_002",
+        "name": "Take Out",
+        "behavior": "TAKE_OUT",
+        "entityType": "DiningOption"
+      },
+      "checks": [
+        {
+          "guid": "chk_00000001-0001-0001-0001-000000000002",
+          "entityType": "Check",
+          "displayNumber": "2",
+          "openedDate": "2025-01-01T16:30:00.000Z",
+          "closedDate": "2025-01-01T16:45:00.000Z",
+          "paidDate": "2025-01-01T16:45:00.000Z",
+          "voided": false,
+          "deleted": false,
+          "selections": [
+            {
+              "guid": "sel_004",
+              "entityType": "MenuItemSelection",
+              "displayName": "Griled Chicken Sandwhich",
+              "itemGroup": {
+                "guid": "grp_004",
+                "name": "Sandwiches",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_sandwich_001",
+                "name": "Grilled Chicken Sandwich",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 1199,
+              "price": 1199,
+              "tax": 99,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_005",
+              "entityType": "MenuItemSelection",
+              "displayName": "Onion Rings",
+              "itemGroup": {
+                "guid": "grp_002",
+                "name": "🍟 Sides",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_rings_001",
+                "name": "Onion Rings",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 599,
+              "price": 599,
+              "tax": 49,
+              "voided": false,
+              "modifiers": []
+            }
+          ],
+          "payments": [
+            {
+              "guid": "pmt_002",
+              "entityType": "Payment",
+              "paidDate": "2025-01-01T16:45:00.000Z",
+              "paidBusinessDate": "2025-01-01",
+              "type": "CASH",
+              "cardType": null,
+              "last4Digits": null,
+              "amount": 1946,
+              "tipAmount": 0,
+              "originalProcessingFee": 0,
+              "refundStatus": "NONE"
+            }
+          ],
+          "amount": 1798,
+          "taxAmount": 148,
+          "totalAmount": 1946,
+          "tipAmount": 0
+        }
+      ],
+      "source": "POS",
+      "voidDate": null,
+      "voidBusinessDate": null
+    },
+    {
+      "guid": "ord_toast_00000001-0001-0001-0001-000000000003",
+      "entityType": "Order",
+      "externalId": null,
+      "revenueCenter": {
+        "guid": "revctr_002",
+        "name": "Terminal",
+        "entityType": "RevenueCenter"
+      },
+      "server": {
+        "guid": "emp_003",
+        "firstName": "James",
+        "lastName": "Williams",
+        "entityType": "RestaurantUser"
+      },
+      "restaurantGuid": "loc_airport_002",
+      "businessDate": "2025-01-01",
+      "openedDate": "2025-01-01T11:00:00.000Z",
+      "closedDate": "2025-01-01T11:08:00.000Z",
+      "paidDate": "2025-01-01T11:08:00.000Z",
+      "voided": false,
+      "deleted": false,
+      "diningOption": {
+        "guid": "dining_001",
+        "name": "Dine In",
+        "behavior": "DINE_IN",
+        "entityType": "DiningOption"
+      },
+      "checks": [
+        {
+          "guid": "chk_00000001-0001-0001-0001-000000000003",
+          "entityType": "Check",
+          "displayNumber": "3",
+          "openedDate": "2025-01-01T11:00:00.000Z",
+          "closedDate": "2025-01-01T11:08:00.000Z",
+          "paidDate": "2025-01-01T11:08:00.000Z",
+          "voided": false,
+          "deleted": false,
+          "selections": [
+            {
+              "guid": "sel_006",
+              "entityType": "MenuItemSelection",
+              "displayName": "Breakfast Burrito",
+              "itemGroup": {
+                "guid": "grp_005",
+                "name": "Breakfast",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_burrito_001",
+                "name": "Breakfast Burrito",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 999,
+              "price": 999,
+              "tax": 82,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_007",
+              "entityType": "MenuItemSelection",
+              "displayName": "Coffee",
+              "itemGroup": {
+                "guid": "grp_003",
+                "name": "🥤 Beverages",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_coffee_001",
+                "name": "Coffee",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 349,
+              "price": 349,
+              "tax": 29,
+              "voided": false,
+              "modifiers": []
+            }
+          ],
+          "payments": [
+            {
+              "guid": "pmt_003",
+              "entityType": "Payment",
+              "paidDate": "2025-01-01T11:08:00.000Z",
+              "paidBusinessDate": "2025-01-01",
+              "type": "CREDIT",
+              "cardType": "MASTERCARD",
+              "last4Digits": "5678",
+              "amount": 1759,
+              "tipAmount": 300,
+              "originalProcessingFee": 51,
+              "refundStatus": "NONE"
+            }
+          ],
+          "amount": 1348,
+          "taxAmount": 111,
+          "totalAmount": 1759,
+          "tipAmount": 300
+        }
+      ],
+      "source": "POS",
+      "voidDate": null,
+      "voidBusinessDate": null
+    },
+    {
+      "guid": "ord_toast_00000001-0001-0001-0001-000000000004",
+      "entityType": "Order",
+      "externalId": null,
+      "revenueCenter": {
+        "guid": "revctr_002",
+        "name": "Terminal",
+        "entityType": "RevenueCenter"
+      },
+      "server": {
+        "guid": "emp_003",
+        "firstName": "James",
+        "lastName": "Williams",
+        "entityType": "RestaurantUser"
+      },
+      "restaurantGuid": "loc_airport_002",
+      "businessDate": "2025-01-01",
+      "openedDate": "2025-01-01T17:15:00.000Z",
+      "closedDate": "2025-01-01T17:28:00.000Z",
+      "paidDate": "2025-01-01T17:28:00.000Z",
+      "voided": false,
+      "deleted": false,
+      "diningOption": {
+        "guid": "dining_001",
+        "name": "Dine In",
+        "behavior": "DINE_IN",
+        "entityType": "DiningOption"
+      },
+      "checks": [
+        {
+          "guid": "chk_00000001-0001-0001-0001-000000000004",
+          "entityType": "Check",
+          "displayNumber": "4",
+          "openedDate": "2025-01-01T17:15:00.000Z",
+          "closedDate": "2025-01-01T17:28:00.000Z",
+          "paidDate": "2025-01-01T17:28:00.000Z",
+          "voided": false,
+          "deleted": false,
+          "selections": [
+            {
+              "guid": "sel_008",
+              "entityType": "MenuItemSelection",
+              "displayName": "Caesar Salad",
+              "itemGroup": {
+                "guid": "grp_006",
+                "name": "Salads",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_caesar_001",
+                "name": "Caesar Salad",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 1099,
+              "price": 1099,
+              "tax": 91,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_009",
+              "entityType": "MenuItemSelection",
+              "displayName": "Classic Burger",
+              "itemGroup": {
+                "guid": "grp_001",
+                "name": "🍔 Burgers",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_burger_001",
+                "name": "Classic Burger",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 1299,
+              "price": 1299,
+              "tax": 107,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_010",
+              "entityType": "MenuItemSelection",
+              "displayName": "Milkshake",
+              "itemGroup": {
+                "guid": "grp_003",
+                "name": "🥤 Beverages",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_shake_001",
+                "name": "Milkshake",
+                "entityType": "MenuItem"
+              },
+              "quantity": 2,
+              "preDiscountPrice": 1398,
+              "price": 1398,
+              "tax": 115,
+              "voided": false,
+              "modifiers": []
+            }
+          ],
+          "payments": [
+            {
+              "guid": "pmt_004",
+              "entityType": "Payment",
+              "paidDate": "2025-01-01T17:28:00.000Z",
+              "paidBusinessDate": "2025-01-01",
+              "type": "CREDIT",
+              "cardType": "VISA",
+              "last4Digits": "9012",
+              "amount": 4809,
+              "tipAmount": 700,
+              "originalProcessingFee": 140,
+              "refundStatus": "NONE"
+            }
+          ],
+          "amount": 3796,
+          "taxAmount": 313,
+          "totalAmount": 4809,
+          "tipAmount": 700
+        }
+      ],
+      "source": "POS",
+      "voidDate": null,
+      "voidBusinessDate": null
+    },
+    {
+      "guid": "ord_toast_00000001-0001-0001-0001-000000000005",
+      "entityType": "Order",
+      "externalId": null,
+      "revenueCenter": {
+        "guid": "revctr_003",
+        "name": "Food Court",
+        "entityType": "RevenueCenter"
+      },
+      "server": {
+        "guid": "emp_004",
+        "firstName": "Sarah",
+        "lastName": "Brown",
+        "entityType": "RestaurantUser"
+      },
+      "restaurantGuid": "loc_mall_003",
+      "businessDate": "2025-01-01",
+      "openedDate": "2025-01-01T18:00:00.000Z",
+      "closedDate": "2025-01-01T18:12:00.000Z",
+      "paidDate": "2025-01-01T18:12:00.000Z",
+      "voided": false,
+      "deleted": false,
+      "diningOption": {
+        "guid": "dining_001",
+        "name": "Dine In",
+        "behavior": "DINE_IN",
+        "entityType": "DiningOption"
+      },
+      "checks": [
+        {
+          "guid": "chk_00000001-0001-0001-0001-000000000005",
+          "entityType": "Check",
+          "displayNumber": "5",
+          "openedDate": "2025-01-01T18:00:00.000Z",
+          "closedDate": "2025-01-01T18:12:00.000Z",
+          "paidDate": "2025-01-01T18:12:00.000Z",
+          "voided": false,
+          "deleted": false,
+          "selections": [
+            {
+              "guid": "sel_011",
+              "entityType": "MenuItemSelection",
+              "displayName": "Fish Tacos",
+              "itemGroup": {
+                "guid": "grp_007",
+                "name": "Entrees",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_tacos_001",
+                "name": "Fish Tacos",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 1399,
+              "price": 1399,
+              "tax": 115,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_012",
+              "entityType": "MenuItemSelection",
+              "displayName": "Guacamole & Chips",
+              "itemGroup": {
+                "guid": "grp_008",
+                "name": "Appetizers",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_guac_001",
+                "name": "Guacamole & Chips",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 799,
+              "price": 799,
+              "tax": 66,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_013",
+              "entityType": "MenuItemSelection",
+              "displayName": "Margarita",
+              "itemGroup": {
+                "guid": "grp_009",
+                "name": "Cocktails",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_marg_001",
+                "name": "Margarita",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 999,
+              "price": 999,
+              "tax": 82,
+              "voided": false,
+              "modifiers": []
+            }
+          ],
+          "payments": [
+            {
+              "guid": "pmt_005",
+              "entityType": "Payment",
+              "paidDate": "2025-01-01T18:12:00.000Z",
+              "paidBusinessDate": "2025-01-01",
+              "type": "CREDIT",
+              "cardType": "AMEX",
+              "last4Digits": "3456",
+              "amount": 4061,
+              "tipAmount": 600,
+              "originalProcessingFee": 118,
+              "refundStatus": "NONE"
+            }
+          ],
+          "amount": 3197,
+          "taxAmount": 264,
+          "totalAmount": 4061,
+          "tipAmount": 600
+        }
+      ],
+      "source": "POS",
+      "voidDate": null,
+      "voidBusinessDate": null
+    },
+    {
+      "guid": "ord_toast_00000001-0001-0001-0001-000000000006",
+      "entityType": "Order",
+      "externalId": null,
+      "revenueCenter": {
+        "guid": "revctr_003",
+        "name": "Food Court",
+        "entityType": "RevenueCenter"
+      },
+      "server": {
+        "guid": "emp_004",
+        "firstName": "Sarah",
+        "lastName": "Brown",
+        "entityType": "RestaurantUser"
+      },
+      "restaurantGuid": "loc_mall_003",
+      "businessDate": "2025-01-01",
+      "openedDate": "2025-01-01T23:30:00.000Z",
+      "closedDate": "2025-01-02T00:15:00.000Z",
+      "paidDate": "2025-01-02T00:15:00.000Z",
+      "voided": false,
+      "deleted": false,
+      "diningOption": {
+        "guid": "dining_001",
+        "name": "Dine In",
+        "behavior": "DINE_IN",
+        "entityType": "DiningOption"
+      },
+      "checks": [
+        {
+          "guid": "chk_00000001-0001-0001-0001-000000000006",
+          "entityType": "Check",
+          "displayNumber": "6",
+          "openedDate": "2025-01-01T23:30:00.000Z",
+          "closedDate": "2025-01-02T00:15:00.000Z",
+          "paidDate": "2025-01-02T00:15:00.000Z",
+          "voided": false,
+          "deleted": false,
+          "selections": [
+            {
+              "guid": "sel_014",
+              "entityType": "MenuItemSelection",
+              "displayName": "Ribeye Steak",
+              "itemGroup": {
+                "guid": "grp_010",
+                "name": "Steaks",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_ribeye_001",
+                "name": "Ribeye Steak",
+                "entityType": "MenuItem"
+              },
+              "quantity": 2,
+              "preDiscountPrice": 5998,
+              "price": 5998,
+              "tax": 495,
+              "voided": false,
+              "modifiers": [
+                {
+                  "guid": "mod_001",
+                  "entityType": "MenuItemModifier",
+                  "displayName": "Medium Rare",
+                  "price": 0
+                }
+              ]
+            },
+            {
+              "guid": "sel_015",
+              "entityType": "MenuItemSelection",
+              "displayName": "Loaded Baked Potato",
+              "itemGroup": {
+                "guid": "grp_002",
+                "name": "🍟 Sides",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_potato_001",
+                "name": "Loaded Baked Potato",
+                "entityType": "MenuItem"
+              },
+              "quantity": 2,
+              "preDiscountPrice": 1398,
+              "price": 1398,
+              "tax": 115,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_016",
+              "entityType": "MenuItemSelection",
+              "displayName": "House Wine",
+              "itemGroup": {
+                "guid": "grp_011",
+                "name": "Wine",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_wine_001",
+                "name": "House Wine",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 899,
+              "price": 899,
+              "tax": 74,
+              "voided": false,
+              "modifiers": []
+            }
+          ],
+          "payments": [
+            {
+              "guid": "pmt_006",
+              "entityType": "Payment",
+              "paidDate": "2025-01-02T00:15:00.000Z",
+              "paidBusinessDate": "2025-01-01",
+              "type": "CREDIT",
+              "cardType": "VISA",
+              "last4Digits": "7890",
+              "amount": 10779,
+              "tipAmount": 1800,
+              "originalProcessingFee": 313,
+              "refundStatus": "NONE"
+            }
+          ],
+          "amount": 8295,
+          "taxAmount": 684,
+          "totalAmount": 10779,
+          "tipAmount": 1800
+        }
+      ],
+      "source": "POS",
+      "voidDate": null,
+      "voidBusinessDate": null
+    },
+    {
+      "guid": "ord_toast_00000001-0001-0001-0001-000000000007",
+      "entityType": "Order",
+      "externalId": null,
+      "revenueCenter": {
+        "guid": "revctr_004",
+        "name": "Campus",
+        "entityType": "RevenueCenter"
+      },
+      "server": {
+        "guid": "emp_005",
+        "firstName": "Michael",
+        "lastName": "Davis",
+        "entityType": "RestaurantUser"
+      },
+      "restaurantGuid": "loc_univ_004",
+      "businessDate": "2025-01-01",
+      "openedDate": "2025-01-01T16:00:00.000Z",
+      "closedDate": "2025-01-01T16:08:00.000Z",
+      "paidDate": "2025-01-01T16:08:00.000Z",
+      "voided": false,
+      "deleted": false,
+      "diningOption": {
+        "guid": "dining_002",
+        "name": "Take Out",
+        "behavior": "TAKE_OUT",
+        "entityType": "DiningOption"
+      },
+      "checks": [
+        {
+          "guid": "chk_00000001-0001-0001-0001-000000000007",
+          "entityType": "Check",
+          "displayNumber": "7",
+          "openedDate": "2025-01-01T16:00:00.000Z",
+          "closedDate": "2025-01-01T16:08:00.000Z",
+          "paidDate": "2025-01-01T16:08:00.000Z",
+          "voided": false,
+          "deleted": false,
+          "selections": [
+            {
+              "guid": "sel_017",
+              "entityType": "MenuItemSelection",
+              "displayName": "Classic Burger",
+              "itemGroup": {
+                "guid": "grp_001",
+                "name": "🍔 Burgers",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_burger_001",
+                "name": "Classic Burger",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 1299,
+              "price": 1299,
+              "tax": 107,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_018",
+              "entityType": "MenuItemSelection",
+              "displayName": "Soft Drink",
+              "itemGroup": {
+                "guid": "grp_003",
+                "name": "🥤 Beverages",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_soda_001",
+                "name": "Soft Drink",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 299,
+              "price": 299,
+              "tax": 25,
+              "voided": false,
+              "modifiers": []
+            }
+          ],
+          "payments": [
+            {
+              "guid": "pmt_007",
+              "entityType": "Payment",
+              "paidDate": "2025-01-01T16:08:00.000Z",
+              "paidBusinessDate": "2025-01-01",
+              "type": "CREDIT",
+              "cardType": "DISCOVER",
+              "last4Digits": "1122",
+              "amount": 1730,
+              "tipAmount": 0,
+              "originalProcessingFee": 50,
+              "refundStatus": "NONE"
+            }
+          ],
+          "amount": 1598,
+          "taxAmount": 132,
+          "totalAmount": 1730,
+          "tipAmount": 0
+        }
+      ],
+      "source": "ONLINE",
+      "voidDate": null,
+      "voidBusinessDate": null
+    },
+    {
+      "guid": "ord_toast_00000001-0001-0001-0001-000000000008",
+      "entityType": "Order",
+      "externalId": null,
+      "revenueCenter": {
+        "guid": "revctr_004",
+        "name": "Campus",
+        "entityType": "RevenueCenter"
+      },
+      "server": {
+        "guid": "emp_005",
+        "firstName": "Michael",
+        "lastName": "Davis",
+        "entityType": "RestaurantUser"
+      },
+      "restaurantGuid": "loc_univ_004",
+      "businessDate": "2025-01-01",
+      "openedDate": "2025-01-01T19:30:00.000Z",
+      "closedDate": "2025-01-01T19:45:00.000Z",
+      "paidDate": "2025-01-01T19:45:00.000Z",
+      "voided": false,
+      "deleted": false,
+      "diningOption": {
+        "guid": "dining_001",
+        "name": "Dine In",
+        "behavior": "DINE_IN",
+        "entityType": "DiningOption"
+      },
+      "checks": [
+        {
+          "guid": "chk_00000001-0001-0001-0001-000000000008",
+          "entityType": "Check",
+          "displayNumber": "8",
+          "openedDate": "2025-01-01T19:30:00.000Z",
+          "closedDate": "2025-01-01T19:45:00.000Z",
+          "paidDate": "2025-01-01T19:45:00.000Z",
+          "voided": false,
+          "deleted": false,
+          "selections": [
+            {
+              "guid": "sel_019",
+              "entityType": "MenuItemSelection",
+              "displayName": "Veggie Wrap",
+              "itemGroup": {
+                "guid": "grp_012",
+                "name": "Wraps",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_wrap_001",
+                "name": "Veggie Wrap",
+                "entityType": "MenuItem"
+              },
+              "quantity": 3,
+              "preDiscountPrice": 3297,
+              "price": 3297,
+              "tax": 272,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_020",
+              "entityType": "MenuItemSelection",
+              "displayName": "Sweet Potato Fries",
+              "itemGroup": {
+                "guid": "grp_002",
+                "name": "🍟 Sides",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_sweetfries_001",
+                "name": "Sweet Potato Fries",
+                "entityType": "MenuItem"
+              },
+              "quantity": 2,
+              "preDiscountPrice": 1098,
+              "price": 1098,
+              "tax": 91,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_021",
+              "entityType": "MenuItemSelection",
+              "displayName": "Iced Tea",
+              "itemGroup": {
+                "guid": "grp_003",
+                "name": "🥤 Beverages",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_tea_001",
+                "name": "Iced Tea",
+                "entityType": "MenuItem"
+              },
+              "quantity": 3,
+              "preDiscountPrice": 897,
+              "price": 897,
+              "tax": 74,
+              "voided": false,
+              "modifiers": []
+            }
+          ],
+          "payments": [
+            {
+              "guid": "pmt_008",
+              "entityType": "Payment",
+              "paidDate": "2025-01-01T19:45:00.000Z",
+              "paidBusinessDate": "2025-01-01",
+              "type": "CREDIT",
+              "cardType": "MASTERCARD",
+              "last4Digits": "3344",
+              "amount": 6620,
+              "tipAmount": 1000,
+              "originalProcessingFee": 192,
+              "refundStatus": "NONE"
+            }
+          ],
+          "amount": 5192,
+          "taxAmount": 428,
+          "totalAmount": 6620,
+          "tipAmount": 1000
+        }
+      ],
+      "source": "POS",
+      "voidDate": null,
+      "voidBusinessDate": null
+    },
+    {
+      "guid": "ord_toast_00000001-0001-0001-0001-000000000009",
+      "entityType": "Order",
+      "externalId": null,
+      "revenueCenter": {
+        "guid": "revctr_001",
+        "name": "Main Dining",
+        "entityType": "RevenueCenter"
+      },
+      "server": {
+        "guid": "emp_001",
+        "firstName": "Alex",
+        "lastName": "Smith",
+        "entityType": "RestaurantUser"
+      },
+      "restaurantGuid": "loc_downtown_001",
+      "businessDate": "2025-01-02",
+      "openedDate": "2025-01-02T15:00:00.000Z",
+      "closedDate": "2025-01-02T15:18:00.000Z",
+      "paidDate": "2025-01-02T15:18:00.000Z",
+      "voided": false,
+      "deleted": false,
+      "diningOption": {
+        "guid": "dining_001",
+        "name": "Dine In",
+        "behavior": "DINE_IN",
+        "entityType": "DiningOption"
+      },
+      "checks": [
+        {
+          "guid": "chk_00000001-0001-0001-0001-000000000009",
+          "entityType": "Check",
+          "displayNumber": "9",
+          "openedDate": "2025-01-02T15:00:00.000Z",
+          "closedDate": "2025-01-02T15:18:00.000Z",
+          "paidDate": "2025-01-02T15:18:00.000Z",
+          "voided": false,
+          "deleted": false,
+          "selections": [
+            {
+              "guid": "sel_022",
+              "entityType": "MenuItemSelection",
+              "displayName": "Pancake Stack",
+              "itemGroup": {
+                "guid": "grp_005",
+                "name": "Breakfast",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_pancakes_001",
+                "name": "Pancake Stack",
+                "entityType": "MenuItem"
+              },
+              "quantity": 2,
+              "preDiscountPrice": 1798,
+              "price": 1798,
+              "tax": 148,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_023",
+              "entityType": "MenuItemSelection",
+              "displayName": "Bacon",
+              "itemGroup": {
+                "guid": "grp_005",
+                "name": "Breakfast",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_bacon_001",
+                "name": "Bacon",
+                "entityType": "MenuItem"
+              },
+              "quantity": 2,
+              "preDiscountPrice": 998,
+              "price": 998,
+              "tax": 82,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_024",
+              "entityType": "MenuItemSelection",
+              "displayName": "Orange Juice",
+              "itemGroup": {
+                "guid": "grp_003",
+                "name": "🥤 Beverages",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_oj_001",
+                "name": "Orange Juice",
+                "entityType": "MenuItem"
+              },
+              "quantity": 2,
+              "preDiscountPrice": 798,
+              "price": 798,
+              "tax": 66,
+              "voided": false,
+              "modifiers": []
+            }
+          ],
+          "payments": [
+            {
+              "guid": "pmt_009",
+              "entityType": "Payment",
+              "paidDate": "2025-01-02T15:18:00.000Z",
+              "paidBusinessDate": "2025-01-02",
+              "type": "CREDIT",
+              "cardType": "VISA",
+              "last4Digits": "5566",
+              "amount": 4590,
+              "tipAmount": 700,
+              "originalProcessingFee": 133,
+              "refundStatus": "NONE"
+            }
+          ],
+          "amount": 3594,
+          "taxAmount": 296,
+          "totalAmount": 4590,
+          "tipAmount": 700
+        }
+      ],
+      "source": "POS",
+      "voidDate": null,
+      "voidBusinessDate": null
+    },
+    {
+      "guid": "ord_toast_00000001-0001-0001-0001-000000000010",
+      "entityType": "Order",
+      "externalId": null,
+      "revenueCenter": {
+        "guid": "revctr_001",
+        "name": "Main Dining",
+        "entityType": "RevenueCenter"
+      },
+      "server": {
+        "guid": "emp_002",
+        "firstName": "Maria",
+        "lastName": "Johnson",
+        "entityType": "RestaurantUser"
+      },
+      "restaurantGuid": "loc_downtown_001",
+      "businessDate": "2025-01-02",
+      "openedDate": "2025-01-02T17:30:00.000Z",
+      "closedDate": "2025-01-02T17:42:00.000Z",
+      "paidDate": "2025-01-02T17:42:00.000Z",
+      "voided": false,
+      "deleted": false,
+      "diningOption": {
+        "guid": "dining_002",
+        "name": "Take Out",
+        "behavior": "TAKE_OUT",
+        "entityType": "DiningOption"
+      },
+      "checks": [
+        {
+          "guid": "chk_00000001-0001-0001-0001-000000000010",
+          "entityType": "Check",
+          "displayNumber": "10",
+          "openedDate": "2025-01-02T17:30:00.000Z",
+          "closedDate": "2025-01-02T17:42:00.000Z",
+          "paidDate": "2025-01-02T17:42:00.000Z",
+          "voided": false,
+          "deleted": false,
+          "selections": [
+            {
+              "guid": "sel_025",
+              "entityType": "MenuItemSelection",
+              "displayName": "BBQ Pulled Pork",
+              "itemGroup": {
+                "guid": "grp_007",
+                "name": "Entrees",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_bbq_001",
+                "name": "BBQ Pulled Pork",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 1499,
+              "price": 1499,
+              "tax": 124,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_026",
+              "entityType": "MenuItemSelection",
+              "displayName": "Coleslaw",
+              "itemGroup": {
+                "guid": "grp_002",
+                "name": "🍟 Sides",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_slaw_001",
+                "name": "Coleslaw",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 399,
+              "price": 399,
+              "tax": 33,
+              "voided": false,
+              "modifiers": []
+            }
+          ],
+          "payments": [
+            {
+              "guid": "pmt_010",
+              "entityType": "Payment",
+              "paidDate": "2025-01-02T17:42:00.000Z",
+              "paidBusinessDate": "2025-01-02",
+              "type": "CREDIT",
+              "cardType": "AMEX",
+              "last4Digits": "7788",
+              "amount": 2055,
+              "tipAmount": 0,
+              "originalProcessingFee": 60,
+              "refundStatus": "NONE"
+            }
+          ],
+          "amount": 1898,
+          "taxAmount": 157,
+          "totalAmount": 2055,
+          "tipAmount": 0
+        }
+      ],
+      "source": "POS",
+      "voidDate": null,
+      "voidBusinessDate": null
+    },
+    {
+      "guid": "ord_toast_00000001-0001-0001-0001-000000000011",
+      "entityType": "Order",
+      "externalId": null,
+      "revenueCenter": {
+        "guid": "revctr_002",
+        "name": "Terminal",
+        "entityType": "RevenueCenter"
+      },
+      "server": {
+        "guid": "emp_003",
+        "firstName": "James",
+        "lastName": "Williams",
+        "entityType": "RestaurantUser"
+      },
+      "restaurantGuid": "loc_airport_002",
+      "businessDate": "2025-01-02",
+      "openedDate": "2025-01-02T12:15:00.000Z",
+      "closedDate": "2025-01-02T12:22:00.000Z",
+      "paidDate": "2025-01-02T12:22:00.000Z",
+      "voided": false,
+      "deleted": false,
+      "diningOption": {
+        "guid": "dining_002",
+        "name": "Take Out",
+        "behavior": "TAKE_OUT",
+        "entityType": "DiningOption"
+      },
+      "checks": [
+        {
+          "guid": "chk_00000001-0001-0001-0001-000000000011",
+          "entityType": "Check",
+          "displayNumber": "11",
+          "openedDate": "2025-01-02T12:15:00.000Z",
+          "closedDate": "2025-01-02T12:22:00.000Z",
+          "paidDate": "2025-01-02T12:22:00.000Z",
+          "voided": false,
+          "deleted": false,
+          "selections": [
+            {
+              "guid": "sel_027",
+              "entityType": "MenuItemSelection",
+              "displayName": "Egg Sandwich",
+              "itemGroup": {
+                "guid": "grp_005",
+                "name": "Breakfast",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_eggsand_001",
+                "name": "Egg Sandwich",
+                "entityType": "MenuItem"
+              },
+              "quantity": 2,
+              "preDiscountPrice": 1598,
+              "price": 1598,
+              "tax": 132,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_028",
+              "entityType": "MenuItemSelection",
+              "displayName": "Coffee",
+              "itemGroup": {
+                "guid": "grp_003",
+                "name": "🥤 Beverages",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_coffee_001",
+                "name": "Coffee",
+                "entityType": "MenuItem"
+              },
+              "quantity": 2,
+              "preDiscountPrice": 698,
+              "price": 698,
+              "tax": 58,
+              "voided": false,
+              "modifiers": []
+            }
+          ],
+          "payments": [
+            {
+              "guid": "pmt_011",
+              "entityType": "Payment",
+              "paidDate": "2025-01-02T12:22:00.000Z",
+              "paidBusinessDate": "2025-01-02",
+              "type": "OTHER",
+              "cardType": "APPLE_PAY",
+              "last4Digits": null,
+              "amount": 2485,
+              "tipAmount": 0,
+              "originalProcessingFee": 72,
+              "refundStatus": "NONE"
+            }
+          ],
+          "amount": 2296,
+          "taxAmount": 189,
+          "totalAmount": 2485,
+          "tipAmount": 0
+        }
+      ],
+      "source": "ONLINE",
+      "voidDate": null,
+      "voidBusinessDate": null
+    },
+    {
+      "guid": "ord_toast_00000001-0001-0001-0001-000000000012",
+      "entityType": "Order",
+      "externalId": null,
+      "revenueCenter": {
+        "guid": "revctr_002",
+        "name": "Terminal",
+        "entityType": "RevenueCenter"
+      },
+      "server": {
+        "guid": "emp_003",
+        "firstName": "James",
+        "lastName": "Williams",
+        "entityType": "RestaurantUser"
+      },
+      "restaurantGuid": "loc_airport_002",
+      "businessDate": "2025-01-02",
+      "openedDate": "2025-01-02T18:00:00.000Z",
+      "closedDate": "2025-01-02T18:25:00.000Z",
+      "paidDate": "2025-01-02T18:25:00.000Z",
+      "voided": false,
+      "deleted": false,
+      "diningOption": {
+        "guid": "dining_001",
+        "name": "Dine In",
+        "behavior": "DINE_IN",
+        "entityType": "DiningOption"
+      },
+      "checks": [
+        {
+          "guid": "chk_00000001-0001-0001-0001-000000000012",
+          "entityType": "Check",
+          "displayNumber": "12",
+          "openedDate": "2025-01-02T18:00:00.000Z",
+          "closedDate": "2025-01-02T18:25:00.000Z",
+          "paidDate": "2025-01-02T18:25:00.000Z",
+          "voided": false,
+          "deleted": false,
+          "selections": [
+            {
+              "guid": "sel_029",
+              "entityType": "MenuItemSelection",
+              "displayName": "Lobster Roll",
+              "itemGroup": {
+                "guid": "grp_013",
+                "name": "Seafood",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_lobster_001",
+                "name": "Lobster Roll",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 2499,
+              "price": 2499,
+              "tax": 206,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_030",
+              "entityType": "MenuItemSelection",
+              "displayName": "Clam Chowder",
+              "itemGroup": {
+                "guid": "grp_008",
+                "name": "Appetizers",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_chowder_001",
+                "name": "Clam Chowder",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 799,
+              "price": 799,
+              "tax": 66,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_031",
+              "entityType": "MenuItemSelection",
+              "displayName": "Craft Beer",
+              "itemGroup": {
+                "guid": "grp_014",
+                "name": "Beer",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_beer_001",
+                "name": "Craft Beer",
+                "entityType": "MenuItem"
+              },
+              "quantity": 2,
+              "preDiscountPrice": 1598,
+              "price": 1598,
+              "tax": 132,
+              "voided": false,
+              "modifiers": []
+            }
+          ],
+          "payments": [
+            {
+              "guid": "pmt_012",
+              "entityType": "Payment",
+              "paidDate": "2025-01-02T18:25:00.000Z",
+              "paidBusinessDate": "2025-01-02",
+              "type": "CREDIT",
+              "cardType": "VISA",
+              "last4Digits": "9900",
+              "amount": 6500,
+              "tipAmount": 1200,
+              "originalProcessingFee": 189,
+              "refundStatus": "NONE"
+            }
+          ],
+          "amount": 4896,
+          "taxAmount": 404,
+          "totalAmount": 6500,
+          "tipAmount": 1200
+        }
+      ],
+      "source": "POS",
+      "voidDate": null,
+      "voidBusinessDate": null
+    },
+    {
+      "guid": "ord_toast_00000001-0001-0001-0001-000000000013",
+      "entityType": "Order",
+      "externalId": null,
+      "revenueCenter": {
+        "guid": "revctr_003",
+        "name": "Food Court",
+        "entityType": "RevenueCenter"
+      },
+      "server": {
+        "guid": "emp_004",
+        "firstName": "Sarah",
+        "lastName": "Brown",
+        "entityType": "RestaurantUser"
+      },
+      "restaurantGuid": "loc_mall_003",
+      "businessDate": "2025-01-02",
+      "openedDate": "2025-01-02T16:45:00.000Z",
+      "closedDate": "2025-01-02T17:00:00.000Z",
+      "paidDate": "2025-01-02T17:00:00.000Z",
+      "voided": false,
+      "deleted": false,
+      "diningOption": {
+        "guid": "dining_001",
+        "name": "Dine In",
+        "behavior": "DINE_IN",
+        "entityType": "DiningOption"
+      },
+      "checks": [
+        {
+          "guid": "chk_00000001-0001-0001-0001-000000000013",
+          "entityType": "Check",
+          "displayNumber": "13",
+          "openedDate": "2025-01-02T16:45:00.000Z",
+          "closedDate": "2025-01-02T17:00:00.000Z",
+          "paidDate": "2025-01-02T17:00:00.000Z",
+          "voided": false,
+          "deleted": false,
+          "selections": [
+            {
+              "guid": "sel_032",
+              "entityType": "MenuItemSelection",
+              "displayName": "Club Sandwich",
+              "itemGroup": {
+                "guid": "grp_004",
+                "name": "Sandwiches",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_club_001",
+                "name": "Club Sandwich",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 1199,
+              "price": 1199,
+              "tax": 99,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_033",
+              "entityType": "MenuItemSelection",
+              "displayName": "French Fries",
+              "itemGroup": {
+                "guid": "grp_002",
+                "name": "🍟 Sides",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_fries_001",
+                "name": "French Fries",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 499,
+              "price": 499,
+              "tax": 41,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_034",
+              "entityType": "MenuItemSelection",
+              "displayName": "Lemonade",
+              "itemGroup": {
+                "guid": "grp_003",
+                "name": "🥤 Beverages",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_lemonade_001",
+                "name": "Lemonade",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 349,
+              "price": 349,
+              "tax": 29,
+              "voided": false,
+              "modifiers": []
+            }
+          ],
+          "payments": [
+            {
+              "guid": "pmt_013",
+              "entityType": "Payment",
+              "paidDate": "2025-01-02T17:00:00.000Z",
+              "paidBusinessDate": "2025-01-02",
+              "type": "CREDIT",
+              "cardType": "MASTERCARD",
+              "last4Digits": "1122",
+              "amount": 2616,
+              "tipAmount": 400,
+              "originalProcessingFee": 76,
+              "refundStatus": "NONE"
+            }
+          ],
+          "amount": 2047,
+          "taxAmount": 169,
+          "totalAmount": 2616,
+          "tipAmount": 400
+        }
+      ],
+      "source": "POS",
+      "voidDate": null,
+      "voidBusinessDate": null
+    },
+    {
+      "guid": "ord_toast_00000001-0001-0001-0001-000000000014",
+      "entityType": "Order",
+      "externalId": null,
+      "revenueCenter": {
+        "guid": "revctr_003",
+        "name": "Food Court",
+        "entityType": "RevenueCenter"
+      },
+      "server": {
+        "guid": "emp_004",
+        "firstName": "Sarah",
+        "lastName": "Brown",
+        "entityType": "RestaurantUser"
+      },
+      "restaurantGuid": "loc_mall_003",
+      "businessDate": "2025-01-02",
+      "openedDate": "2025-01-03T00:00:00.000Z",
+      "closedDate": "2025-01-03T00:45:00.000Z",
+      "paidDate": "2025-01-03T00:45:00.000Z",
+      "voided": false,
+      "deleted": false,
+      "diningOption": {
+        "guid": "dining_001",
+        "name": "Dine In",
+        "behavior": "DINE_IN",
+        "entityType": "DiningOption"
+      },
+      "checks": [
+        {
+          "guid": "chk_00000001-0001-0001-0001-000000000014",
+          "entityType": "Check",
+          "displayNumber": "14",
+          "openedDate": "2025-01-03T00:00:00.000Z",
+          "closedDate": "2025-01-03T00:45:00.000Z",
+          "paidDate": "2025-01-03T00:45:00.000Z",
+          "voided": false,
+          "deleted": false,
+          "selections": [
+            {
+              "guid": "sel_035",
+              "entityType": "MenuItemSelection",
+              "displayName": "Pasta Primavera",
+              "itemGroup": {
+                "guid": "grp_015",
+                "name": "Pasta",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_pasta_001",
+                "name": "Pasta Primavera",
+                "entityType": "MenuItem"
+              },
+              "quantity": 2,
+              "preDiscountPrice": 3198,
+              "price": 3198,
+              "tax": 264,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_036",
+              "entityType": "MenuItemSelection",
+              "displayName": "Garlic Bread",
+              "itemGroup": {
+                "guid": "grp_008",
+                "name": "Appetizers",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_bread_001",
+                "name": "Garlic Bread",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 499,
+              "price": 499,
+              "tax": 41,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_037",
+              "entityType": "MenuItemSelection",
+              "displayName": "Tiramisu",
+              "itemGroup": {
+                "guid": "grp_016",
+                "name": "🍰 Desserts",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_tiramisu_001",
+                "name": "Tiramisu",
+                "entityType": "MenuItem"
+              },
+              "quantity": 2,
+              "preDiscountPrice": 1798,
+              "price": 1798,
+              "tax": 148,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_038",
+              "entityType": "MenuItemSelection",
+              "displayName": "House Wine",
+              "itemGroup": {
+                "guid": "grp_011",
+                "name": "Wine",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_wine_001",
+                "name": "House Wine",
+                "entityType": "MenuItem"
+              },
+              "quantity": 2,
+              "preDiscountPrice": 1798,
+              "price": 1798,
+              "tax": 148,
+              "voided": false,
+              "modifiers": []
+            }
+          ],
+          "payments": [
+            {
+              "guid": "pmt_014",
+              "entityType": "Payment",
+              "paidDate": "2025-01-03T00:45:00.000Z",
+              "paidBusinessDate": "2025-01-02",
+              "type": "CREDIT",
+              "cardType": "AMEX",
+              "last4Digits": "3344",
+              "amount": 9394,
+              "tipAmount": 1500,
+              "originalProcessingFee": 273,
+              "refundStatus": "NONE"
+            }
+          ],
+          "amount": 7292,
+          "taxAmount": 602,
+          "totalAmount": 9394,
+          "tipAmount": 1500
+        }
+      ],
+      "source": "POS",
+      "voidDate": null,
+      "voidBusinessDate": null
+    },
+    {
+      "guid": "ord_toast_00000001-0001-0001-0001-000000000015",
+      "entityType": "Order",
+      "externalId": null,
+      "revenueCenter": {
+        "guid": "revctr_004",
+        "name": "Campus",
+        "entityType": "RevenueCenter"
+      },
+      "server": {
+        "guid": "emp_005",
+        "firstName": "Michael",
+        "lastName": "Davis",
+        "entityType": "RestaurantUser"
+      },
+      "restaurantGuid": "loc_univ_004",
+      "businessDate": "2025-01-02",
+      "openedDate": "2025-01-02T17:00:00.000Z",
+      "closedDate": "2025-01-02T17:15:00.000Z",
+      "paidDate": "2025-01-02T17:15:00.000Z",
+      "voided": false,
+      "deleted": false,
+      "diningOption": {
+        "guid": "dining_001",
+        "name": "Dine In",
+        "behavior": "DINE_IN",
+        "entityType": "DiningOption"
+      },
+      "checks": [
+        {
+          "guid": "chk_00000001-0001-0001-0001-000000000015",
+          "entityType": "Check",
+          "displayNumber": "15",
+          "openedDate": "2025-01-02T17:00:00.000Z",
+          "closedDate": "2025-01-02T17:15:00.000Z",
+          "paidDate": "2025-01-02T17:15:00.000Z",
+          "voided": false,
+          "deleted": false,
+          "selections": [
+            {
+              "guid": "sel_039",
+              "entityType": "MenuItemSelection",
+              "displayName": "Chicken Wings",
+              "itemGroup": {
+                "guid": "grp_008",
+                "name": "Appetizers",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_wings_001",
+                "name": "Chicken Wings",
+                "entityType": "MenuItem"
+              },
+              "quantity": 2,
+              "preDiscountPrice": 2598,
+              "price": 2598,
+              "tax": 214,
+              "voided": false,
+              "modifiers": [
+                {
+                  "guid": "mod_002",
+                  "entityType": "MenuItemModifier",
+                  "displayName": "Buffalo Sauce",
+                  "price": 0
+                }
+              ]
+            },
+            {
+              "guid": "sel_040",
+              "entityType": "MenuItemSelection",
+              "displayName": "Nachos Supreme",
+              "itemGroup": {
+                "guid": "grp_008",
+                "name": "Appetizers",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_nachos_001",
+                "name": "Nachos Supreme",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 1199,
+              "price": 1199,
+              "tax": 99,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_041",
+              "entityType": "MenuItemSelection",
+              "displayName": "Craft Beer",
+              "itemGroup": {
+                "guid": "grp_014",
+                "name": "Beer",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_beer_001",
+                "name": "Craft Beer",
+                "entityType": "MenuItem"
+              },
+              "quantity": 4,
+              "preDiscountPrice": 3196,
+              "price": 3196,
+              "tax": 264,
+              "voided": false,
+              "modifiers": []
+            }
+          ],
+          "payments": [
+            {
+              "guid": "pmt_015",
+              "entityType": "Payment",
+              "paidDate": "2025-01-02T17:15:00.000Z",
+              "paidBusinessDate": "2025-01-02",
+              "type": "CREDIT",
+              "cardType": "VISA",
+              "last4Digits": "5566",
+              "amount": 8970,
+              "tipAmount": 1400,
+              "originalProcessingFee": 260,
+              "refundStatus": "NONE"
+            }
+          ],
+          "amount": 6993,
+          "taxAmount": 577,
+          "totalAmount": 8970,
+          "tipAmount": 1400
+        }
+      ],
+      "source": "POS",
+      "voidDate": null,
+      "voidBusinessDate": null
+    },
+    {
+      "guid": "ord_toast_00000001-0001-0001-0001-000000000016",
+      "entityType": "Order",
+      "externalId": null,
+      "revenueCenter": {
+        "guid": "revctr_004",
+        "name": "Campus",
+        "entityType": "RevenueCenter"
+      },
+      "server": {
+        "guid": "emp_005",
+        "firstName": "Michael",
+        "lastName": "Davis",
+        "entityType": "RestaurantUser"
+      },
+      "restaurantGuid": "loc_univ_004",
+      "businessDate": "2025-01-02",
+      "openedDate": "2025-01-02T22:30:00.000Z",
+      "closedDate": "2025-01-02T22:42:00.000Z",
+      "paidDate": "2025-01-02T22:42:00.000Z",
+      "voided": false,
+      "deleted": false,
+      "diningOption": {
+        "guid": "dining_002",
+        "name": "Take Out",
+        "behavior": "TAKE_OUT",
+        "entityType": "DiningOption"
+      },
+      "checks": [
+        {
+          "guid": "chk_00000001-0001-0001-0001-000000000016",
+          "entityType": "Check",
+          "displayNumber": "16",
+          "openedDate": "2025-01-02T22:30:00.000Z",
+          "closedDate": "2025-01-02T22:42:00.000Z",
+          "paidDate": "2025-01-02T22:42:00.000Z",
+          "voided": false,
+          "deleted": false,
+          "selections": [
+            {
+              "guid": "sel_042",
+              "entityType": "MenuItemSelection",
+              "displayName": "Philly Cheesesteak",
+              "itemGroup": {
+                "guid": "grp_004",
+                "name": "Sandwiches",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_philly_001",
+                "name": "Philly Cheesesteak",
+                "entityType": "MenuItem"
+              },
+              "quantity": 2,
+              "preDiscountPrice": 2798,
+              "price": 2798,
+              "tax": 231,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_043",
+              "entityType": "MenuItemSelection",
+              "displayName": "Onion Rings",
+              "itemGroup": {
+                "guid": "grp_002",
+                "name": "🍟 Sides",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_rings_001",
+                "name": "Onion Rings",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 599,
+              "price": 599,
+              "tax": 49,
+              "voided": false,
+              "modifiers": []
+            }
+          ],
+          "payments": [
+            {
+              "guid": "pmt_016",
+              "entityType": "Payment",
+              "paidDate": "2025-01-02T22:42:00.000Z",
+              "paidBusinessDate": "2025-01-02",
+              "type": "CREDIT",
+              "cardType": "MASTERCARD",
+              "last4Digits": "7788",
+              "amount": 3677,
+              "tipAmount": 0,
+              "originalProcessingFee": 107,
+              "refundStatus": "NONE"
+            }
+          ],
+          "amount": 3397,
+          "taxAmount": 280,
+          "totalAmount": 3677,
+          "tipAmount": 0
+        }
+      ],
+      "source": "ONLINE",
+      "voidDate": null,
+      "voidBusinessDate": null
+    },
+    {
+      "guid": "ord_toast_00000001-0001-0001-0001-000000000017",
+      "entityType": "Order",
+      "externalId": "DD-EXT-001",
+      "revenueCenter": {
+        "guid": "revctr_001",
+        "name": "Main Dining",
+        "entityType": "RevenueCenter"
+      },
+      "server": {
+        "guid": "emp_001",
+        "firstName": "Alex",
+        "lastName": "Smith",
+        "entityType": "RestaurantUser"
+      },
+      "restaurantGuid": "loc_downtown_001",
+      "businessDate": "2025-01-03",
+      "openedDate": "2025-01-03T14:30:00.000Z",
+      "closedDate": "2025-01-03T14:45:00.000Z",
+      "paidDate": "2025-01-03T14:45:00.000Z",
+      "voided": false,
+      "deleted": false,
+      "diningOption": {
+        "guid": "dining_003",
+        "name": "Delivery",
+        "behavior": "DELIVERY",
+        "entityType": "DiningOption"
+      },
+      "checks": [
+        {
+          "guid": "chk_00000001-0001-0001-0001-000000000017",
+          "entityType": "Check",
+          "displayNumber": "17",
+          "openedDate": "2025-01-03T14:30:00.000Z",
+          "closedDate": "2025-01-03T14:45:00.000Z",
+          "paidDate": "2025-01-03T14:45:00.000Z",
+          "voided": false,
+          "deleted": false,
+          "selections": [
+            {
+              "guid": "sel_044",
+              "entityType": "MenuItemSelection",
+              "displayName": "Avocado Toast",
+              "itemGroup": {
+                "guid": "grp_005",
+                "name": "Breakfast",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_avotoast_001",
+                "name": "Avocado Toast",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 999,
+              "price": 999,
+              "tax": 82,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_045",
+              "entityType": "MenuItemSelection",
+              "displayName": "Smoothie Bowl",
+              "itemGroup": {
+                "guid": "grp_005",
+                "name": "Breakfast",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_smoothie_001",
+                "name": "Smoothie Bowl",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 1199,
+              "price": 1199,
+              "tax": 99,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_046",
+              "entityType": "MenuItemSelection",
+              "displayName": "Cold Brew",
+              "itemGroup": {
+                "guid": "grp_017",
+                "name": "Coffee",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_coldbrew_001",
+                "name": "Cold Brew",
+                "entityType": "MenuItem"
+              },
+              "quantity": 2,
+              "preDiscountPrice": 998,
+              "price": 998,
+              "tax": 82,
+              "voided": false,
+              "modifiers": []
+            }
+          ],
+          "payments": [
+            {
+              "guid": "pmt_017",
+              "entityType": "Payment",
+              "paidDate": "2025-01-03T14:45:00.000Z",
+              "paidBusinessDate": "2025-01-03",
+              "type": "CREDIT",
+              "cardType": "VISA",
+              "last4Digits": "9900",
+              "amount": 4060,
+              "tipAmount": 600,
+              "originalProcessingFee": 118,
+              "refundStatus": "NONE"
+            }
+          ],
+          "amount": 3196,
+          "taxAmount": 264,
+          "totalAmount": 4060,
+          "tipAmount": 600
+        }
+      ],
+      "source": "THIRD_PARTY",
+      "voidDate": null,
+      "voidBusinessDate": null
+    },
+    {
+      "guid": "ord_toast_00000001-0001-0001-0001-000000000018",
+      "entityType": "Order",
+      "externalId": null,
+      "revenueCenter": {
+        "guid": "revctr_001",
+        "name": "Main Dining",
+        "entityType": "RevenueCenter"
+      },
+      "server": {
+        "guid": "emp_002",
+        "firstName": "Maria",
+        "lastName": "Johnson",
+        "entityType": "RestaurantUser"
+      },
+      "restaurantGuid": "loc_downtown_001",
+      "businessDate": "2025-01-03",
+      "openedDate": "2025-01-03T18:15:00.000Z",
+      "closedDate": "2025-01-03T18:35:00.000Z",
+      "paidDate": "2025-01-03T18:35:00.000Z",
+      "voided": false,
+      "deleted": false,
+      "diningOption": {
+        "guid": "dining_001",
+        "name": "Dine In",
+        "behavior": "DINE_IN",
+        "entityType": "DiningOption"
+      },
+      "checks": [
+        {
+          "guid": "chk_00000001-0001-0001-0001-000000000018",
+          "entityType": "Check",
+          "displayNumber": "18",
+          "openedDate": "2025-01-03T18:15:00.000Z",
+          "closedDate": "2025-01-03T18:35:00.000Z",
+          "paidDate": "2025-01-03T18:35:00.000Z",
+          "voided": false,
+          "deleted": false,
+          "selections": [
+            {
+              "guid": "sel_047",
+              "entityType": "MenuItemSelection",
+              "displayName": "Fish & Chips",
+              "itemGroup": {
+                "guid": "grp_007",
+                "name": "Entrees",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_fishnchips_001",
+                "name": "Fish & Chips",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 1699,
+              "price": 1699,
+              "tax": 140,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_048",
+              "entityType": "MenuItemSelection",
+              "displayName": "Caesar Salad",
+              "itemGroup": {
+                "guid": "grp_006",
+                "name": "Salads",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_caesar_001",
+                "name": "Caesar Salad",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 1099,
+              "price": 1099,
+              "tax": 91,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_049",
+              "entityType": "MenuItemSelection",
+              "displayName": "Craft Beer",
+              "itemGroup": {
+                "guid": "grp_014",
+                "name": "Beer",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_beer_001",
+                "name": "Craft Beer",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 799,
+              "price": 799,
+              "tax": 66,
+              "voided": false,
+              "modifiers": []
+            }
+          ],
+          "payments": [
+            {
+              "guid": "pmt_018",
+              "entityType": "Payment",
+              "paidDate": "2025-01-03T18:35:00.000Z",
+              "paidBusinessDate": "2025-01-03",
+              "type": "CREDIT",
+              "cardType": "MASTERCARD",
+              "last4Digits": "1122",
+              "amount": 4594,
+              "tipAmount": 700,
+              "originalProcessingFee": 133,
+              "refundStatus": "NONE"
+            }
+          ],
+          "amount": 3597,
+          "taxAmount": 297,
+          "totalAmount": 4594,
+          "tipAmount": 700
+        }
+      ],
+      "source": "POS",
+      "voidDate": null,
+      "voidBusinessDate": null
+    },
+    {
+      "guid": "ord_toast_00000001-0001-0001-0001-000000000019",
+      "entityType": "Order",
+      "externalId": null,
+      "revenueCenter": {
+        "guid": "revctr_002",
+        "name": "Terminal",
+        "entityType": "RevenueCenter"
+      },
+      "server": {
+        "guid": "emp_003",
+        "firstName": "James",
+        "lastName": "Williams",
+        "entityType": "RestaurantUser"
+      },
+      "restaurantGuid": "loc_airport_002",
+      "businessDate": "2025-01-03",
+      "openedDate": "2025-01-03T10:45:00.000Z",
+      "closedDate": "2025-01-03T10:52:00.000Z",
+      "paidDate": "2025-01-03T10:52:00.000Z",
+      "voided": false,
+      "deleted": false,
+      "diningOption": {
+        "guid": "dining_002",
+        "name": "Take Out",
+        "behavior": "TAKE_OUT",
+        "entityType": "DiningOption"
+      },
+      "checks": [
+        {
+          "guid": "chk_00000001-0001-0001-0001-000000000019",
+          "entityType": "Check",
+          "displayNumber": "19",
+          "openedDate": "2025-01-03T10:45:00.000Z",
+          "closedDate": "2025-01-03T10:52:00.000Z",
+          "paidDate": "2025-01-03T10:52:00.000Z",
+          "voided": false,
+          "deleted": false,
+          "selections": [
+            {
+              "guid": "sel_050",
+              "entityType": "MenuItemSelection",
+              "displayName": "Breakfast Burrito",
+              "itemGroup": {
+                "guid": "grp_005",
+                "name": "Breakfast",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_burrito_001",
+                "name": "Breakfast Burrito",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 999,
+              "price": 999,
+              "tax": 82,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_051",
+              "entityType": "MenuItemSelection",
+              "displayName": "Hashbrowns",
+              "itemGroup": {
+                "guid": "grp_002",
+                "name": "🍟 Sides",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_hash_001",
+                "name": "Hash Browns",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 399,
+              "price": 399,
+              "tax": 33,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_052",
+              "entityType": "MenuItemSelection",
+              "displayName": "Coffe",
+              "itemGroup": {
+                "guid": "grp_017",
+                "name": "☕ Coffee",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_coffee_001",
+                "name": "Coffee",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 349,
+              "price": 349,
+              "tax": 29,
+              "voided": false,
+              "modifiers": []
+            }
+          ],
+          "payments": [
+            {
+              "guid": "pmt_019",
+              "entityType": "Payment",
+              "paidDate": "2025-01-03T10:52:00.000Z",
+              "paidBusinessDate": "2025-01-03",
+              "type": "OTHER",
+              "cardType": "GOOGLE_PAY",
+              "last4Digits": null,
+              "amount": 1891,
+              "tipAmount": 0,
+              "originalProcessingFee": 55,
+              "refundStatus": "NONE"
+            }
+          ],
+          "amount": 1747,
+          "taxAmount": 144,
+          "totalAmount": 1891,
+          "tipAmount": 0
+        }
+      ],
+      "source": "ONLINE",
+      "voidDate": null,
+      "voidBusinessDate": null
+    },
+    {
+      "guid": "ord_toast_00000001-0001-0001-0001-000000000020",
+      "entityType": "Order",
+      "externalId": null,
+      "revenueCenter": {
+        "guid": "revctr_002",
+        "name": "Terminal",
+        "entityType": "RevenueCenter"
+      },
+      "server": {
+        "guid": "emp_003",
+        "firstName": "James",
+        "lastName": "Williams",
+        "entityType": "RestaurantUser"
+      },
+      "restaurantGuid": "loc_airport_002",
+      "businessDate": "2025-01-03",
+      "openedDate": "2025-01-03T19:00:00.000Z",
+      "closedDate": "2025-01-03T19:30:00.000Z",
+      "paidDate": "2025-01-03T19:30:00.000Z",
+      "voided": false,
+      "deleted": false,
+      "diningOption": {
+        "guid": "dining_001",
+        "name": "Dine In",
+        "behavior": "DINE_IN",
+        "entityType": "DiningOption"
+      },
+      "checks": [
+        {
+          "guid": "chk_00000001-0001-0001-0001-000000000020",
+          "entityType": "Check",
+          "displayNumber": "20",
+          "openedDate": "2025-01-03T19:00:00.000Z",
+          "closedDate": "2025-01-03T19:30:00.000Z",
+          "paidDate": "2025-01-03T19:30:00.000Z",
+          "voided": false,
+          "deleted": false,
+          "selections": [
+            {
+              "guid": "sel_053",
+              "entityType": "MenuItemSelection",
+              "displayName": "Shrimp Scampi",
+              "itemGroup": {
+                "guid": "grp_013",
+                "name": "Seafood",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_scampi_001",
+                "name": "Shrimp Scampi",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 2299,
+              "price": 2299,
+              "tax": 190,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_054",
+              "entityType": "MenuItemSelection",
+              "displayName": "Bruschetta",
+              "itemGroup": {
+                "guid": "grp_008",
+                "name": "Appetizers",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_bruschetta_001",
+                "name": "Bruschetta",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 899,
+              "price": 899,
+              "tax": 74,
+              "voided": false,
+              "modifiers": []
+            },
+            {
+              "guid": "sel_055",
+              "entityType": "MenuItemSelection",
+              "displayName": "House Wine",
+              "itemGroup": {
+                "guid": "grp_011",
+                "name": "Wine",
+                "entityType": "MenuGroup"
+              },
+              "item": {
+                "guid": "itm_wine_001",
+                "name": "House Wine",
+                "entityType": "MenuItem"
+              },
+              "quantity": 1,
+              "preDiscountPrice": 899,
+              "price": 899,
+              "tax": 74,
+              "voided": false,
+              "modifiers": []
+            }
+          ],
+          "payments": [
+            {
+              "guid": "pmt_020",
+              "entityType": "Payment",
+              "paidDate": "2025-01-03T19:30:00.000Z",
+              "paidBusinessDate": "2025-01-03",
+              "type": "CREDIT",
+              "cardType": "AMEX",
+              "last4Digits": "5566",
+              "amount": 5335,
+              "tipAmount": 900,
+              "originalProcessingFee": 155,
+              "refundStatus": "NONE"
+            }
+          ],
+          "amount": 4097,
+          "taxAmount": 338,
+          "totalAmount": 5335,
+          "tipAmount": 900
+        }
+      ],
+      "source": "POS",
+      "voidDate": null,
+      "voidBusinessDate": null
+    }
+  ]
+}

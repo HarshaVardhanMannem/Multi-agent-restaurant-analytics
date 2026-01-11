@@ -1,0 +1,1089 @@
+{
+  "objects": [
+    {
+      "type": "CATEGORY",
+      "id": "CAT_BURGERS",
+      "category_data": {
+        "name": "🍔 Burgers"
+      }
+    },
+    {
+      "type": "CATEGORY",
+      "id": "CAT_SANDWICHES",
+      "category_data": {
+        "name": "Sandwiches"
+      }
+    },
+    {
+      "type": "CATEGORY",
+      "id": "CAT_SIDES",
+      "category_data": {
+        "name": "🍟 Sides & Appetizers"
+      }
+    },
+    {
+      "type": "CATEGORY",
+      "id": "CAT_DRINKS",
+      "category_data": {
+        "name": "Drinks"
+      }
+    },
+    {
+      "type": "CATEGORY",
+      "id": "CAT_BREAKFAST",
+      "category_data": {
+        "name": "🌅 Breakfast"
+      }
+    },
+    {
+      "type": "CATEGORY",
+      "id": "CAT_ENTREES",
+      "category_data": {
+        "name": "Entrees"
+      }
+    },
+    {
+      "type": "CATEGORY",
+      "id": "CAT_DESSERTS",
+      "category_data": {
+        "name": "🍰 Desserts"
+      }
+    },
+    {
+      "type": "CATEGORY",
+      "id": "CAT_ALCOHOL",
+      "category_data": {
+        "name": "Beer & Wine"
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_BURGER_001",
+      "present_at_location_ids": ["LCN001DOWNTOWN", "LCN002AIRPORT", "LCN003MALL", "LCN004UNIV"],
+      "item_data": {
+        "name": "Classic Burger",
+        "description": "Our signature burger with lettuce, tomato, onion",
+        "category_id": "CAT_BURGERS",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_BURGER_REG",
+            "item_variation_data": {
+              "item_id": "ITEM_BURGER_001",
+              "name": "Regular",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 1299, "currency": "USD" }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_BURGER_DBL",
+            "item_variation_data": {
+              "item_id": "ITEM_BURGER_001",
+              "name": "Double",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 1599, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_FRIES_001",
+      "present_at_location_ids": ["LCN001DOWNTOWN", "LCN002AIRPORT", "LCN003MALL", "LCN004UNIV"],
+      "item_data": {
+        "name": "French Fries",
+        "category_id": "CAT_SIDES",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_FRIES_SM",
+            "item_variation_data": {
+              "item_id": "ITEM_FRIES_001",
+              "name": "Small",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 299, "currency": "USD" }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_FRIES_LG",
+            "item_variation_data": {
+              "item_id": "ITEM_FRIES_001",
+              "name": "Large",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 499, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_FRIES_BAKEDIN",
+      "present_at_location_ids": ["LCN003MALL"],
+      "item_data": {
+        "name": "Fries - Large",
+        "category_id": "CAT_SIDES",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_FRIES_BAKEDIN",
+            "item_variation_data": {
+              "item_id": "ITEM_FRIES_BAKEDIN",
+              "name": "Regular",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 499, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_COKE_001",
+      "present_at_location_ids": ["LCN001DOWNTOWN", "LCN002AIRPORT"],
+      "item_data": {
+        "name": "Coca-Cola",
+        "category_id": "CAT_DRINKS",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_COKE_SM",
+            "item_variation_data": {
+              "item_id": "ITEM_COKE_001",
+              "name": "Small",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 199, "currency": "USD" }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_COKE_LG",
+            "item_variation_data": {
+              "item_id": "ITEM_COKE_001",
+              "name": "Large",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 299, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_SODA_MALL",
+      "present_at_location_ids": ["LCN003MALL"],
+      "item_data": {
+        "name": "Lg Coke",
+        "category_id": "CAT_DRINKS",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_SODA_MALL",
+            "item_variation_data": {
+              "item_id": "ITEM_SODA_MALL",
+              "name": "Regular",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 299, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_SODA_UNIV",
+      "present_at_location_ids": ["LCN004UNIV"],
+      "item_data": {
+        "name": "fountain soda",
+        "category_id": "CAT_DRINKS",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_SODA_UNIV_SM",
+            "item_variation_data": {
+              "item_id": "ITEM_SODA_UNIV",
+              "name": "sm",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 199, "currency": "USD" }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_SODA_UNIV_LG",
+            "item_variation_data": {
+              "item_id": "ITEM_SODA_UNIV",
+              "name": "lg",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 299, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_BURRITO_001",
+      "present_at_location_ids": ["LCN001DOWNTOWN", "LCN002AIRPORT", "LCN003MALL", "LCN004UNIV"],
+      "item_data": {
+        "name": "Breakfast Burrito",
+        "category_id": "CAT_BREAKFAST",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_BURRITO_REG",
+            "item_variation_data": {
+              "item_id": "ITEM_BURRITO_001",
+              "name": "Regular",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 999, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_HASH_001",
+      "present_at_location_ids": ["LCN001DOWNTOWN", "LCN002AIRPORT"],
+      "item_data": {
+        "name": "Hash Browns",
+        "category_id": "CAT_BREAKFAST",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_HASH_REG",
+            "item_variation_data": {
+              "item_id": "ITEM_HASH_001",
+              "name": "Regular",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 399, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_HASHBROWNS_MALL",
+      "present_at_location_ids": ["LCN003MALL"],
+      "item_data": {
+        "name": "Hashbrowns",
+        "category_id": "CAT_BREAKFAST",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_HASHBROWNS_MALL",
+            "item_variation_data": {
+              "item_id": "ITEM_HASHBROWNS_MALL",
+              "name": "Regular",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 399, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_OJ_001",
+      "present_at_location_ids": ["LCN001DOWNTOWN", "LCN002AIRPORT", "LCN003MALL", "LCN004UNIV"],
+      "item_data": {
+        "name": "Orange Juice",
+        "category_id": "CAT_DRINKS",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_OJ_REG",
+            "item_variation_data": {
+              "item_id": "ITEM_OJ_001",
+              "name": "Regular",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 399, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_CHICKEN_001",
+      "present_at_location_ids": ["LCN001DOWNTOWN", "LCN002AIRPORT", "LCN003MALL", "LCN004UNIV"],
+      "item_data": {
+        "name": "Grilled Chicken Sandwich",
+        "category_id": "CAT_SANDWICHES",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_CHICKEN_REG",
+            "item_variation_data": {
+              "item_id": "ITEM_CHICKEN_001",
+              "name": "Regular",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 1199, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_CHKN_SAND_UNIV",
+      "present_at_location_ids": ["LCN004UNIV"],
+      "item_data": {
+        "name": "Griled Chicken Sandwhich",
+        "category_id": "CAT_SANDWICHES",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_CHKN_SAND_UNIV",
+            "item_variation_data": {
+              "item_id": "ITEM_CHKN_SAND_UNIV",
+              "name": "Regular",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 1199, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_SALAD_001",
+      "present_at_location_ids": ["LCN001DOWNTOWN", "LCN002AIRPORT"],
+      "item_data": {
+        "name": "Garden Salad",
+        "category_id": "CAT_SIDES",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_SALAD_REG",
+            "item_variation_data": {
+              "item_id": "ITEM_SALAD_001",
+              "name": "Regular",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 899, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_SALAD_MALL",
+      "present_at_location_ids": ["LCN003MALL"],
+      "item_data": {
+        "name": "House Salad",
+        "category_id": "CAT_SIDES",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_SALAD_MALL",
+            "item_variation_data": {
+              "item_id": "ITEM_SALAD_MALL",
+              "name": "Regular",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 699, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_TEA_001",
+      "present_at_location_ids": ["LCN001DOWNTOWN", "LCN002AIRPORT", "LCN003MALL", "LCN004UNIV"],
+      "item_data": {
+        "name": "Iced Tea",
+        "category_id": "CAT_DRINKS",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_TEA_REG",
+            "item_variation_data": {
+              "item_id": "ITEM_TEA_001",
+              "name": "Regular",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 299, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_SHAKE_001",
+      "present_at_location_ids": ["LCN001DOWNTOWN", "LCN002AIRPORT", "LCN003MALL", "LCN004UNIV"],
+      "item_data": {
+        "name": "Milkshake",
+        "category_id": "CAT_DRINKS",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_SHAKE_CHOC",
+            "item_variation_data": {
+              "item_id": "ITEM_SHAKE_001",
+              "name": "Chocolate",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 699, "currency": "USD" }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_SHAKE_VAN",
+            "item_variation_data": {
+              "item_id": "ITEM_SHAKE_001",
+              "name": "Vanilla",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 699, "currency": "USD" }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_SHAKE_STRAW",
+            "item_variation_data": {
+              "item_id": "ITEM_SHAKE_001",
+              "name": "Strawberry",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 699, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_CHOC_SHAKE_MALL",
+      "present_at_location_ids": ["LCN003MALL"],
+      "item_data": {
+        "name": "Chocolate Milkshake",
+        "category_id": "CAT_DRINKS",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_CHOC_SHAKE_MALL",
+            "item_variation_data": {
+              "item_id": "ITEM_CHOC_SHAKE_MALL",
+              "name": "Regular",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 699, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_CROISSANT_001",
+      "present_at_location_ids": ["LCN001DOWNTOWN", "LCN002AIRPORT", "LCN003MALL", "LCN004UNIV"],
+      "item_data": {
+        "name": "Croissant",
+        "category_id": "CAT_BREAKFAST",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_CROISSANT_REG",
+            "item_variation_data": {
+              "item_id": "ITEM_CROISSANT_001",
+              "name": "Regular",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 499, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_ESPRESSO_001",
+      "present_at_location_ids": ["LCN001DOWNTOWN", "LCN002AIRPORT"],
+      "item_data": {
+        "name": "Espresso",
+        "category_id": "CAT_DRINKS",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_ESPRESSO_SINGLE",
+            "item_variation_data": {
+              "item_id": "ITEM_ESPRESSO_001",
+              "name": "Single",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 299, "currency": "USD" }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_ESPRESSO_DBL",
+            "item_variation_data": {
+              "item_id": "ITEM_ESPRESSO_001",
+              "name": "Double",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 399, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_EXPRESSO_UNIV",
+      "present_at_location_ids": ["LCN004UNIV"],
+      "item_data": {
+        "name": "expresso",
+        "category_id": "CAT_DRINKS",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_EXPRESSO_UNIV",
+            "item_variation_data": {
+              "item_id": "ITEM_EXPRESSO_UNIV",
+              "name": "dbl shot",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 399, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_FRUIT_001",
+      "present_at_location_ids": ["LCN001DOWNTOWN", "LCN002AIRPORT", "LCN003MALL", "LCN004UNIV"],
+      "item_data": {
+        "name": "Fresh Fruit Cup",
+        "category_id": "CAT_SIDES",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_FRUIT_REG",
+            "item_variation_data": {
+              "item_id": "ITEM_FRUIT_001",
+              "name": "Regular",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 349, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_WINGS_001",
+      "present_at_location_ids": ["LCN001DOWNTOWN", "LCN002AIRPORT", "LCN003MALL", "LCN004UNIV"],
+      "item_data": {
+        "name": "Buffalo Wings",
+        "category_id": "CAT_SIDES",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_WINGS_6PC",
+            "item_variation_data": {
+              "item_id": "ITEM_WINGS_001",
+              "name": "6 piece",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 899, "currency": "USD" }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_WINGS_12PC",
+            "item_variation_data": {
+              "item_id": "ITEM_WINGS_001",
+              "name": "12 piece",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 1299, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_WINGS_12_MALL",
+      "present_at_location_ids": ["LCN003MALL"],
+      "item_data": {
+        "name": "Buffalo Wings 12pc",
+        "category_id": "CAT_SIDES",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_WINGS_12_MALL",
+            "item_variation_data": {
+              "item_id": "ITEM_WINGS_12_MALL",
+              "name": "Regular",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 1299, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_NACHOS_001",
+      "present_at_location_ids": ["LCN001DOWNTOWN", "LCN002AIRPORT", "LCN003MALL", "LCN004UNIV"],
+      "item_data": {
+        "name": "Nachos Grande",
+        "category_id": "CAT_SIDES",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_NACHOS_REG",
+            "item_variation_data": {
+              "item_id": "ITEM_NACHOS_001",
+              "name": "Regular",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 1199, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_BEER_001",
+      "present_at_location_ids": ["LCN001DOWNTOWN", "LCN002AIRPORT", "LCN003MALL", "LCN004UNIV"],
+      "item_data": {
+        "name": "Craft Beer",
+        "category_id": "CAT_ALCOHOL",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_BEER_PINT",
+            "item_variation_data": {
+              "item_id": "ITEM_BEER_001",
+              "name": "Pint",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 799, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_PITCHER_001",
+      "present_at_location_ids": ["LCN001DOWNTOWN", "LCN004UNIV"],
+      "item_data": {
+        "name": "Pitcher of Beer",
+        "category_id": "CAT_ALCOHOL",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_PITCHER_REG",
+            "item_variation_data": {
+              "item_id": "ITEM_PITCHER_001",
+              "name": "Regular",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 1599, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_COFFEE_001",
+      "present_at_location_ids": ["LCN001DOWNTOWN", "LCN002AIRPORT", "LCN003MALL", "LCN004UNIV"],
+      "item_data": {
+        "name": "Coffee",
+        "category_id": "CAT_DRINKS",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_COFFEE_REG",
+            "item_variation_data": {
+              "item_id": "ITEM_COFFEE_001",
+              "name": "Regular",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 349, "currency": "USD" }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_COFFEE_LG",
+            "item_variation_data": {
+              "item_id": "ITEM_COFFEE_001",
+              "name": "Large",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 449, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_COFFE_UNIV",
+      "present_at_location_ids": ["LCN004UNIV"],
+      "item_data": {
+        "name": "coffe",
+        "category_id": "CAT_DRINKS",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_COFFE_UNIV",
+            "item_variation_data": {
+              "item_id": "ITEM_COFFE_UNIV",
+              "name": "reg",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 349, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_PIZZA_001",
+      "present_at_location_ids": ["LCN001DOWNTOWN", "LCN002AIRPORT", "LCN003MALL", "LCN004UNIV"],
+      "item_data": {
+        "name": "Margherita Pizza",
+        "category_id": "CAT_ENTREES",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_PIZZA_SLICE",
+            "item_variation_data": {
+              "item_id": "ITEM_PIZZA_001",
+              "name": "Slice",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 499, "currency": "USD" }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_PIZZA_WHOLE",
+            "item_variation_data": {
+              "item_id": "ITEM_PIZZA_001",
+              "name": "Whole Pie",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 1799, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_PIZZA_SLC_MALL",
+      "present_at_location_ids": ["LCN003MALL"],
+      "item_data": {
+        "name": "Margherita Pizza Slice",
+        "category_id": "CAT_ENTREES",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_PIZZA_SLC_MALL",
+            "item_variation_data": {
+              "item_id": "ITEM_PIZZA_SLC_MALL",
+              "name": "Regular",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 499, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_STEAK_001",
+      "present_at_location_ids": ["LCN001DOWNTOWN", "LCN002AIRPORT"],
+      "item_data": {
+        "name": "Ribeye Steak",
+        "description": "12oz USDA Choice ribeye",
+        "category_id": "CAT_ENTREES",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_STEAK_REG",
+            "item_variation_data": {
+              "item_id": "ITEM_STEAK_001",
+              "name": "Regular",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 2999, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_FILET_001",
+      "present_at_location_ids": ["LCN001DOWNTOWN", "LCN002AIRPORT"],
+      "item_data": {
+        "name": "Filet Mignon",
+        "description": "8oz center-cut filet",
+        "category_id": "CAT_ENTREES",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_FILET_REG",
+            "item_variation_data": {
+              "item_id": "ITEM_FILET_001",
+              "name": "Regular",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 3899, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_LOBSTER_001",
+      "present_at_location_ids": ["LCN002AIRPORT"],
+      "item_data": {
+        "name": "Lobster Roll",
+        "category_id": "CAT_ENTREES",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_LOBSTER_REG",
+            "item_variation_data": {
+              "item_id": "ITEM_LOBSTER_001",
+              "name": "Regular",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 2499, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_WINE_001",
+      "present_at_location_ids": ["LCN001DOWNTOWN", "LCN002AIRPORT", "LCN003MALL"],
+      "item_data": {
+        "name": "House Red Wine",
+        "category_id": "CAT_ALCOHOL",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_WINE_GLASS",
+            "item_variation_data": {
+              "item_id": "ITEM_WINE_001",
+              "name": "Glass",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 899, "currency": "USD" }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_WINE_BOTTLE",
+            "item_variation_data": {
+              "item_id": "ITEM_WINE_001",
+              "name": "Bottle",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 3499, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_WRAP_001",
+      "present_at_location_ids": ["LCN001DOWNTOWN", "LCN003MALL", "LCN004UNIV"],
+      "item_data": {
+        "name": "Veggie Wrap",
+        "category_id": "CAT_SANDWICHES",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_WRAP_REG",
+            "item_variation_data": {
+              "item_id": "ITEM_WRAP_001",
+              "name": "Regular",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 1099, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_SWEETFRIES_001",
+      "present_at_location_ids": ["LCN001DOWNTOWN", "LCN003MALL", "LCN004UNIV"],
+      "item_data": {
+        "name": "Sweet Potato Fries",
+        "category_id": "CAT_SIDES",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_SWEETFRIES_REG",
+            "item_variation_data": {
+              "item_id": "ITEM_SWEETFRIES_001",
+              "name": "Regular",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 549, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_CHURROS_001",
+      "present_at_location_ids": ["LCN001DOWNTOWN", "LCN002AIRPORT"],
+      "item_data": {
+        "name": "Churros",
+        "category_id": "CAT_DESSERTS",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_CHURROS_6PC",
+            "item_variation_data": {
+              "item_id": "ITEM_CHURROS_001",
+              "name": "6 piece",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 599, "currency": "USD" }
+            }
+          },
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_CHURROS_12PC",
+            "item_variation_data": {
+              "item_id": "ITEM_CHURROS_001",
+              "name": "12 piece",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 999, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_CHURROS_12_MALL",
+      "present_at_location_ids": ["LCN003MALL"],
+      "item_data": {
+        "name": "Churros 12pcs",
+        "category_id": "CAT_DESSERTS",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_CHURROS_12_MALL",
+            "item_variation_data": {
+              "item_id": "ITEM_CHURROS_12_MALL",
+              "name": "Regular",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 999, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "ITEM",
+      "id": "ITEM_CHURROS_UNIV",
+      "present_at_location_ids": ["LCN004UNIV"],
+      "item_data": {
+        "name": "churos 6pc",
+        "category_id": "CAT_DESSERTS",
+        "variations": [
+          {
+            "type": "ITEM_VARIATION",
+            "id": "VAR_CHURROS_UNIV",
+            "item_variation_data": {
+              "item_id": "ITEM_CHURROS_UNIV",
+              "name": "Regular",
+              "pricing_type": "FIXED_PRICING",
+              "price_money": { "amount": 599, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "MODIFIER_LIST",
+      "id": "MODLIST_STEAK_TEMP",
+      "modifier_list_data": {
+        "name": "Steak Temperature",
+        "selection_type": "SINGLE",
+        "modifiers": [
+          {
+            "type": "MODIFIER",
+            "id": "MOD_RARE",
+            "modifier_data": {
+              "name": "Rare",
+              "price_money": { "amount": 0, "currency": "USD" }
+            }
+          },
+          {
+            "type": "MODIFIER",
+            "id": "MOD_MEDIUMRARE",
+            "modifier_data": {
+              "name": "Medium Rare",
+              "price_money": { "amount": 0, "currency": "USD" }
+            }
+          },
+          {
+            "type": "MODIFIER",
+            "id": "MOD_MEDIUM",
+            "modifier_data": {
+              "name": "Medium",
+              "price_money": { "amount": 0, "currency": "USD" }
+            }
+          },
+          {
+            "type": "MODIFIER",
+            "id": "MOD_MEDIUMWELL",
+            "modifier_data": {
+              "name": "Medium Well",
+              "price_money": { "amount": 0, "currency": "USD" }
+            }
+          },
+          {
+            "type": "MODIFIER",
+            "id": "MOD_WELLDONE",
+            "modifier_data": {
+              "name": "Well Done",
+              "price_money": { "amount": 0, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    },
+    {
+      "type": "MODIFIER_LIST",
+      "id": "MODLIST_EXTRAS",
+      "modifier_list_data": {
+        "name": "Add-ons",
+        "selection_type": "MULTIPLE",
+        "modifiers": [
+          {
+            "type": "MODIFIER",
+            "id": "MOD_BACON",
+            "modifier_data": {
+              "name": "Add Bacon",
+              "price_money": { "amount": 200, "currency": "USD" }
+            }
+          },
+          {
+            "type": "MODIFIER",
+            "id": "MOD_CHEESE",
+            "modifier_data": {
+              "name": "Extra Cheese",
+              "price_money": { "amount": 100, "currency": "USD" }
+            }
+          },
+          {
+            "type": "MODIFIER",
+            "id": "MOD_AVOCADO",
+            "modifier_data": {
+              "name": "Add Avocado",
+              "price_money": { "amount": 150, "currency": "USD" }
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "cursor": null,
+  "latest_time": "2025-01-04T00:00:00.000Z"
+}
+

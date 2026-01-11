@@ -1,0 +1,46 @@
+# Restaurant Analytics Agent Dependencies
+# Python 3.11+
+
+# Web Framework
+fastapi==0.109.2
+uvicorn[standard]==0.27.1
+
+# Database
+asyncpg==0.29.0
+
+# LangChain & LangGraph
+langchain==0.1.9
+langchain-nvidia-ai-endpoints==0.0.2
+# langchain-openai: Using 0.0.14 which is compatible with langchain-core<0.2
+# Note: 0.1.x versions require langchain-core>=0.2.35 (incompatible with langchain 0.1.9)
+# Version 0.0.14 works with langchain-core 0.1.x
+  # For Grok/XAI API (OpenAI-compatible)
+langgraph==0.0.25
+
+# Pydantic & Settings
+pydantic==2.6.1
+pydantic-settings==2.1.0
+
+# Authentication
+PyJWT==2.8.0
+passlib[bcrypt]==1.7.4
+bcrypt==4.0.1
+
+# Environment
+python-dotenv==1.0.1
+
+# Testing
+pytest==8.0.0
+pytest-asyncio==0.23.5
+httpx==0.26.0
+
+# Utilities
+python-json-logger==2.0.7
+
+# Development & Quality Tools
+black==24.1.1
+isort==5.13.2
+ruff==0.1.9
+mypy==1.8.0
+
+

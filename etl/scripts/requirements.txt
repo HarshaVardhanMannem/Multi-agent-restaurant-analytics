@@ -1,0 +1,32 @@
+# Data Processing Requirements
+# Python 3.8+
+
+# Core dependencies
+pandas>=2.0.0
+numpy>=1.24.0
+
+# Database
+psycopg2-binary>=2.9.0
+sqlalchemy>=2.0.0
+
+# String matching and normalization
+fuzzywuzzy>=0.18.0
+python-Levenshtein>=0.21.0
+unidecode>=1.3.0
+
+# Emoji handling (optional but recommended for comprehensive emoji removal)
+# emoji>=2.0.0  # Uncomment if you want to use emoji library instead of regex
+
+# JSON and data handling
+jsonschema>=4.17.0
+
+# Utilities
+python-dotenv>=1.0.0
+tqdm>=4.65.0
+
+# Async database driver (optional, for async refresh script)
+# asyncpg>=0.28.0  # Uncomment if you want to use refresh_materialized_views.py (async version)
+
+# Supabase client (for API access and verification)
+supabase>=2.0.0
+

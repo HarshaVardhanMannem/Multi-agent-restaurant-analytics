@@ -1,0 +1,734 @@
+{
+  "orders": [
+    {
+      "id": "ord_SQ2025010100001",
+      "location_id": "LCN001DOWNTOWN",
+      "reference_id": "REF-001",
+      "source": { "name": "Square POS" },
+      "created_at": "2025-01-01T15:30:00.000Z",
+      "updated_at": "2025-01-01T15:35:00.000Z",
+      "closed_at": "2025-01-01T15:35:00.000Z",
+      "state": "COMPLETED",
+      "version": 2,
+      "line_items": [
+        {
+          "uid": "li_001",
+          "catalog_object_id": "VAR_BURRITO_REG",
+          "quantity": "2",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 1998, "currency": "USD" },
+          "total_money": { "amount": 1998, "currency": "USD" }
+        },
+        {
+          "uid": "li_002",
+          "catalog_object_id": "VAR_HASH_REG",
+          "quantity": "2",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 798, "currency": "USD" },
+          "total_money": { "amount": 798, "currency": "USD" }
+        },
+        {
+          "uid": "li_003",
+          "catalog_object_id": "VAR_OJ_REG",
+          "quantity": "2",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 798, "currency": "USD" },
+          "total_money": { "amount": 798, "currency": "USD" }
+        }
+      ],
+      "fulfillments": [{ "uid": "ful_001", "type": "DINE_IN", "state": "COMPLETED" }],
+      "total_money": { "amount": 5778, "currency": "USD" },
+      "total_tax_money": { "amount": 379, "currency": "USD" },
+      "total_tip_money": { "amount": 800, "currency": "USD" }
+    },
+    {
+      "id": "ord_SQ2025010100002",
+      "location_id": "LCN001DOWNTOWN",
+      "reference_id": "REF-002",
+      "source": { "name": "Square POS" },
+      "created_at": "2025-01-01T17:15:00.000Z",
+      "updated_at": "2025-01-01T17:20:00.000Z",
+      "closed_at": "2025-01-01T17:20:00.000Z",
+      "state": "COMPLETED",
+      "version": 2,
+      "line_items": [
+        {
+          "uid": "li_004",
+          "catalog_object_id": "VAR_CHICKEN_REG",
+          "quantity": "1",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 1199, "currency": "USD" },
+          "total_money": { "amount": 1199, "currency": "USD" }
+        },
+        {
+          "uid": "li_005",
+          "catalog_object_id": "VAR_SALAD_REG",
+          "quantity": "1",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 899, "currency": "USD" },
+          "total_money": { "amount": 899, "currency": "USD" }
+        },
+        {
+          "uid": "li_006",
+          "catalog_object_id": "VAR_TEA_REG",
+          "quantity": "2",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 598, "currency": "USD" },
+          "total_money": { "amount": 598, "currency": "USD" }
+        }
+      ],
+      "fulfillments": [{ "uid": "ful_002", "type": "DINE_IN", "state": "COMPLETED" }],
+      "total_money": { "amount": 4170, "currency": "USD" },
+      "total_tax_money": { "amount": 272, "currency": "USD" },
+      "total_tip_money": { "amount": 600, "currency": "USD" }
+    },
+    {
+      "id": "ord_SQ2025010100003",
+      "location_id": "LCN001DOWNTOWN",
+      "reference_id": "REF-003",
+      "source": { "name": "Square POS" },
+      "created_at": "2025-01-01T19:45:00.000Z",
+      "updated_at": "2025-01-01T19:48:00.000Z",
+      "closed_at": "2025-01-01T19:48:00.000Z",
+      "state": "COMPLETED",
+      "version": 2,
+      "line_items": [
+        {
+          "uid": "li_007",
+          "catalog_object_id": "VAR_BURGER_REG",
+          "quantity": "1",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 1299, "currency": "USD" },
+          "total_money": { "amount": 1299, "currency": "USD" }
+        },
+        {
+          "uid": "li_008",
+          "catalog_object_id": "VAR_FRIES_LG",
+          "quantity": "1",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 499, "currency": "USD" },
+          "total_money": { "amount": 499, "currency": "USD" }
+        },
+        {
+          "uid": "li_009",
+          "catalog_object_id": "VAR_SHAKE_CHOC",
+          "quantity": "1",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 699, "currency": "USD" },
+          "total_money": { "amount": 699, "currency": "USD" }
+        }
+      ],
+      "fulfillments": [{ "uid": "ful_003", "type": "PICKUP", "state": "COMPLETED" }],
+      "total_money": { "amount": 2812, "currency": "USD" },
+      "total_tax_money": { "amount": 214, "currency": "USD" },
+      "total_tip_money": { "amount": 0, "currency": "USD" }
+    },
+    {
+      "id": "ord_SQ2025010100004",
+      "location_id": "LCN002AIRPORT",
+      "reference_id": "REF-004",
+      "source": { "name": "Square POS" },
+      "created_at": "2025-01-01T11:00:00.000Z",
+      "updated_at": "2025-01-01T11:05:00.000Z",
+      "closed_at": "2025-01-01T11:05:00.000Z",
+      "state": "COMPLETED",
+      "version": 2,
+      "line_items": [
+        {
+          "uid": "li_010",
+          "catalog_object_id": "VAR_CROISSANT_REG",
+          "quantity": "2",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 998, "currency": "USD" },
+          "total_money": { "amount": 998, "currency": "USD" }
+        },
+        {
+          "uid": "li_011",
+          "catalog_object_id": "VAR_ESPRESSO_DBL",
+          "quantity": "1",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 399, "currency": "USD" },
+          "total_money": { "amount": 399, "currency": "USD" }
+        },
+        {
+          "uid": "li_012",
+          "catalog_object_id": "VAR_FRUIT_REG",
+          "quantity": "1",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 349, "currency": "USD" },
+          "total_money": { "amount": 349, "currency": "USD" }
+        }
+      ],
+      "fulfillments": [{ "uid": "ful_004", "type": "PICKUP", "state": "COMPLETED" }],
+      "total_money": { "amount": 2191, "currency": "USD" },
+      "total_tax_money": { "amount": 144, "currency": "USD" },
+      "total_tip_money": { "amount": 300, "currency": "USD" }
+    },
+    {
+      "id": "ord_SQ2025010100005",
+      "location_id": "LCN002AIRPORT",
+      "reference_id": "REF-005",
+      "source": { "name": "Square POS" },
+      "created_at": "2025-01-01T18:30:00.000Z",
+      "updated_at": "2025-01-01T18:40:00.000Z",
+      "closed_at": "2025-01-01T18:40:00.000Z",
+      "state": "COMPLETED",
+      "version": 2,
+      "line_items": [
+        {
+          "uid": "li_013",
+          "catalog_object_id": "VAR_LOBSTER_REG",
+          "quantity": "1",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 2499, "currency": "USD" },
+          "total_money": { "amount": 2499, "currency": "USD" }
+        },
+        {
+          "uid": "li_014",
+          "catalog_object_id": "VAR_BEER_PINT",
+          "quantity": "2",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 1598, "currency": "USD" },
+          "total_money": { "amount": 1598, "currency": "USD" }
+        }
+      ],
+      "fulfillments": [{ "uid": "ful_005", "type": "DINE_IN", "state": "COMPLETED" }],
+      "total_money": { "amount": 6950, "currency": "USD" },
+      "total_tax_money": { "amount": 453, "currency": "USD" },
+      "total_tip_money": { "amount": 1000, "currency": "USD" }
+    },
+    {
+      "id": "ord_SQ2025010100006",
+      "location_id": "LCN002AIRPORT",
+      "reference_id": "REF-006",
+      "source": { "name": "Square POS" },
+      "created_at": "2025-01-01T23:00:00.000Z",
+      "updated_at": "2025-01-01T23:15:00.000Z",
+      "closed_at": "2025-01-01T23:15:00.000Z",
+      "state": "COMPLETED",
+      "version": 2,
+      "line_items": [
+        {
+          "uid": "li_015",
+          "catalog_object_id": "VAR_STEAK_REG",
+          "quantity": "2",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 5998, "currency": "USD" },
+          "total_money": { "amount": 5998, "currency": "USD" },
+          "applied_modifiers": [{ "modifier_id": "MOD_MEDIUMRARE" }]
+        },
+        {
+          "uid": "li_016",
+          "catalog_object_id": "VAR_WINE_GLASS",
+          "quantity": "2",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 1798, "currency": "USD" },
+          "total_money": { "amount": 1798, "currency": "USD" }
+        }
+      ],
+      "fulfillments": [{ "uid": "ful_006", "type": "DINE_IN", "state": "COMPLETED" }],
+      "total_money": { "amount": 10254, "currency": "USD" },
+      "total_tax_money": { "amount": 659, "currency": "USD" },
+      "total_tip_money": { "amount": 1600, "currency": "USD" }
+    },
+    {
+      "id": "ord_SQ2025010100007",
+      "location_id": "LCN003MALL",
+      "reference_id": "REF-007",
+      "source": { "name": "Square POS" },
+      "created_at": "2025-01-01T16:00:00.000Z",
+      "updated_at": "2025-01-01T16:08:00.000Z",
+      "closed_at": "2025-01-01T16:08:00.000Z",
+      "state": "COMPLETED",
+      "version": 2,
+      "line_items": [
+        {
+          "uid": "li_017",
+          "catalog_object_id": "VAR_PIZZA_SLC_MALL",
+          "quantity": "2",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 998, "currency": "USD" },
+          "total_money": { "amount": 998, "currency": "USD" }
+        },
+        {
+          "uid": "li_018",
+          "catalog_object_id": "VAR_SODA_MALL",
+          "quantity": "2",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 598, "currency": "USD" },
+          "total_money": { "amount": 598, "currency": "USD" }
+        }
+      ],
+      "fulfillments": [{ "uid": "ful_007", "type": "DINE_IN", "state": "COMPLETED" }],
+      "total_money": { "amount": 2100, "currency": "USD" },
+      "total_tax_money": { "amount": 136, "currency": "USD" },
+      "total_tip_money": { "amount": 300, "currency": "USD" }
+    },
+    {
+      "id": "ord_SQ2025010100008",
+      "location_id": "LCN003MALL",
+      "reference_id": "REF-008",
+      "source": { "name": "Square POS" },
+      "created_at": "2025-01-01T19:00:00.000Z",
+      "updated_at": "2025-01-01T19:12:00.000Z",
+      "closed_at": "2025-01-01T19:12:00.000Z",
+      "state": "COMPLETED",
+      "version": 2,
+      "line_items": [
+        {
+          "uid": "li_019",
+          "catalog_object_id": "VAR_WINGS_12_MALL",
+          "quantity": "1",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 1299, "currency": "USD" },
+          "total_money": { "amount": 1299, "currency": "USD" }
+        },
+        {
+          "uid": "li_020",
+          "catalog_object_id": "VAR_FRIES_BAKEDIN",
+          "quantity": "1",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 499, "currency": "USD" },
+          "total_money": { "amount": 499, "currency": "USD" }
+        },
+        {
+          "uid": "li_021",
+          "catalog_object_id": "VAR_CHOC_SHAKE_MALL",
+          "quantity": "2",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 1398, "currency": "USD" },
+          "total_money": { "amount": 1398, "currency": "USD" }
+        }
+      ],
+      "fulfillments": [{ "uid": "ful_008", "type": "DINE_IN", "state": "COMPLETED" }],
+      "total_money": { "amount": 4310, "currency": "USD" },
+      "total_tax_money": { "amount": 275, "currency": "USD" },
+      "total_tip_money": { "amount": 700, "currency": "USD" }
+    },
+    {
+      "id": "ord_SQ2025010100009",
+      "location_id": "LCN003MALL",
+      "reference_id": "REF-009",
+      "source": { "name": "Square POS" },
+      "created_at": "2025-01-01T21:30:00.000Z",
+      "updated_at": "2025-01-01T21:45:00.000Z",
+      "closed_at": "2025-01-01T21:45:00.000Z",
+      "state": "COMPLETED",
+      "version": 2,
+      "line_items": [
+        {
+          "uid": "li_022",
+          "catalog_object_id": "VAR_CHURROS_12_MALL",
+          "quantity": "2",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 1998, "currency": "USD" },
+          "total_money": { "amount": 1998, "currency": "USD" }
+        },
+        {
+          "uid": "li_023",
+          "catalog_object_id": "VAR_SODA_MALL",
+          "quantity": "2",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 598, "currency": "USD" },
+          "total_money": { "amount": 598, "currency": "USD" }
+        }
+      ],
+      "fulfillments": [{ "uid": "ful_009", "type": "PICKUP", "state": "COMPLETED" }],
+      "total_money": { "amount": 2764, "currency": "USD" },
+      "total_tax_money": { "amount": 168, "currency": "USD" },
+      "total_tip_money": { "amount": 0, "currency": "USD" }
+    },
+    {
+      "id": "ord_SQ2025010100010",
+      "location_id": "LCN004UNIV",
+      "reference_id": "REF-010",
+      "source": { "name": "Square POS" },
+      "created_at": "2025-01-01T16:30:00.000Z",
+      "updated_at": "2025-01-01T16:35:00.000Z",
+      "closed_at": "2025-01-01T16:35:00.000Z",
+      "state": "COMPLETED",
+      "version": 2,
+      "line_items": [
+        {
+          "uid": "li_024",
+          "catalog_object_id": "VAR_CHKN_SAND_UNIV",
+          "quantity": "1",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 1199, "currency": "USD" },
+          "total_money": { "amount": 1199, "currency": "USD" }
+        },
+        {
+          "uid": "li_025",
+          "catalog_object_id": "VAR_SODA_UNIV_LG",
+          "quantity": "1",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 299, "currency": "USD" },
+          "total_money": { "amount": 299, "currency": "USD" }
+        }
+      ],
+      "fulfillments": [{ "uid": "ful_010", "type": "PICKUP", "state": "COMPLETED" }],
+      "total_money": { "amount": 1612, "currency": "USD" },
+      "total_tax_money": { "amount": 114, "currency": "USD" },
+      "total_tip_money": { "amount": 0, "currency": "USD" }
+    },
+    {
+      "id": "ord_SQ2025010100011",
+      "location_id": "LCN004UNIV",
+      "reference_id": "REF-011",
+      "source": { "name": "Square POS" },
+      "created_at": "2025-01-01T18:00:00.000Z",
+      "updated_at": "2025-01-01T18:10:00.000Z",
+      "closed_at": "2025-01-01T18:10:00.000Z",
+      "state": "COMPLETED",
+      "version": 2,
+      "line_items": [
+        {
+          "uid": "li_026",
+          "catalog_object_id": "VAR_WRAP_REG",
+          "quantity": "2",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 2198, "currency": "USD" },
+          "total_money": { "amount": 2198, "currency": "USD" }
+        },
+        {
+          "uid": "li_027",
+          "catalog_object_id": "VAR_SWEETFRIES_REG",
+          "quantity": "2",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 1098, "currency": "USD" },
+          "total_money": { "amount": 1098, "currency": "USD" }
+        },
+        {
+          "uid": "li_028",
+          "catalog_object_id": "VAR_COFFE_UNIV",
+          "quantity": "2",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 698, "currency": "USD" },
+          "total_money": { "amount": 698, "currency": "USD" }
+        }
+      ],
+      "fulfillments": [{ "uid": "ful_011", "type": "DINE_IN", "state": "COMPLETED" }],
+      "total_money": { "amount": 4938, "currency": "USD" },
+      "total_tax_money": { "amount": 321, "currency": "USD" },
+      "total_tip_money": { "amount": 700, "currency": "USD" }
+    },
+    {
+      "id": "ord_SQ2025010100012",
+      "location_id": "LCN004UNIV",
+      "reference_id": "REF-012",
+      "source": { "name": "Square POS" },
+      "created_at": "2025-01-01T22:00:00.000Z",
+      "updated_at": "2025-01-01T22:20:00.000Z",
+      "closed_at": "2025-01-01T22:20:00.000Z",
+      "state": "COMPLETED",
+      "version": 2,
+      "line_items": [
+        {
+          "uid": "li_029",
+          "catalog_object_id": "VAR_WINGS_12PC",
+          "quantity": "2",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 2598, "currency": "USD" },
+          "total_money": { "amount": 2598, "currency": "USD" }
+        },
+        {
+          "uid": "li_030",
+          "catalog_object_id": "VAR_NACHOS_REG",
+          "quantity": "1",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 1199, "currency": "USD" },
+          "total_money": { "amount": 1199, "currency": "USD" }
+        },
+        {
+          "uid": "li_031",
+          "catalog_object_id": "VAR_PITCHER_REG",
+          "quantity": "1",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 1599, "currency": "USD" },
+          "total_money": { "amount": 1599, "currency": "USD" }
+        }
+      ],
+      "fulfillments": [{ "uid": "ful_012", "type": "DINE_IN", "state": "COMPLETED" }],
+      "total_money": { "amount": 6625, "currency": "USD" },
+      "total_tax_money": { "amount": 429, "currency": "USD" },
+      "total_tip_money": { "amount": 1000, "currency": "USD" }
+    },
+    {
+      "id": "ord_SQ2025010200001",
+      "location_id": "LCN001DOWNTOWN",
+      "reference_id": "REF-013",
+      "source": { "name": "Square POS" },
+      "created_at": "2025-01-02T14:00:00.000Z",
+      "updated_at": "2025-01-02T14:10:00.000Z",
+      "closed_at": "2025-01-02T14:10:00.000Z",
+      "state": "COMPLETED",
+      "version": 2,
+      "line_items": [
+        {
+          "uid": "li_032",
+          "catalog_object_id": "VAR_BURRITO_REG",
+          "quantity": "1",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 999, "currency": "USD" },
+          "total_money": { "amount": 999, "currency": "USD" }
+        },
+        {
+          "uid": "li_033",
+          "catalog_object_id": "VAR_COFFEE_REG",
+          "quantity": "2",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 698, "currency": "USD" },
+          "total_money": { "amount": 698, "currency": "USD" }
+        }
+      ],
+      "fulfillments": [{ "uid": "ful_013", "type": "DINE_IN", "state": "COMPLETED" }],
+      "total_money": { "amount": 2061, "currency": "USD" },
+      "total_tax_money": { "amount": 148, "currency": "USD" },
+      "total_tip_money": { "amount": 400, "currency": "USD" }
+    },
+    {
+      "id": "ord_SQ2025010200002",
+      "location_id": "LCN001DOWNTOWN",
+      "reference_id": "REF-014",
+      "source": { "name": "Square Online" },
+      "created_at": "2025-01-02T17:30:00.000Z",
+      "updated_at": "2025-01-02T17:38:00.000Z",
+      "closed_at": "2025-01-02T17:38:00.000Z",
+      "state": "COMPLETED",
+      "version": 2,
+      "line_items": [
+        {
+          "uid": "li_034",
+          "catalog_object_id": "VAR_BURGER_DBL",
+          "quantity": "2",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 3198, "currency": "USD" },
+          "total_money": { "amount": 3198, "currency": "USD" },
+          "applied_modifiers": [{ "modifier_id": "MOD_BACON" }, { "modifier_id": "MOD_CHEESE" }]
+        },
+        {
+          "uid": "li_035",
+          "catalog_object_id": "VAR_FRIES_LG",
+          "quantity": "2",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 998, "currency": "USD" },
+          "total_money": { "amount": 998, "currency": "USD" }
+        }
+      ],
+      "fulfillments": [{ "uid": "ful_014", "type": "PICKUP", "state": "COMPLETED" }],
+      "total_money": { "amount": 4796, "currency": "USD" },
+      "total_tax_money": { "amount": 345, "currency": "USD" },
+      "total_tip_money": { "amount": 0, "currency": "USD" }
+    },
+    {
+      "id": "ord_SQ2025010200003",
+      "location_id": "LCN001DOWNTOWN",
+      "reference_id": "REF-015",
+      "source": { "name": "Square POS" },
+      "created_at": "2025-01-02T23:30:00.000Z",
+      "updated_at": "2025-01-03T00:00:00.000Z",
+      "closed_at": "2025-01-03T00:00:00.000Z",
+      "state": "COMPLETED",
+      "version": 2,
+      "line_items": [
+        {
+          "uid": "li_036",
+          "catalog_object_id": "VAR_FILET_REG",
+          "quantity": "2",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 7798, "currency": "USD" },
+          "total_money": { "amount": 7798, "currency": "USD" },
+          "applied_modifiers": [{ "modifier_id": "MOD_MEDIUM" }]
+        },
+        {
+          "uid": "li_037",
+          "catalog_object_id": "VAR_WINE_BOTTLE",
+          "quantity": "1",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 3499, "currency": "USD" },
+          "total_money": { "amount": 3499, "currency": "USD" }
+        }
+      ],
+      "fulfillments": [{ "uid": "ful_015", "type": "DINE_IN", "state": "COMPLETED" }],
+      "total_money": { "amount": 11538, "currency": "USD" },
+      "total_tax_money": { "amount": 742, "currency": "USD" },
+      "total_tip_money": { "amount": 1800, "currency": "USD" }
+    },
+    {
+      "id": "ord_SQ2025010200004",
+      "location_id": "LCN002AIRPORT",
+      "reference_id": "REF-016",
+      "source": { "name": "Square POS" },
+      "created_at": "2025-01-02T10:45:00.000Z",
+      "updated_at": "2025-01-02T10:50:00.000Z",
+      "closed_at": "2025-01-02T10:50:00.000Z",
+      "state": "COMPLETED",
+      "version": 2,
+      "line_items": [
+        {
+          "uid": "li_038",
+          "catalog_object_id": "VAR_CROISSANT_REG",
+          "quantity": "1",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 499, "currency": "USD" },
+          "total_money": { "amount": 499, "currency": "USD" }
+        },
+        {
+          "uid": "li_039",
+          "catalog_object_id": "VAR_ESPRESSO_SINGLE",
+          "quantity": "2",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 598, "currency": "USD" },
+          "total_money": { "amount": 598, "currency": "USD" }
+        }
+      ],
+      "fulfillments": [{ "uid": "ful_016", "type": "PICKUP", "state": "COMPLETED" }],
+      "total_money": { "amount": 1295, "currency": "USD" },
+      "total_tax_money": { "amount": 98, "currency": "USD" },
+      "total_tip_money": { "amount": 0, "currency": "USD" }
+    },
+    {
+      "id": "ord_SQ2025010200005",
+      "location_id": "LCN002AIRPORT",
+      "reference_id": "REF-017",
+      "source": { "name": "Square POS" },
+      "created_at": "2025-01-02T19:00:00.000Z",
+      "updated_at": "2025-01-02T19:15:00.000Z",
+      "closed_at": "2025-01-02T19:15:00.000Z",
+      "state": "COMPLETED",
+      "version": 2,
+      "line_items": [
+        {
+          "uid": "li_040",
+          "catalog_object_id": "VAR_STEAK_REG",
+          "quantity": "1",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 2999, "currency": "USD" },
+          "total_money": { "amount": 2999, "currency": "USD" },
+          "applied_modifiers": [{ "modifier_id": "MOD_MEDIUMWELL" }]
+        },
+        {
+          "uid": "li_041",
+          "catalog_object_id": "VAR_SALAD_REG",
+          "quantity": "1",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 899, "currency": "USD" },
+          "total_money": { "amount": 899, "currency": "USD" }
+        },
+        {
+          "uid": "li_042",
+          "catalog_object_id": "VAR_WINE_GLASS",
+          "quantity": "2",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 1798, "currency": "USD" },
+          "total_money": { "amount": 1798, "currency": "USD" }
+        }
+      ],
+      "fulfillments": [{ "uid": "ful_017", "type": "DINE_IN", "state": "COMPLETED" }],
+      "total_money": { "amount": 7118, "currency": "USD" },
+      "total_tax_money": { "amount": 461, "currency": "USD" },
+      "total_tip_money": { "amount": 1200, "currency": "USD" }
+    },
+    {
+      "id": "ord_SQ2025010300001",
+      "location_id": "LCN003MALL",
+      "reference_id": "REF-018",
+      "source": { "name": "Square POS" },
+      "created_at": "2025-01-03T16:30:00.000Z",
+      "updated_at": "2025-01-03T16:42:00.000Z",
+      "closed_at": "2025-01-03T16:42:00.000Z",
+      "state": "COMPLETED",
+      "version": 2,
+      "line_items": [
+        {
+          "uid": "li_043",
+          "catalog_object_id": "VAR_PIZZA_SLC_MALL",
+          "quantity": "4",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 1996, "currency": "USD" },
+          "total_money": { "amount": 1996, "currency": "USD" }
+        },
+        {
+          "uid": "li_044",
+          "catalog_object_id": "VAR_SODA_MALL",
+          "quantity": "4",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 1196, "currency": "USD" },
+          "total_money": { "amount": 1196, "currency": "USD" }
+        }
+      ],
+      "fulfillments": [{ "uid": "ful_018", "type": "DINE_IN", "state": "COMPLETED" }],
+      "total_money": { "amount": 3736, "currency": "USD" },
+      "total_tax_money": { "amount": 239, "currency": "USD" },
+      "total_tip_money": { "amount": 600, "currency": "USD" }
+    },
+    {
+      "id": "ord_SQ2025010300002",
+      "location_id": "LCN003MALL",
+      "reference_id": "REF-019",
+      "source": { "name": "Square POS" },
+      "created_at": "2025-01-03T20:00:00.000Z",
+      "updated_at": "2025-01-03T20:10:00.000Z",
+      "closed_at": "2025-01-03T20:10:00.000Z",
+      "state": "COMPLETED",
+      "version": 2,
+      "line_items": [
+        {
+          "uid": "li_045",
+          "catalog_object_id": "VAR_HASHBROWNS_MALL",
+          "quantity": "2",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 798, "currency": "USD" },
+          "total_money": { "amount": 798, "currency": "USD" }
+        },
+        {
+          "uid": "li_046",
+          "catalog_object_id": "VAR_SALAD_MALL",
+          "quantity": "1",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 699, "currency": "USD" },
+          "total_money": { "amount": 699, "currency": "USD" }
+        }
+      ],
+      "fulfillments": [{ "uid": "ful_019", "type": "PICKUP", "state": "COMPLETED" }],
+      "total_money": { "amount": 1612, "currency": "USD" },
+      "total_tax_money": { "amount": 115, "currency": "USD" },
+      "total_tip_money": { "amount": 0, "currency": "USD" }
+    },
+    {
+      "id": "ord_SQ2025010300003",
+      "location_id": "LCN004UNIV",
+      "reference_id": "REF-020",
+      "source": { "name": "Square POS" },
+      "created_at": "2025-01-03T14:30:00.000Z",
+      "updated_at": "2025-01-03T14:38:00.000Z",
+      "closed_at": "2025-01-03T14:38:00.000Z",
+      "state": "COMPLETED",
+      "version": 2,
+      "line_items": [
+        {
+          "uid": "li_047",
+          "catalog_object_id": "VAR_CHURROS_UNIV",
+          "quantity": "3",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 1797, "currency": "USD" },
+          "total_money": { "amount": 1797, "currency": "USD" }
+        },
+        {
+          "uid": "li_048",
+          "catalog_object_id": "VAR_EXPRESSO_UNIV",
+          "quantity": "2",
+          "item_type": "ITEM",
+          "gross_sales_money": { "amount": 798, "currency": "USD" },
+          "total_money": { "amount": 798, "currency": "USD" }
+        }
+      ],
+      "fulfillments": [{ "uid": "ful_020", "type": "DINE_IN", "state": "COMPLETED" }],
+      "total_money": { "amount": 3040, "currency": "USD" },
+      "total_tax_money": { "amount": 194, "currency": "USD" },
+      "total_tip_money": { "amount": 500, "currency": "USD" }
+    }
+  ],
+  "cursor": null
+}
+
