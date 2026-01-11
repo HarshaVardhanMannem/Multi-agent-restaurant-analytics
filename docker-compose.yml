@@ -1,6 +1,27 @@
 version: '3.8'
 
 services:
+  postgres:
+    image: postgres:15-alpine
+    container_name: restaurant_analytics_db
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgrespassword
+      POSTGRES_DB: restaurant_analytics
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./infra/local-db/init.sql:/docker-entrypoint-initdb.d/init.sql
+    restart: unless-stopped
+    networks:
+      - restaurant-analytics-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
   backend:
     build:
       context: ./restaurant-analytics-agent
@@ -9,10 +30,17 @@ services:
     ports:
       - "8000:8000"
     environment:
-      # Database Configuration - supports DATABASE_URL or SUPABASE_DB_URL
+      # Database Configuration
       - DATABASE_URL=${DATABASE_URL}
       - SUPABASE_DB_URL=${SUPABASE_DB_URL}
-      # OR use separate variables:
+      
+      # Local DB Support
+      - ENABLE_SUPABASE=${ENABLE_SUPABASE:-True}
+      - ENABLE_LOCAL_POSTGRES=${ENABLE_LOCAL_POSTGRES:-True}
+      # Internal Docker URL for backend -> postgres service
+      - LOCAL_POSTGRES_URL=postgresql://postgres:postgrespassword@postgres:5432/restaurant_analytics
+      
+      # Supabase Credentials
       - SUPABASE_URL=${SUPABASE_URL}
       - SUPABASE_PASSWORD=${SUPABASE_PASSWORD}
       - SUPABASE_KEY=${SUPABASE_KEY}
@@ -22,12 +50,11 @@ services:
       
       # NVIDIA API
       - NVIDIA_API_KEY=${NVIDIA_API_KEY}
-      - NVIDIA_MODEL=${NVIDIA_MODEL:-nvidia/nemotron-3-nano-30b-a3b}
+      - NVIDIA_MODEL=${NVIDIA_MODEL:-ai-nemotron-3-nano-30b-a3b}
       
       # OpenAI API (optional)
       - OPENAI_API_KEY=${OPENAI_API_KEY}
       - OPENAI_MODEL=${OPENAI_MODEL}
-      
       
       # Server Settings
       - API_HOST=0.0.0.0
@@ -43,6 +70,9 @@ services:
     extra_hosts:
       - "host.docker.internal:host-gateway"
     restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
     healthcheck:
       test: ["CMD", "python", "-c", "import httpx; httpx.get('http://localhost:8000/api/health', timeout=5)"]
       interval: 30s
@@ -61,7 +91,6 @@ services:
       - "3000:3000"
     environment:
       - NODE_ENV=production
-      # Use backend service name for internal communication, or external URL for browser
       - NEXT_PUBLIC_API_URL=${NEXT_PUBLIC_API_URL:-http://localhost:8000}
     depends_on:
       backend:
@@ -76,4 +105,7 @@ networks:
     driver_opts:
       com.docker.network.bridge.enable_icc: "true"
       com.docker.network.bridge.enable_ip_masquerade: "true"
+
+volumes:
+  postgres_data:
 

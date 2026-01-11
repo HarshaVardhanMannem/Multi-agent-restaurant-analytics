@@ -58,7 +58,7 @@ class AuthService:
                 if "does not exist" in error_msg or "relation" in error_msg:
                     logger.info("Auth tables not found, initializing...")
                     from ..models.database_models import INIT_AUTH_TABLES_SQL
-                    await SupabasePool.execute_query(INIT_AUTH_TABLES_SQL)
+                    await SupabasePool.execute_script(INIT_AUTH_TABLES_SQL)
                     logger.info("Auth tables initialized successfully")
                 else:
                     raise

@@ -14,6 +14,11 @@ class Settings(BaseSettings):
     # Database - supports multiple naming conventions
     database_url: str | None = None  # Primary: DATABASE_URL
     supabase_db_url: str | None = None  # Alternative: SUPABASE_DB_URL
+    local_postgres_url: str | None = None  # Local DB URL
+
+    # Feature Flags
+    enable_supabase: bool = True
+    enable_local_postgres: bool = False
 
     # Alternative Supabase config (will be converted to db_url)
     supabase_url: str | None = None
@@ -24,6 +29,9 @@ class Settings(BaseSettings):
     nvidia_api_key: str
     nvidia_model: str = "ai-nemotron-3-nano-30b-a3b"
     nvidia_model_fast: str = "ai-nemotron-3-nano-30b-a3b"  # Same model for all agents
+
+    # LLM Provider
+    llm_provider: str = "nvidia"  # Default to nvidia
 
     # JWT Authentication
     jwt_secret_key: str | None = None  # Optional - will derive from nvidia_api_key if not set
@@ -54,6 +62,13 @@ class Settings(BaseSettings):
 
     def get_database_url(self) -> str:
         """Get the database connection URL, constructing it if necessary"""
+        
+        # Priority 0: Check if Supabase is disabled and Local is enabled
+        if not self.enable_supabase and self.enable_local_postgres:
+            if self.local_postgres_url:
+                return self.local_postgres_url
+            raise ValueError("ENABLE_SUPABASE is False but LOCAL_POSTGRES_URL is not set")
+
         # Priority 1: DATABASE_URL (most common convention)
         if self.database_url:
             return self.database_url
@@ -68,11 +83,16 @@ class Settings(BaseSettings):
             project_ref = self.supabase_url.replace("https://", "").replace(".supabase.co", "")
             return f"postgresql://postgres:{self.supabase_password}@db.{project_ref}.supabase.co:5432/postgres"
 
+        # Fallback to local if nothing else is set but local is enabled
+        if self.enable_local_postgres and self.local_postgres_url:
+             return self.local_postgres_url
+
         raise ValueError(
             "Database URL not configured. Please set one of the following:\n"
             "  1. DATABASE_URL=postgresql://postgres:PASSWORD@db.PROJECT.supabase.co:5432/postgres\n"
             "  2. SUPABASE_DB_URL=postgresql://postgres:PASSWORD@db.PROJECT.supabase.co:5432/postgres\n"
-            "  3. SUPABASE_URL=https://PROJECT.supabase.co + SUPABASE_PASSWORD=YOUR_PASSWORD"
+            "  3. SUPABASE_URL=https://PROJECT.supabase.co + SUPABASE_PASSWORD=YOUR_PASSWORD\n"
+            "  4. LOCAL_POSTGRES_URL + ENABLE_LOCAL_POSTGRES=True"
         )
 
 

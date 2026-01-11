@@ -48,9 +48,20 @@ class SupabasePool:
                 logger.error("Please set SUPABASE_DB_URL or SUPABASE_URL + SUPABASE_PASSWORD environment variables")
                 raise
 
+            # Determine SSL mode
+            # Disable SSL for localhost or if explicitly connecting to local container URL
+            use_ssl = "require"
+            if "localhost" in db_url or "127.0.0.1" in db_url:
+                use_ssl = False
+            elif settings.local_postgres_url and db_url == settings.local_postgres_url:
+                # Assuming local postgres doesn't need SSL
+                use_ssl = False
+
+            logger.info(f"Connecting to database with SSL={use_ssl}")
+
             cls.pool = await asyncpg.create_pool(
                 dsn=db_url,
-                ssl="require",  # Supabase requires SSL
+                ssl=use_ssl,
                 min_size=settings.db_pool_min_size,
                 max_size=settings.db_pool_max_size,
                 command_timeout=settings.db_command_timeout,
@@ -161,6 +172,58 @@ class SupabasePool:
                 await conn.execute("SET statement_timeout = 0")
 
     @classmethod
+    async def execute_script(
+        cls,
+        sql: str,
+        timeout: int | None = None,
+    ) -> float:
+        """
+        Execute a SQL script containing multiple statements.
+        Does not support parameters/arguments.
+        
+        Args:
+            sql: The SQL script to execute
+            timeout: Query timeout in seconds (optional)
+            
+        Returns:
+            Execution time in ms
+        """
+        # Ensure connection is established (lazy connection)
+        if cls.pool is None:
+            await cls._ensure_connected()
+
+        settings = get_settings()
+        timeout = timeout or settings.max_query_timeout
+
+        start_time = time.perf_counter()
+
+        async with cls.pool.acquire() as conn:
+            try:
+                # Set statement timeout for this query (in milliseconds)
+                timeout_ms = timeout * 1000
+                await conn.execute(f"SET statement_timeout = {timeout_ms}")
+
+                # Execute the script (asyncpg execute supports multiple statements if no args)
+                await conn.execute(sql)
+
+                # Calculate execution time
+                execution_time_ms = (time.perf_counter() - start_time) * 1000
+
+                logger.info(f"Script executed in {execution_time_ms:.2f}ms")
+
+                return execution_time_ms
+
+            except asyncpg.QueryCanceledError:
+                logger.error(f"Script timeout after {timeout}s")
+                raise TimeoutError(f"Script exceeded {timeout} second timeout")
+            except asyncpg.PostgresError as e:
+                logger.error(f"PostgreSQL error: {e}")
+                raise
+            finally:
+                # Reset statement timeout to default
+                await conn.execute("SET statement_timeout = 0")
+
+    @classmethod
     async def execute_query_safe(
         cls,
         sql: str,
@@ -220,7 +283,7 @@ class SupabasePool:
         }
 
 
-# Convenience functions
+ # Convenience functions
 async def init_database() -> None:
     """Initialize the database connection pool"""
     await SupabasePool.connect()
