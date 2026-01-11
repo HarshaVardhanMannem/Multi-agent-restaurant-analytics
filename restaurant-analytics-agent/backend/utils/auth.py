@@ -30,8 +30,8 @@ def get_jwt_secret() -> str:
     if not secret:
         # Fallback to a combination of other secrets for development
         # In production, JWT_SECRET_KEY should always be set
-        # Prefer NVIDIA API key (default), then Grok, otherwise default
-        api_key = settings.nvidia_api_key or settings.grok_api_key
+        # Prefer NVIDIA API key (default), otherwise default
+        api_key = settings.nvidia_api_key
         if api_key:
             secret = api_key[:32] + "restaurant_analytics_jwt_secret"
         else:

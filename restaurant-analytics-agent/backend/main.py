@@ -111,7 +111,6 @@ app.add_middleware(
         "http://127.0.0.1:3000",
         "http://localhost",
         "http://127.0.0.1",
-        "http://18.221.128.65"
         "*"
     ],
     allow_credentials=True,
