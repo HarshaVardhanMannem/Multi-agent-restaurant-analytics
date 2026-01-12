@@ -24,7 +24,7 @@ The system automatically:
 
 ## 🏗️ System Architecture
 
-![Architecture Diagram](file:///C:/Users/harsh/.gemini/antigravity/brain/0129158a-53ec-4769-8da0-45735b1dc1b9/architecture_diagram.png)
+![Architecture Diagram](docs/assets/architecture.png)
 
 ### Core Components
 
