@@ -14,12 +14,13 @@ import {
   Legend,
   Filler,
 } from 'chart.js';
-import { Bar, Line, Pie, Doughnut } from 'react-chartjs-2';
+import { MatrixController, MatrixElement } from 'chartjs-chart-matrix';
+import { Bar, Line, Pie, Doughnut, Chart } from 'react-chartjs-2';
 import { QueryResponse, VisualizationType } from '@/types/api';
 import { fetchVisualization } from '@/lib/api';
-import { 
-  X, Copy, Check, ChevronDown, ChevronUp, Download, 
-  Table, BarChart3, Database, Lightbulb, Clock, Eye, Loader2, Sparkles, 
+import {
+  X, Copy, Check, ChevronDown, ChevronUp, Download,
+  Table, BarChart3, Database, Lightbulb, Clock, Eye, Loader2, Sparkles,
   TrendingUp, CheckCircle2, AlertCircle
 } from 'lucide-react';
 import ReactMarkdown from 'react-markdown';
@@ -35,7 +36,9 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  Filler
+  Filler,
+  MatrixController,
+  MatrixElement
 );
 
 interface ChartWidgetProps {
@@ -55,12 +58,12 @@ function isSingleMetric(results: Record<string, any>[], columns: string[]): bool
 // Helper to format values intelligently
 function formatValue(value: any, columnName: string): string {
   if (value === null || value === undefined) return '-';
-  
+
   if (typeof value === 'number') {
     // Detect currency columns
     const currencyKeywords = ['revenue', 'sales', 'total', 'amount', 'price', 'cost', 'avg_', 'sum_'];
     const isCurrency = currencyKeywords.some(kw => columnName.toLowerCase().includes(kw));
-    
+
     if (isCurrency) {
       return new Intl.NumberFormat('en-US', {
         style: 'currency',
@@ -68,18 +71,18 @@ function formatValue(value: any, columnName: string): string {
         minimumFractionDigits: 2,
       }).format(value);
     }
-    
+
     // Detect percentage columns
     if (columnName.toLowerCase().includes('percent') || columnName.toLowerCase().includes('rate')) {
       return `${value.toFixed(1)}%`;
     }
-    
+
     // Regular number
     return new Intl.NumberFormat('en-US', {
       maximumFractionDigits: 2,
     }).format(value);
   }
-  
+
   return String(value);
 }
 
@@ -94,6 +97,40 @@ function getMetricIcon(columnName: string): 'dollar' | 'orders' | 'users' | 'sto
   return 'items';
 }
 
+// Parse function strings in Chart.js config
+function parseFunctions(obj: any): any {
+  if (obj === null || obj === undefined) return obj;
+
+  if (typeof obj === 'string') {
+    // Check if string looks like a function
+    if (obj.trim().startsWith('function')) {
+      try {
+        // Use Function constructor to create actual function from string
+        // eslint-disable-next-line no-new-func
+        return new Function('return ' + obj)();
+      } catch (e) {
+        console.warn('Failed to parse function string:', obj, e);
+        return obj;
+      }
+    }
+    return obj;
+  }
+
+  if (Array.isArray(obj)) {
+    return obj.map(parseFunctions);
+  }
+
+  if (typeof obj === 'object') {
+    const parsed: any = {};
+    for (const key in obj) {
+      parsed[key] = parseFunctions(obj[key]);
+    }
+    return parsed;
+  }
+
+  return obj;
+}
+
 export default function ChartWidget({ widget, onRemove, onUpdate }: ChartWidgetProps) {
   const [copied, setCopied] = useState(false);
   const [expanded, setExpanded] = useState(true);
@@ -103,34 +140,34 @@ export default function ChartWidget({ widget, onRemove, onUpdate }: ChartWidgetP
   const [vizLoaded, setVizLoaded] = useState(false);
   const { response } = widget;
   const prevChartConfigRef = useRef(response.visualization?.chart_js_config);
-  
+
   // Track when visualization loads for animation
   useEffect(() => {
     const currentChartConfig = response.visualization?.chart_js_config;
     const prevChartConfig = prevChartConfigRef.current;
-    
+
     if (currentChartConfig && !prevChartConfig) {
       // Visualization just loaded
       setTimeout(() => setVizLoaded(true), 100);
       // Clear after animation
       setTimeout(() => setVizLoaded(false), 3000);
     }
-    
+
     prevChartConfigRef.current = currentChartConfig;
   }, [response.visualization?.chart_js_config]);
-  
+
   // Determine if button should be shown
   // Hide button if:
   // - No query_id
   // - Chart already loaded
   // - Status is 'not_applicable' (explicitly not applicable)
   // - Available is explicitly false
-  const shouldShowButton = response.query_id && 
-    !response.visualization?.chart_js_config && 
+  const shouldShowButton = response.query_id &&
+    !response.visualization?.chart_js_config &&
     response.visualization?.status !== 'not_applicable' &&
     response.visualization?.status !== 'error' &&
     (response.visualization?.available !== false);
-  
+
   if (response.query_id && !response.visualization?.chart_js_config) {
     console.log('[ChartWidget] Visualization state:', {
       query_id: response.query_id,
@@ -148,12 +185,15 @@ export default function ChartWidget({ widget, onRemove, onUpdate }: ChartWidgetP
     }
 
     const config = response.visualization.chart_js_config;
-    
+
     if (response.visualization.type === VisualizationType.TABLE) {
       return null;
     }
 
-    return config;
+    // Parse any function strings in the config
+    const parsedConfig = parseFunctions(config);
+
+    return parsedConfig;
   }, [response.visualization]);
 
   const handleCopySQL = async () => {
@@ -164,9 +204,9 @@ export default function ChartWidget({ widget, onRemove, onUpdate }: ChartWidgetP
 
   const handleExportCSV = () => {
     if (response.results.length === 0) return;
-    
+
     const headers = response.columns.join(',');
-    const rows = response.results.map(row => 
+    const rows = response.results.map(row =>
       response.columns.map(col => {
         const val = row[col];
         // Escape commas and quotes in CSV
@@ -176,7 +216,7 @@ export default function ChartWidget({ widget, onRemove, onUpdate }: ChartWidgetP
         return val ?? '';
       }).join(',')
     );
-    
+
     const csv = [headers, ...rows].join('\n');
     const blob = new Blob([csv], { type: 'text/csv' });
     const url = URL.createObjectURL(blob);
@@ -193,31 +233,31 @@ export default function ChartWidget({ widget, onRemove, onUpdate }: ChartWidgetP
       widget_id: widget.id,
       has_onUpdate: !!onUpdate
     });
-    
+
     if (!response.query_id) {
       console.warn('[ChartWidget] No query_id available');
       return;
     }
-    
+
     setLoadingViz(true);
     setVizError(null);
-    
+
     try {
       // Poll for visualization until ready
       let attempts = 0;
       const maxAttempts = 30; // 30 seconds max
-      
+
       while (attempts < maxAttempts) {
         try {
           console.log(`[ChartWidget] Fetching visualization (attempt ${attempts + 1}/${maxAttempts})`);
           const vizData = await fetchVisualization(response.query_id);
-          
+
           console.log('[ChartWidget] Visualization fetched successfully:', {
             type: vizData.type,
             has_config: !!vizData.config,
             has_chart_js_config: !!vizData.chart_js_config
           });
-          
+
           // Update widget with visualization via callback
           if (onUpdate) {
             console.log('[ChartWidget] Calling onUpdate with visualization data');
@@ -233,7 +273,7 @@ export default function ChartWidget({ widget, onRemove, onUpdate }: ChartWidgetP
           } else {
             console.warn('[ChartWidget] onUpdate callback not available');
           }
-          
+
           setLoadingViz(false);
           return;
         } catch (error: any) {
@@ -242,7 +282,7 @@ export default function ChartWidget({ widget, onRemove, onUpdate }: ChartWidgetP
             error_code: error.response?.data?.error_code,
             message: error.response?.data?.error_message || error.message
           });
-          
+
           if (error.response?.status === 202) {
             // Still pending, wait and retry
             attempts++;
@@ -274,12 +314,12 @@ export default function ChartWidget({ widget, onRemove, onUpdate }: ChartWidgetP
               continue;
             }
           }
-          
+
           // For other errors, throw to outer catch
           throw error;
         }
       }
-      
+
       console.warn('[ChartWidget] Visualization generation timed out');
       setVizError('Visualization generation timed out. Please try again.');
       setLoadingViz(false);
@@ -299,14 +339,17 @@ export default function ChartWidget({ widget, onRemove, onUpdate }: ChartWidgetP
       case VisualizationType.BAR_CHART:
       case VisualizationType.STACKED_BAR:
         return <Bar data={chartData.data} options={chartData.options} />;
-      
+
       case VisualizationType.LINE_CHART:
       case VisualizationType.MULTI_SERIES:
         return <Line data={chartData.data} options={chartData.options} />;
-      
+
       case VisualizationType.PIE_CHART:
         return <Pie data={chartData.data} options={chartData.options} />;
-      
+
+      case VisualizationType.HEATMAP:
+        return <Chart type="matrix" data={chartData.data} options={chartData.options} />;
+
       default:
         return null;
     }
@@ -314,10 +357,10 @@ export default function ChartWidget({ widget, onRemove, onUpdate }: ChartWidgetP
 
   const renderMetrics = () => {
     if (!isSingleMetric(response.results, response.columns)) return null;
-    
+
     const row = response.results[0];
     const numericColumns = response.columns.filter(col => typeof row[col] === 'number');
-    
+
     return (
       <div className={`grid gap-4 ${numericColumns.length === 1 ? 'grid-cols-1' : numericColumns.length === 2 ? 'grid-cols-2' : 'grid-cols-3'}`}>
         {numericColumns.map(col => (
@@ -419,21 +462,21 @@ export default function ChartWidget({ widget, onRemove, onUpdate }: ChartWidgetP
               </div>
             )}
             {/* Analyzing indicator - show when visualization is being generated */}
-            {response.query_id && 
-             response.visualization?.status === 'pending' && 
-             !response.visualization?.chart_js_config && (
-              <div className="mt-3 flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-primary-50 via-primary-50/80 to-primary-50 border border-primary-200/60 rounded-xl shadow-sm animate-pulse">
-                <div className="relative">
-                  <Loader2 size={18} className="animate-spin text-primary-600" />
-                  <div className="absolute inset-0 bg-primary-200/30 rounded-full blur-sm animate-ping"></div>
+            {response.query_id &&
+              response.visualization?.status === 'pending' &&
+              !response.visualization?.chart_js_config && (
+                <div className="mt-3 flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-primary-50 via-primary-50/80 to-primary-50 border border-primary-200/60 rounded-xl shadow-sm animate-pulse">
+                  <div className="relative">
+                    <Loader2 size={18} className="animate-spin text-primary-600" />
+                    <div className="absolute inset-0 bg-primary-200/30 rounded-full blur-sm animate-ping"></div>
+                  </div>
+                  <div className="flex-1">
+                    <p className="text-sm font-semibold text-primary-900">Analyzing data</p>
+                    <p className="text-xs text-primary-600 mt-0.5">Generating visualization...</p>
+                  </div>
+                  <Sparkles size={16} className="text-primary-500 animate-pulse" />
                 </div>
-                <div className="flex-1">
-                  <p className="text-sm font-semibold text-primary-900">Analyzing data</p>
-                  <p className="text-xs text-primary-600 mt-0.5">Generating visualization...</p>
-                </div>
-                <Sparkles size={16} className="text-primary-500 animate-pulse" />
-              </div>
-            )}
+              )}
           </div>
           <div className="flex items-center gap-1 ml-4 flex-shrink-0">
             {/* View Visualization Button */}
@@ -467,11 +510,10 @@ export default function ChartWidget({ widget, onRemove, onUpdate }: ChartWidgetP
             )}
             <button
               onClick={() => setShowSQL(!showSQL)}
-              className={`p-2.5 rounded-xl transition-all duration-200 ${
-                showSQL 
-                  ? 'bg-primary-500 text-white shadow-md scale-105' 
-                  : 'text-gray-500 hover:text-primary-600 hover:bg-primary-50 hover:scale-105'
-              }`}
+              className={`p-2.5 rounded-xl transition-all duration-200 ${showSQL
+                ? 'bg-primary-500 text-white shadow-md scale-105'
+                : 'text-gray-500 hover:text-primary-600 hover:bg-primary-50 hover:scale-105'
+                }`}
               title="Show SQL"
             >
               <Database size={16} />
@@ -509,7 +551,7 @@ export default function ChartWidget({ widget, onRemove, onUpdate }: ChartWidgetP
             )}
           </div>
         </div>
-        
+
         {/* Meta info badges */}
         <div className="mt-4 flex flex-wrap items-center gap-2.5">
           <span className="inline-flex items-center gap-2 px-3.5 py-1.5 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-full text-xs font-semibold shadow-md hover:shadow-lg transition-all hover:scale-105">
@@ -526,13 +568,12 @@ export default function ChartWidget({ widget, onRemove, onUpdate }: ChartWidgetP
           </span>
           {/* Visualization status badge */}
           {response.visualization?.status && response.visualization.status !== 'ready' && (
-            <span className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium shadow-sm transition-all ${
-              response.visualization.status === 'pending' 
-                ? 'bg-amber-50 border border-amber-200 text-amber-700'
-                : response.visualization.status === 'not_applicable'
+            <span className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-medium shadow-sm transition-all ${response.visualization.status === 'pending'
+              ? 'bg-amber-50 border border-amber-200 text-amber-700'
+              : response.visualization.status === 'not_applicable'
                 ? 'bg-gray-50 border border-gray-200 text-gray-600'
                 : 'bg-red-50 border border-red-200 text-red-700'
-            }`}>
+              }`}>
               {response.visualization.status === 'pending' && <Loader2 size={13} className="animate-spin" />}
               {response.visualization.status === 'not_applicable' && <AlertCircle size={13} />}
               {response.visualization.status === 'error' && <AlertCircle size={13} />}
@@ -566,7 +607,7 @@ export default function ChartWidget({ widget, onRemove, onUpdate }: ChartWidgetP
               </div>
             </div>
           )}
-          
+
           {/* Success indicator when visualization loads */}
           {vizLoaded && response.visualization?.chart_js_config && (
             <div className="mb-4 flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-green-50 via-emerald-50 to-green-50 border border-green-200/60 rounded-xl shadow-md animate-in fade-in slide-in-from-top-2">
@@ -579,7 +620,7 @@ export default function ChartWidget({ widget, onRemove, onUpdate }: ChartWidgetP
               </div>
             </div>
           )}
-          
+
           {/* Check if single metric first */}
           {isSingleMetric(response.results, response.columns) ? (
             renderMetrics()
@@ -588,9 +629,8 @@ export default function ChartWidget({ widget, onRemove, onUpdate }: ChartWidgetP
           ) : chartData && response.results.length > 0 ? (
             <>
               {/* Show chart when available */}
-              <div className={`mb-6 rounded-xl border border-gray-200 bg-white p-4 shadow-sm hover:shadow-md transition-all duration-500 ${
-                vizLoaded ? 'animate-in fade-in slide-in-from-bottom-4' : ''
-              }`}>
+              <div className={`mb-6 rounded-xl border border-gray-200 bg-white p-4 shadow-sm hover:shadow-md transition-all duration-500 ${vizLoaded ? 'animate-in fade-in slide-in-from-bottom-4' : ''
+                }`}>
                 <div className="h-80">
                   {renderChart()}
                 </div>

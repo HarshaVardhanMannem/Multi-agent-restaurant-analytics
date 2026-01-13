@@ -381,14 +381,260 @@ class VisualizationGenerator:
     @staticmethod
     def _heatmap(data: list[dict], x_field: str, y_fields: list[str], title: str) -> dict[str, Any]:
         """
-        Generate heatmap configuration.
-        Note: Chart.js doesn't have native heatmap support,
-        so we return structured data for custom rendering.
+        Generate heatmap configuration using Chart.js Matrix controller.
+        Transforms data into matrix format with x, y, and value coordinates.
         """
+        if not data or not x_field or not y_fields:
+            return VisualizationGenerator._empty_chart({"title": title})
+        
+        y_field = y_fields[0]
+        
+        # Find the value field (should be numeric, not x or y field)
+        value_field = None
+        if data:
+            for key in data[0].keys():
+                if key not in [x_field, y_field] and isinstance(data[0].get(key), (int, float)):
+                    value_field = key
+                    break
+        
+        if not value_field:
+            # Fallback: use count or first numeric field
+            value_field = y_fields[1] if len(y_fields) > 1 else "value"
+        
+        # Helper function to format labels
+        def format_label(value: str, field_name: str) -> str:
+            """Format labels for better readability"""
+            # Day of week mapping
+            day_map = {
+                "0": "Sunday", "1": "Monday", "2": "Tuesday", "3": "Wednesday",
+                "4": "Thursday", "5": "Friday", "6": "Saturday",
+                "0.0": "Sunday", "1.0": "Monday", "2.0": "Tuesday", "3.0": "Wednesday",
+                "4.0": "Thursday", "5.0": "Friday", "6.0": "Saturday"
+            }
+            
+            # Check if this is a day field
+            if 'day' in field_name.lower() and value in day_map:
+                return day_map[value]
+            
+            # Check if this is an hour field
+            if 'hour' in field_name.lower():
+                try:
+                    hour = float(value)
+                    if hour.is_integer():
+                        hour_int = int(hour)
+                        if 0 <= hour_int <= 23:
+                            # Format as 12-hour time
+                            if hour_int == 0:
+                                return "12 AM"
+                            elif hour_int < 12:
+                                return f"{hour_int} AM"
+                            elif hour_int == 12:
+                                return "12 PM"
+                            else:
+                                return f"{hour_int - 12} PM"
+                except ValueError:
+                    pass
+            
+            return value
+        
+        # Extract unique x and y values for labels
+        x_raw_values = sorted(list(set(str(row.get(x_field, "")) for row in data)))
+        y_raw_values = sorted(list(set(str(row.get(y_field, "")) for row in data)))
+        
+        # Format labels for display
+        x_labels = [format_label(val, x_field) for val in x_raw_values]
+        y_labels = [format_label(val, y_field) for val in y_raw_values]
+        
+        # Transform data to matrix format: {x: x_label, y: y_label, v: value}
+        matrix_data = []
+        for row in data:
+            x_val = str(row.get(x_field, ""))
+            y_val = str(row.get(y_field, ""))
+            value = VisualizationGenerator._safe_number(row.get(value_field, 0))
+            
+            if x_val in x_raw_values and y_val in y_raw_values:
+                matrix_data.append({
+                    "x": format_label(x_val, x_field),
+                    "y": format_label(y_val, y_field),
+                    "v": value
+                })
+        
+        # Find min and max values for color scaling
+        values = [point["v"] for point in matrix_data]
+        min_val = min(values) if values else 0
+        max_val = max(values) if values else 1
+        
+        # Enhanced color function - Viridis-inspired (colorblind-friendly)
+        bg_color_fn = (
+            f"function(context) {{ "
+            f"const value = context.dataset.data[context.dataIndex]?.v; "
+            f"if (value === undefined || value === null) return 'rgba(200, 200, 200, 0.1)'; "
+            f"const min = {min_val}; "
+            f"const max = {max_val}; "
+            f"const normalized = max > min ? (value - min) / (max - min) : 0.5; "
+            # Viridis-inspired color scheme (purple -> green -> yellow)
+            f"let r, g, b; "
+            f"if (normalized < 0.25) {{ "
+            f"  const t = normalized / 0.25; "
+            f"  r = Math.round(68 + (59 - 68) * t); "
+            f"  g = Math.round(1 + (82 - 1) * t); "
+            f"  b = Math.round(84 + (139 - 84) * t); "
+            f"}} else if (normalized < 0.5) {{ "
+            f"  const t = (normalized - 0.25) / 0.25; "
+            f"  r = Math.round(59 + (33 - 59) * t); "
+            f"  g = Math.round(82 + (145 - 82) * t); "
+            f"  b = Math.round(139 + (140 - 139) * t); "
+            f"}} else if (normalized < 0.75) {{ "
+            f"  const t = (normalized - 0.5) / 0.25; "
+            f"  r = Math.round(33 + (94 - 33) * t); "
+            f"  g = Math.round(145 + (201 - 145) * t); "
+            f"  b = Math.round(140 + (98 - 140) * t); "
+            f"}} else {{ "
+            f"  const t = (normalized - 0.75) / 0.25; "
+            f"  r = Math.round(94 + (253 - 94) * t); "
+            f"  g = Math.round(201 + (231 - 201) * t); "
+            f"  b = Math.round(98 + (37 - 98) * t); "
+            f"}} "
+            f"return 'rgba(' + r + ', ' + g + ', ' + b + ', ' + (0.7 + normalized * 0.3) + ')'; "
+            f"}}"
+        )
+        
+        # Cell width and height with better spacing
+        width_fn = (
+            f"function(context) {{ "
+            f"const a = context.chart.chartArea; "
+            f"if (!a) return 0; "
+            f"return (a.right - a.left) / {len(x_labels)} - 2; "  # Reduced by 2 for better spacing
+            f"}}"
+        )
+        
+        height_fn = (
+            f"function(context) {{ "
+            f"const a = context.chart.chartArea; "
+            f"if (!a) return 0; "
+            f"return (a.bottom - a.top) / {len(y_labels)} - 2; "  # Reduced by 2 for better spacing
+            f"}}"
+        )
+        
+        # Enhanced tooltip with better formatting
+        tooltip_label_fn = (
+            f"function(context) {{ "
+            f"const dataPoint = context.dataset.data[context.dataIndex]; "
+            f"const lines = []; "
+            f"lines.push('📍 {VisualizationGenerator._format_field_name(x_field)}: ' + dataPoint.x); "
+            f"lines.push('📅 {VisualizationGenerator._format_field_name(y_field)}: ' + dataPoint.y); "
+            f"lines.push('📊 {VisualizationGenerator._format_field_name(value_field)}: ' + dataPoint.v.toLocaleString()); "
+            # Add percentage of max
+            f"const pct = ({max_val} > 0 ? (dataPoint.v / {max_val} * 100).toFixed(1) : 0); "
+            f"lines.push('📈 Intensity: ' + pct + '%'); "
+            f"return lines; "
+            f"}}"
+        )
+        
         return {
-            "type": "heatmap",
-            "data": {"raw": data, "x_field": x_field, "y_field": y_fields[0] if y_fields else ""},
-            "options": {"title": title},
+            "type": "matrix",
+            "data": {
+                "datasets": [{
+                    "label": VisualizationGenerator._format_field_name(value_field),
+                    "data": matrix_data,
+                    "backgroundColor": bg_color_fn,
+                    "borderColor": "rgba(255, 255, 255, 0.8)",  # Stronger white borders
+                    "borderWidth": 2,  # Thicker borders
+                    "borderRadius": 4,  # Rounded corners
+                    "width": width_fn,
+                    "height": height_fn
+                }]
+            },
+            "options": {
+                "responsive": True,
+                "maintainAspectRatio": True,
+                "animation": {
+                    "duration": 750,  # Smooth fade-in
+                    "easing": "easeOutQuart"
+                },
+                "plugins": {
+                    "title": {
+                        "display": True,
+                        "text": title,
+                        "font": {"size": 18, "weight": "bold"},
+                        "padding": {"top": 10, "bottom": 15},
+                        "color": "#1f2937"
+                    },
+                    "legend": {
+                        "display": True,
+                        "position": "bottom",
+                        "labels": {
+                            "generateLabels": f"function(chart) {{ "
+                                f"return [{{ "
+                                f"  text: 'Range: {min_val} - {max_val} {VisualizationGenerator._format_field_name(value_field)}', "
+                                f"  fillStyle: 'transparent', "
+                                f"  strokeStyle: 'transparent', "
+                                f"  fontColor: '#6b7280', "
+                                f"  lineWidth: 0 "
+                                f"}}]; "
+                            f"}}"
+                        }
+                    },
+                    "tooltip": {
+                        "backgroundColor": "rgba(0, 0, 0, 0.9)",
+                        "titleColor": "#fff",
+                        "bodyColor": "#fff",
+                        "borderColor": "rgba(255, 255, 255, 0.2)",
+                        "borderWidth": 1,
+                        "padding": 12,
+                        "displayColors": False,
+                        "callbacks": {
+                            "title": "function() { return ''; }",
+                            "label": tooltip_label_fn
+                        }
+                    }
+                },
+                "scales": {
+                    "x": {
+                        "type": "category",
+                        "labels": x_labels,
+                        "offset": True,
+                        "title": {
+                            "display": True,
+                            "text": VisualizationGenerator._format_field_name(x_field),
+                            "font": {"size": 13, "weight": "600"},
+                            "color": "#374151"
+                        },
+                        "ticks": {
+                            "font": {"size": 11, "weight": "500"},
+                            "color": "#4b5563",
+                            "autoSkip": False,
+                            "maxRotation": 45,
+                            "minRotation": 0
+                        },
+                        "grid": {"display": False}
+                    },
+                    "y": {
+                        "type": "category",
+                        "labels": y_labels,
+                        "offset": True,
+                        "title": {
+                            "display": True,
+                            "text": VisualizationGenerator._format_field_name(y_field),
+                            "font": {"size": 13, "weight": "600"},
+                            "color": "#374151"
+                        },
+                        "ticks": {
+                            "font": {"size": 11, "weight": "500"},
+                            "color": "#4b5563"
+                        },
+                        "grid": {"display": False}
+                    }
+                },
+                "layout": {
+                    "padding": {
+                        "left": 10,
+                        "right": 10,
+                        "top": 10,
+                        "bottom": 10
+                    }
+                }
+            }
         }
 
     @staticmethod
