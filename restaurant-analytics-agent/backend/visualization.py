@@ -532,7 +532,7 @@ class VisualizationGenerator:
         )
         
         return {
-            "type": "matrix",
+            "type": "matrix",  # Must be 'matrix' not 'heatmap' for Chart.js
             "data": {
                 "datasets": [{
                     "label": VisualizationGenerator._format_field_name(value_field),

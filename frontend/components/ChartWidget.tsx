@@ -191,7 +191,15 @@ export default function ChartWidget({ widget, onRemove, onUpdate }: ChartWidgetP
     }
 
     // Parse any function strings in the config
+    console.log('[ChartWidget] Original config:', config);
     const parsedConfig = parseFunctions(config);
+    console.log('[ChartWidget] Parsed config:', parsedConfig);
+
+    // CRITICAL: Ensure heatmaps use 'matrix' type for Chart.js
+    if (response.visualization.type === VisualizationType.HEATMAP && parsedConfig) {
+      console.log('[ChartWidget] Overriding type to matrix for heatmap');
+      parsedConfig.type = 'matrix';
+    }
 
     return parsedConfig;
   }, [response.visualization]);
@@ -348,7 +356,40 @@ export default function ChartWidget({ widget, onRemove, onUpdate }: ChartWidgetP
         return <Pie data={chartData.data} options={chartData.options} />;
 
       case VisualizationType.HEATMAP:
-        return <Chart type="matrix" data={chartData.data} options={chartData.options} />;
+        // Add comprehensive check for heatmap data
+        try {
+          if (!chartData) {
+            console.error('[ChartWidget] chartData is null/undefined');
+            throw new Error('chartData is null');
+          }
+          if (!chartData.data) {
+            console.error('[ChartWidget] chartData.data is missing:', chartData);
+            throw new Error('chartData.data is missing');
+          }
+          if (!chartData.options) {
+            console.error('[ChartWidget] chartData.options is missing:', chartData);
+            throw new Error('chartData.options is missing');
+          }
+          if (!chartData.data.datasets) {
+            console.error('[ChartWidget] chartData.data.datasets is missing:', chartData.data);
+            throw new Error('chartData.data.datasets is missing');
+          }
+
+          console.log('[ChartWidget] Rendering heatmap with valid data');
+          return <Chart type="matrix" data={chartData.data} options={chartData.options} />;
+        } catch (error) {
+          console.error('[ChartWidget] Heatmap rendering error:', error);
+          // Fallback to table view
+          return (
+            <div className="p-4">
+              <div className="mb-4 p-3 bg-yellow-50 border border-yellow-200 rounded-lg">
+                <p className="font-semibold text-yellow-800">⚠️ Heatmap rendering temporarily unavailable</p>
+                <p className="text-sm text-yellow-700 mt-1">Showing data in table format instead</p>
+              </div>
+              {renderTable()}
+            </div>
+          );
+        }
 
       default:
         return null;
