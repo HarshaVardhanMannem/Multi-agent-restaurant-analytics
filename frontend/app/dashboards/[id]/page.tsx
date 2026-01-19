@@ -39,6 +39,8 @@ export default function DashboardDetailPage() {
     useEffect(() => {
         if (user && dashboardId) {
             loadDashboard();
+            // Preload query history for faster widget selector
+            loadQueryHistory();
         }
     }, [user, dashboardId]);
 
@@ -75,18 +77,55 @@ export default function DashboardDetailPage() {
             // Calculate next position
             const nextPosition = dashboard.widgets.length;
 
-            await addWidget(dashboardId, {
+            // Optimistic update: add widget to local state immediately
+            const queryData = queryHistory.find(q => q.query_id === queryId);
+            if (queryData) {
+                const tempWidget: Widget = {
+                    id: 'temp-' + Date.now(), // Temporary ID
+                    dashboard_id: dashboardId,
+                    query_id: queryId,
+                    position: nextPosition,
+                    size: 'medium',
+                    created_at: new Date().toISOString(),
+                    query_data: queryData
+                };
+
+                // Update local state immediately for instant feedback
+                setDashboard({
+                    ...dashboard,
+                    widgets: [...dashboard.widgets, tempWidget],
+                    widget_count: dashboard.widget_count + 1
+                });
+            }
+
+            // Make API call in background
+            const newWidget = await addWidget(dashboardId, {
                 query_id: queryId,
                 position: nextPosition,
                 size: 'medium'
             });
 
-            // Reload dashboard to get updated widgets
-            await loadDashboard();
+            // Update with real server data
+            if (newWidget) {
+                setDashboard(prev => {
+                    if (!prev) return prev;
+                    return {
+                        ...prev,
+                        widgets: prev.widgets.map(w =>
+                            w.query_id === queryId && w.id.toString().startsWith('temp-')
+                                ? newWidget
+                                : w
+                        )
+                    };
+                });
+            }
+
             setShowWidgetSelector(false);
         } catch (err: any) {
             console.error('Error adding widget:', err);
             setError(err.response?.data?.detail || err.message || 'Failed to add widget');
+            // Revert optimistic update on error
+            await loadDashboard();
         } finally {
             setAddingWidget(false);
         }
@@ -113,17 +152,20 @@ export default function DashboardDetailPage() {
         if (!dashboard) return;
 
         try {
-            await updateWidget(dashboardId, widgetId, { size: newSize });
-            // Update local state
+            // Optimistic update
             setDashboard({
                 ...dashboard,
                 widgets: dashboard.widgets.map(w =>
                     w.id === widgetId ? { ...w, size: newSize } : w
                 )
             });
+
+            await updateWidget(dashboardId, widgetId, { size: newSize });
         } catch (err: any) {
             console.error('Error updating widget size:', err);
             setError(err.response?.data?.detail || err.message || 'Failed to update widget');
+            // Revert on error
+            await loadDashboard();
         }
     };
 
@@ -210,10 +252,7 @@ export default function DashboardDetailPage() {
                         </button>
 
                         <button
-                            onClick={() => {
-                                setShowWidgetSelector(true);
-                                loadQueryHistory();
-                            }}
+                            onClick={() => setShowWidgetSelector(true)}
                             disabled={dashboard.widgets.length >= 12}
                             className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-primary-500 to-primary-600 text-white rounded-xl hover:from-primary-600 hover:to-primary-700 transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed font-semibold"
                         >

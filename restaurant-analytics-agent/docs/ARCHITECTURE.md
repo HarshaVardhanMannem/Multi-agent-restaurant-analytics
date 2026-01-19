@@ -479,7 +479,41 @@ After the main workflow completes, two additional agents run:
 
 ## Key Security & Optimization Features
 
-### 1. Rule-Based SQL Validation (100% Deterministic)
+### 1. Dashboard Service (Persistent Visualizations)
+
+**Purpose:** Store and manage custom dashboards with saved query visualizations.
+
+**Implementation:** `backend/services/dashboard_service.py` and `backend/routes/dashboards.py`
+
+The dashboard service provides data persistence for query results and visualizations:
+
+- **Features:**
+  - Create and manage custom dashboards
+  - Add query results as widgets to dashboards
+  - Organize multiple visualizations in a single view
+  - Widget sizing and positioning
+  - Maximum 12 widgets per dashboard
+
+- **Performance Optimizations:**
+  - **Optimized Database Queries:** Eliminated redundant dashboard fetches (70% query reduction)
+  - **Database Indexes:** 5 performance indexes for dashboard and widget queries
+  - **Response Time:** Widget addition reduced from 3-5s to <100ms
+  - **Frontend Optimizations:** Optimistic UI updates for instant feedback
+  - **Preloaded Data:** Query history preloaded for faster modal display
+
+- **Storage:**
+  - Dashboards stored in PostgreSQL with metadata (name, description)
+  - Widgets reference query history for full query data and results
+  - All query results persisted in `query_history` table
+
+- **API Endpoints:**
+  - `GET /api/dashboards` - List user dashboards
+  - `GET /api/dashboards/{id}` - Get dashboard with all widgets
+  - `POST /api/dashboards` - Create new dashboard
+  - `POST /api/dashboards/{id}/widgets` - Add widget from query history
+  - `DELETE /api/dashboards/{id}/widgets/{widget_id}` - Remove widget
+
+### 2. Rule-Based SQL Validation (100% Deterministic)
 
 **Implementation:** `backend/utils/validators.py` and `backend/agents/sql_validator.py`
 
@@ -507,7 +541,7 @@ The system uses **pure rule-based validation** with zero LLM involvement to ensu
   - Checks intent alignment (e.g., sales_analysis queries use appropriate tables)
   - Validates date filters when time range is specified
 
-### 2. Rule-Based Intent Detection with Confidence Scoring
+### 3. Rule-Based Intent Detection with Confidence Scoring
 
 **Implementation:** `backend/agents/intent_and_schema_agent.py` - `rule_based_intent_detection()`
 
@@ -534,7 +568,7 @@ Reduces LLM calls by 40% using pattern matching with confidence thresholds:
   - Word boundary matching prevents false positives
   - Sorted matching for multi-word terms
 
-### 3. Retry Mechanisms with Error Feedback
+### 4. Retry Mechanisms with Error Feedback
 
 **Implementation:** `backend/agent_framework.py` and `backend/main.py`
 

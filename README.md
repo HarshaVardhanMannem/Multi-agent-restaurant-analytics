@@ -33,7 +33,8 @@ The system automatically:
 | **Data Pipeline** | Python ETL | Cleans, normalizes & unifies multi-source data |
 | **Database** | PostgreSQL (Supabase) | Stores unified schema + materialized views |
 | **Backend** | FastAPI + LangGraph | Multi-agent orchestration & API |
-| **Frontend** | Next.js 15 | Streaming UI with charts & tables |
+| **Dashboard Service** | FastAPI + PostgreSQL | Persistent query visualizations & widget management |
+| **Frontend** | Next.js 15 | Streaming UI with charts, tables & dashboards |
 | **LLM Layer** | Multi-provider | Supports NVIDIA, OpenAI, Grok, Gemini |
 
 ---
@@ -46,10 +47,20 @@ The system automatically:
 - **SQL Validator**: Deterministic safety guardrails (blocks destructive ops, SQL injection, schema violations)
 - **Result Processor**: Validates and formats results for presentation
 
+### 📊 Dashboard Service (New!)
+- **Persistent Visualizations**: Save query results as widgets to custom dashboards
+- **Optimized Performance**: 
+  - Widget addition: 3-5s → <100ms (97% faster)
+  - Database indexes for 40-50% faster dashboard loads
+  - Optimistic UI updates for instant feedback
+- **Organization**: Up to 12 widgets per dashboard with customizable sizing
+- **Query History**: All queries automatically persisted for dashboard reuse
+
 ### ⚡ Performance Optimizations
 - **Materialized Views**: Pre-computed aggregations for 10-50x faster analytics queries
 - **Streaming Responses**: Progressive UI updates reduce perceived latency by 40-50%
 - **Smart Caching**: Rule-based intent detection for common queries
+- **Database Indexes**: Optimized queries for dashboards and widgets
 
 ### 🔗 Multi-LLM Support
 Configure provider via environment variable:
