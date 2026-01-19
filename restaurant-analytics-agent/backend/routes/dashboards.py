@@ -65,6 +65,8 @@ async def list_dashboards(
     
     Returns a list of dashboards with widget counts, ordered by most recently updated.
     """
+    from fastapi import Response
+    
     try:
         if limit < 1 or limit > 100:
             raise HTTPException(
@@ -83,6 +85,7 @@ async def list_dashboards(
             limit=limit,
             offset=offset
         )
+        
         return dashboards
     except HTTPException:
         raise
