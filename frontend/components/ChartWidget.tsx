@@ -445,7 +445,7 @@ export default function ChartWidget({ widget, onRemove, onUpdate }: ChartWidgetP
           </thead>
           <tbody className="bg-white divide-y divide-gray-100">
             {response.results.slice(0, 20).map((row, idx) => (
-              <tr key={idx} className="hover:bg-gradient-to-r hover:from-primary-50/50 hover:to-transparent transition-all duration-150">
+              <tr key={idx} className={`hover:bg-gradient-to-r hover:from-primary-50/50 hover:to-transparent transition-all duration-150 animate-stagger-${Math.min(idx % 6 + 1, 6)}`}>
                 {response.columns.map((col) => (
                   <td key={col} className="px-5 py-3.5 whitespace-nowrap text-sm text-gray-800 font-medium">
                     {formatValue(row[col], col)}
@@ -531,7 +531,21 @@ export default function ChartWidget({ widget, onRemove, onUpdate }: ChartWidgetP
                   handleViewVisualization();
                 }}
                 disabled={loadingViz}
-                className="group relative flex items-center gap-2.5 px-5 py-2.5 rounded-xl transition-all duration-300 font-semibold text-sm bg-gradient-to-r from-primary-500 via-primary-600 to-primary-500 text-white hover:from-primary-600 hover:via-primary-700 hover:to-primary-600 hover:scale-105 shadow-lg hover:shadow-xl disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:shadow-none overflow-hidden"
+                className="group relative flex items-center gap-2.5 px-5 py-2.5 rounded-xl transition-all duration-300 font-semibold text-sm text-white hover:scale-105 shadow-lg hover:shadow-xl disabled:bg-gray-100 disabled:text-gray-400 disabled:cursor-not-allowed disabled:hover:scale-100 disabled:shadow-none overflow-hidden"
+                style={{
+                  background: loadingViz ? 'linear-gradient(to right, #e5e7eb, #d1d5db)' : 'linear-gradient(90deg, #3b82f6 0%, #2563eb 50%, #3b82f6 100%)',
+                  backgroundSize: '200% 100%',
+                }}
+                onMouseEnter={(e) => {
+                  if (!loadingViz) {
+                    e.currentTarget.style.animation = 'shimmerGlow 1.5s ease-in-out infinite';
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (!loadingViz) {
+                    e.currentTarget.style.animation = '';
+                  }
+                }}
                 title="View Visualization"
                 type="button"
               >
@@ -651,7 +665,7 @@ export default function ChartWidget({ widget, onRemove, onUpdate }: ChartWidgetP
 
           {/* Success indicator when visualization loads */}
           {vizLoaded && response.visualization?.chart_js_config && (
-            <div className="mb-4 flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-green-50 via-emerald-50 to-green-50 border border-green-200/60 rounded-xl shadow-md animate-in fade-in slide-in-from-top-2">
+            <div className="mb-4 flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-green-50 via-emerald-50 to-green-50 border border-green-200/60 rounded-xl shadow-md animate-bounce-in">
               <div className="flex-shrink-0">
                 <CheckCircle2 size={18} className="text-green-600 animate-in zoom-in duration-300" />
               </div>
@@ -670,8 +684,7 @@ export default function ChartWidget({ widget, onRemove, onUpdate }: ChartWidgetP
           ) : chartData && response.results.length > 0 ? (
             <>
               {/* Show chart when available */}
-              <div className={`mb-6 rounded-xl border border-gray-200 bg-white p-4 shadow-sm hover:shadow-md transition-all duration-500 ${vizLoaded ? 'animate-in fade-in slide-in-from-bottom-4' : ''
-                }`}>
+              <div className={`mb-6 rounded-xl border border-gray-200 bg-white p-4 shadow-sm hover:shadow-md transition-all duration-500 animate-smooth-scale-in`}>
                 <div className="h-80">
                   {renderChart()}
                 </div>

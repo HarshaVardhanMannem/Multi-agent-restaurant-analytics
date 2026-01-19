@@ -13,6 +13,9 @@ import {
   QueryHistoryDetail,
 } from '@/types/api';
 
+// Re-export types for convenience
+export type { QueryHistoryDetail };
+
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
 
 // Token storage keys
@@ -216,7 +219,7 @@ export async function submitQueryStream(
           try {
             const data = JSON.parse(line.slice(6));
             console.log('[Stream] Received event:', data.type, data);
-            
+
             // Call callbacks immediately as events arrive
             if (data.type === 'results' && callbacks.onResults) {
               console.log('[Stream] Calling onResults callback');
@@ -285,4 +288,97 @@ export async function fetchVisualization(queryId: string): Promise<{
 }
 
 
+// ==================== Dashboard API ====================
 
+export interface Dashboard {
+  id: string;
+  user_id: string;
+  name: string;
+  description: string | null;
+  is_public: boolean;
+  widget_count: number;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface Widget {
+  id: string;
+  dashboard_id: string;
+  query_id: string;
+  position: number;
+  size: string;
+  created_at: string;
+  query_data: QueryHistoryDetail | null;
+}
+
+export interface DashboardDetail extends Dashboard {
+  widgets: Widget[];
+}
+
+export interface DashboardCreate {
+  name: string;
+  description?: string | null;
+}
+
+export interface DashboardUpdate {
+  name?: string | null;
+  description?: string | null;
+}
+
+export interface WidgetCreate {
+  query_id: string;
+  position?: number;
+  size?: string;
+}
+
+export interface WidgetUpdate {
+  position?: number | null;
+  size?: string | null;
+}
+
+// Dashboard operations
+export async function fetchDashboards(limit: number = 50, offset: number = 0): Promise<Dashboard[]> {
+  const response = await apiClient.get('/api/dashboards', {
+    params: { limit, offset }
+  });
+  return response.data as Dashboard[];
+}
+
+export async function fetchDashboard(dashboardId: string): Promise<DashboardDetail> {
+  const response = await apiClient.get(`/api/dashboards/${dashboardId}`);
+  return response.data as DashboardDetail;
+}
+
+export async function createDashboard(data: DashboardCreate): Promise<Dashboard> {
+  const response = await apiClient.post('/api/dashboards', data);
+  return response.data as Dashboard;
+}
+
+export async function updateDashboard(dashboardId: string, data: DashboardUpdate): Promise<Dashboard> {
+  const response = await apiClient.put(`/api/dashboards/${dashboardId}`, data);
+  return response.data as Dashboard;
+}
+
+export async function deleteDashboard(dashboardId: string): Promise<void> {
+  await apiClient.delete(`/api/dashboards/${dashboardId}`);
+}
+
+// Widget operations
+export async function addWidget(dashboardId: string, data: WidgetCreate): Promise<Widget> {
+  const response = await apiClient.post(`/api/dashboards/${dashboardId}/widgets`, data);
+  return response.data as Widget;
+}
+
+export async function updateWidget(dashboardId: string, widgetId: string, data: WidgetUpdate): Promise<Widget> {
+  const response = await apiClient.put(`/api/dashboards/${dashboardId}/widgets/${widgetId}`, data);
+  return response.data as Widget;
+}
+
+export async function deleteWidget(dashboardId: string, widgetId: string): Promise<void> {
+  await apiClient.delete(`/api/dashboards/${dashboardId}/widgets/${widgetId}`);
+}
+
+export async function refreshDashboard(dashboardId: string): Promise<DashboardDetail> {
+  const response = await apiClient.post(`/api/dashboards/${dashboardId}/refresh`);
+  return response.data as DashboardDetail;
+}

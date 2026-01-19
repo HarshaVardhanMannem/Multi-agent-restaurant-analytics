@@ -102,6 +102,61 @@ class QueryHistoryDetailResponse(QueryHistoryResponse):
     visualization_config: dict[str, Any]
 
 
+class DashboardBase(BaseModel):
+    """Base dashboard model"""
+    name: str = Field(..., max_length=255, description="Dashboard name")
+    description: str | None = Field(None, description="Dashboard description")
+
+
+class DashboardCreate(DashboardBase):
+    """Dashboard creation request"""
+    pass
+
+
+class DashboardUpdate(DashboardBase):
+    """Dashboard update request"""
+    name: str | None = Field(None, max_length=255, description="Dashboard name")
+
+
+class DashboardResponse(DashboardBase):
+    """Dashboard response model"""
+    id: UUID
+    user_id: UUID
+    is_public: bool
+    widget_count: int = Field(default=0, description="Number of widgets in dashboard")
+    created_at: datetime
+    updated_at: datetime
+
+
+class WidgetCreate(BaseModel):
+    """Widget creation request"""
+    query_id: str = Field(..., description="Query ID from query history")
+    position: int = Field(default=0, ge=0, description="Widget position in grid")
+    size: str = Field(default="medium", description="Widget size: small, medium, large, full")
+
+
+class WidgetUpdate(BaseModel):
+    """Widget update request"""
+    position: int | None = Field(None, ge=0, description="Widget position in grid")
+    size: str | None = Field(None, description="Widget size: small, medium, large, full")
+
+
+class WidgetResponse(BaseModel):
+    """Widget response model"""
+    id: UUID
+    dashboard_id: UUID
+    query_id: str
+    position: int
+    size: str
+    created_at: datetime
+    query_data: QueryHistoryDetailResponse | None = Field(None, description="Full query data from history")
+
+
+class DashboardDetailResponse(DashboardResponse):
+    """Detailed dashboard response with widgets"""
+    widgets: list[WidgetResponse] = Field(default=[], description="Dashboard widgets with query data")
+
+
 # SQL for creating tables (to be executed on Supabase)
 CREATE_USERS_TABLE_SQL = """
 CREATE TABLE IF NOT EXISTS app_users (

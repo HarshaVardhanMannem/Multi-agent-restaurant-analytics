@@ -26,7 +26,7 @@ function AuthPage() {
   const [fullName, setFullName] = useState('');
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  
+
   const { login, register } = useAuth();
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -56,7 +56,7 @@ function AuthPage() {
           <div className="absolute top-20 left-20 w-72 h-72 bg-white rounded-full blur-3xl"></div>
           <div className="absolute bottom-20 right-20 w-96 h-96 bg-white rounded-full blur-3xl"></div>
         </div>
-        
+
         <div className="relative z-10">
           <div className="flex items-center gap-3 mb-8">
             <div className="p-3 bg-white/20 backdrop-blur-sm rounded-xl">
@@ -67,7 +67,7 @@ function AuthPage() {
               <p className="text-primary-200 text-sm">AI-Powered Insights</p>
             </div>
           </div>
-          
+
           <h2 className="text-4xl font-bold text-white leading-tight mb-6">
             Transform your restaurant data into actionable insights
           </h2>
@@ -75,7 +75,7 @@ function AuthPage() {
             Ask questions in natural language and get instant visualizations, trends, and analysis for your business.
           </p>
         </div>
-        
+
         {/* Feature Cards */}
         <div className="relative z-10 space-y-4">
           <div className="flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-xl p-4">
@@ -129,8 +129,8 @@ function AuthPage() {
                 {mode === 'login' ? 'Welcome Back' : 'Create Account'}
               </h2>
               <p className="text-primary-100 mt-1">
-                {mode === 'login' 
-                  ? 'Sign in to access your analytics dashboard' 
+                {mode === 'login'
+                  ? 'Sign in to access your analytics dashboard'
                   : 'Get started with your free account'}
               </p>
             </div>
@@ -274,7 +274,7 @@ function Dashboard() {
       try {
         setIsLoadingHistory(true);
         const history = await getQueryHistoryWithResults(20);
-        
+
         // Convert history items to widgets
         const restoredWidgets: Widget[] = history.map((item) => ({
           id: `widget-${item.query_id}`,
@@ -312,7 +312,7 @@ function Dashboard() {
   }, [user]);
 
   const handleQuery = useCallback(async (
-    query: string, 
+    query: string,
     context?: Array<{ role: string; content: string }>
   ) => {
     setIsLoading(true);
@@ -386,18 +386,18 @@ function Dashboard() {
             console.log('[Frontend] onAnswerChunk called, chunk:', chunk);
             // Update answer as chunks arrive
             streamingState.answer += chunk;
-            
+
             // Update widget with streaming answer - use functional update to ensure we get latest state
             setWidgets((prev) =>
               prev.map((w) =>
                 w.id === tempWidgetId
-                  ? { 
-                      ...w, 
-                      response: { 
-                        ...w.response, 
-                        answer: streamingState.answer 
-                      } 
+                  ? {
+                    ...w,
+                    response: {
+                      ...w.response,
+                      answer: streamingState.answer
                     }
+                  }
                   : w
               )
             );
@@ -434,17 +434,17 @@ function Dashboard() {
               prev.map((w) =>
                 w.id === tempWidgetId
                   ? {
-                      ...w,
-                      response: {
-                        ...w.response,
-                        visualization: {
-                          type: vizData.type as VisualizationType,
-                          config: vizData.config,
-                          chart_js_config: vizData.chart_js_config,
-                          available: true,
-                        },
+                    ...w,
+                    response: {
+                      ...w.response,
+                      visualization: {
+                        type: vizData.type as VisualizationType,
+                        config: vizData.config,
+                        chart_js_config: vizData.chart_js_config,
+                        available: true,
                       },
-                    }
+                    },
+                  }
                   : w
               )
             );
@@ -473,7 +473,7 @@ function Dashboard() {
       }
 
       const queryResponse = response as QueryResponse;
-      
+
       // Update the temporary widget with full response, or create new one
       setWidgets((prev) => {
         const existingIndex = prev.findIndex((w) => w.id === tempWidgetId);
@@ -500,7 +500,7 @@ function Dashboard() {
           ];
         }
       });
-      
+
       setIsLoading(false);
     } catch (err: any) {
       setError({
@@ -520,13 +520,13 @@ function Dashboard() {
   const handleRemoveWidget = useCallback(async (id: string) => {
     // Find the widget to get its query_id
     const widget = widgets.find((w) => w.id === id);
-    
+
     if (!widget) {
       // Widget not found, just remove from state (shouldn't happen, but handle gracefully)
       setWidgets((prev) => prev.filter((w) => w.id !== id));
       return;
     }
-    
+
     // If widget has a query_id, it's saved in the database - delete it
     if (widget.response.query_id) {
       try {
@@ -548,17 +548,17 @@ function Dashboard() {
   const handleClarificationConfirm = useCallback(
     (clarificationText: string, originalQuery: string) => {
       setClarification(null);
-      
+
       // Create a merged query that combines original question with clarification
       const mergedQuery = `${originalQuery}. Additional context: ${clarificationText}`;
-      
+
       // Build context for the backend to understand this is a follow-up
       const context = [
         { role: 'user', content: originalQuery },
         { role: 'assistant', content: 'I need more information to answer this question.' },
         { role: 'user', content: clarificationText }
       ];
-      
+
       handleQuery(mergedQuery, context);
     },
     [handleQuery]
@@ -580,6 +580,15 @@ function Dashboard() {
               </div>
             </div>
             <div className="flex items-center gap-4">
+              {/* Dashboards Navigation Button */}
+              <button
+                onClick={() => window.location.href = '/dashboards'}
+                className="flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-all shadow-lg hover:shadow-xl font-medium"
+              >
+                <LayoutDashboard size={16} />
+                <span className="hidden sm:inline">Dashboards</span>
+              </button>
+
               {widgets.length > 0 && (
                 <div className="flex items-center gap-3">
                   <span className="text-sm text-gray-500">
@@ -594,7 +603,7 @@ function Dashboard() {
                   </button>
                 </div>
               )}
-              
+
               {/* User Section */}
               <div className="flex items-center gap-2 pl-4 border-l border-gray-200">
                 <div className="flex items-center gap-3">
@@ -641,7 +650,9 @@ function Dashboard() {
             <div className="bg-white/90 backdrop-blur-sm rounded-2xl shadow-soft border border-gray-100 p-12">
               <div className="flex flex-col items-center justify-center">
                 <div className="relative">
-                  <div className="w-20 h-20 border-4 border-primary-200 rounded-full animate-spin border-t-primary-600"></div>
+                  <div className="w-20 h-20 border-4 border-primary-200 rounded-full animate-gradient-spin">
+                    <div className="absolute inset-0 border-4 border-t-primary-600 rounded-full animate-spin"></div>
+                  </div>
                   <div className="absolute inset-0 flex items-center justify-center">
                     <TrendingUp className="text-primary-600 animate-pulse" size={28} />
                   </div>
@@ -667,7 +678,7 @@ function Dashboard() {
             </div>
 
             <div className="grid grid-cols-1 gap-6">
-              {widgets.map((widget) => (
+              {widgets.map((widget, idx) => (
                 <ChartWidget
                   key={widget.id}
                   widget={widget}
@@ -731,7 +742,7 @@ function Dashboard() {
                     <button
                       key={idx}
                       onClick={() => handleQuery(example.query)}
-                      className="text-left p-4 bg-white border border-gray-200 rounded-xl hover:border-primary-300 hover:shadow-lg hover:scale-[1.02] transition-all group"
+                      className="text-left p-4 bg-white border border-gray-200 rounded-xl hover:border-primary-300 hover:shadow-lg transition-all group hover-lift"
                     >
                       <p className="text-sm text-gray-900 font-medium group-hover:text-primary-700 transition-colors">
                         {example.query}

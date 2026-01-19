@@ -57,6 +57,14 @@ async def lifespan(app: FastAPI):
         try:
             await init_database()
             logger.info("Database connection pool initialized")
+            
+            # Run dashboard tables migration
+            try:
+                from .migrations import _001_add_dashboards
+                await _001_add_dashboards.run_migration()
+                logger.info("Dashboard tables migration completed")
+            except Exception as e:
+                logger.warning(f"Dashboard migration failed (tables may already exist): {e}")
         except Exception as e:
             logger.warning(f"Database connection failed during startup: {e}")
             logger.warning("Application will start, but database operations will fail until connection is established")
@@ -110,6 +118,10 @@ app.add_middleware(
 # Include auth routes
 from .routes.auth import router as auth_router
 app.include_router(auth_router)
+
+# Include dashboard routes
+from .routes.dashboards import router as dashboard_router
+app.include_router(dashboard_router)
 
 
 # ==================== Main Query Endpoint ====================
