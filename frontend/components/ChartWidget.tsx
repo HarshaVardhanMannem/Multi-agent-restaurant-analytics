@@ -315,11 +315,21 @@ export default function ChartWidget({ widget, onRemove, onUpdate }: ChartWidgetP
               setLoadingViz(false);
               return;
             } else if (errorCode === 'VISUALIZATION_NOT_FOUND') {
-              // Visualization not found - might still be generating
-              attempts++;
-              console.log(`[ChartWidget] Visualization not found, retrying in 1s (${attempts}/${maxAttempts})`);
-              await new Promise(resolve => setTimeout(resolve, 1000));
-              continue;
+              // Visualization not found - stop retrying to avoid infinite loops
+              console.log('[ChartWidget] Visualization not found, stopping retries');
+              setVizError('Visualization not found');
+              // Update widget to mark visualization as not applicable
+              if (onUpdate) {
+                onUpdate(widget.id, {
+                  visualization: {
+                    ...response.visualization,
+                    status: 'not_applicable',
+                    available: false,
+                  },
+                });
+              }
+              setLoadingViz(false);
+              return;
             }
           }
 
