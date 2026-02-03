@@ -1,6 +1,6 @@
 # Restaurant Analytics Multi-Agent System
 
-> **Personal Project** - AI-powered natural language restaurant analytics platform with multi-agent architecture
+# AI-powered natural language restaurant analytics platform with multi-agent architecture
 
 A production-oriented intelligent analytics system that transforms natural language questions into accurate SQL queries using a multi-agent workflow powered by LangGraph, validated through deterministic guardrails, and optimized for complex schema navigation.
 
