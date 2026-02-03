@@ -267,15 +267,6 @@ def rule_based_intent_detection(query: str) -> Optional[tuple[QueryIntent, float
 # Combined prompt for intent classification and schema analysis
 INTENT_AND_SCHEMA_PROMPT = """Analyze restaurant data query. Extract intent, entities, time range, AND determine required tables/columns.
 
-**IMPORTANT: Automatically correct common typos and spelling errors in user queries.** Examples:
-- "useer", "uesr" → "user"
-- "catgories", "catagories" → "categories"  
-- "reveneu", "reveneue" → "revenue"
-- "prodcut", "porduct" → "product"
-- "loaction", "locaton" → "location"
-- "paymnet", "payemnt" → "payment"
-Use context to interpret the user's intended meaning even with spelling mistakes.
-
 === PART 1: Intent & Entity Extraction ===
 Intents: sales_analysis, product_analysis, location_comparison, time_series, payment_analysis, order_type_analysis, source_comparison, performance_metrics, category_analysis, customer_analysis
 Entities: locations, products, categories, order_types, payment_types, sources, metrics, limit
