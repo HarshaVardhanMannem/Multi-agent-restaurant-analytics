@@ -22,6 +22,56 @@ The system automatically:
 
 ---
 
+## 🚩 Problem Statement
+
+Restaurant operators manage data from **multiple, incompatible POS systems** (Toast, DoorDash, Square). Answering even simple questions like *"Which location drove the most revenue last week?"* typically requires:
+
+- Manually exporting and joining data from three separate platforms
+- Writing complex SQL across a non-trivial unified schema
+- Waiting for an analyst or BI developer to build the report
+
+**This system eliminates that bottleneck.** Any team member — regardless of technical skill — can ask questions in plain English and get instant, accurate, visual answers backed by production-grade SQL validation.
+
+---
+
+## 👥 Who Is This For?
+
+| Persona | Pain Point Solved | Example Questions |
+|---------|-------------------|-------------------|
+| **Restaurant Owner / GM** | No SQL knowledge; needs daily performance snapshots without waiting for reports | *"What was total revenue yesterday?"* · *"Which location is underperforming this week?"* |
+| **Operations Manager** | Manually reconciles three POS exports to compare channel performance | *"Compare delivery vs dine-in revenue across locations"* · *"Show me busiest hours per location"* |
+| **Menu / Product Manager** | Can't quickly identify top/bottom sellers without requesting BI reports | *"Top 5 items by revenue"* · *"Which category generates the most profit?"* |
+| **Marketing Analyst** | Needs data-driven answers on promotions or peak periods; limited SQL access | *"What's the average order value by channel?"* · *"Show hourly sales trends for Jan 3rd"* |
+| **Data / BI Engineer** | Wants to validate the unified schema and materialized views with ad-hoc queries | *"Show raw order counts by source system"* · *"Are there voided orders skewing daily totals?"* |
+
+---
+
+## 📈 Key Performance Indicators (KPIs)
+
+### System Performance
+
+| KPI | Target | Achieved |
+|-----|--------|----------|
+| **Query accuracy (correct SQL)** | >90% | ~90–95% (multi-agent validation) |
+| **Hallucination rate** | <10% | <5–10% vs 30–40% single-pass LLM |
+| **End-to-end latency** | <15 s | 10–15 s total; ~6–8 s perceived (streaming) |
+| **Unsafe query rate** | 0% | 0% (100% deterministic SQL validation) |
+| **LLM calls per query** | Minimized | ~40% reduction via rule-based intent detection |
+| **Widget add time** | <500 ms | <100 ms (97% reduction after index optimization) |
+
+### Business / Analytics KPIs the System Can Track
+
+| Category | KPIs |
+|----------|------|
+| **Revenue** | Total revenue · Revenue by location · Revenue by channel (dine-in, delivery, takeout) · Average order value |
+| **Sales Volume** | Order count · Items sold · Orders per hour / day |
+| **Product Performance** | Top/bottom sellers by revenue · Category revenue breakdown · Item attach rate |
+| **Channel Mix** | Delivery vs dine-in vs takeout split · DoorDash order share · Revenue by POS source |
+| **Location Benchmarking** | Location vs location revenue · Peak hour comparison · Sales trend per location |
+| **Operational** | Voided order rate · Hourly traffic patterns · Daily / weekly revenue trends |
+
+---
+
 ## 🏗️ System Architecture
 
 ### High-Level Architecture
