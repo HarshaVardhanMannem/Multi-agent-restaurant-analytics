@@ -8,7 +8,7 @@ A production-oriented intelligent analytics system that transforms natural langu
 
 ## 🎯 What Is This?
 
-This system enables **natural language analytics** over restaurant data from multiple POS systems (Toast,DoorDash, Square). Instead of writing SQL manually, users ask questions like:
+This system enables **natural language analytics** over restaurant data from multiple POS systems (Toast, DoorDash, Square). Instead of writing SQL manually, users ask questions like:
 
 - *"What were total sales on January 2nd?"*
 - *"Compare delivery vs dine-in revenue"*
@@ -24,7 +24,63 @@ The system automatically:
 
 ## 🏗️ System Architecture
 
-![Architecture Diagram](docs/assets/architecture.png)
+### High-Level Architecture
+
+```mermaid
+flowchart TD
+    User([👤 User]) -->|Natural Language Query| Frontend
+
+    subgraph Frontend["Frontend — Next.js 15"]
+        UI[Chat UI / Dashboard]
+        Charts[Recharts Visualizations]
+        Stream[SSE Stream Handler]
+    end
+
+    Frontend -->|HTTP REST / SSE| Backend
+
+    subgraph Backend["Backend — FastAPI"]
+        API[API Layer]
+        Auth[Auth & History]
+
+        subgraph Agents["Multi-Agent Workflow — LangGraph"]
+            A1[Agent 1: Intent & Schema Analyzer]
+            A2[Agent 2: SQL Generator]
+            A3[Agent 3: SQL Validator]
+            A4[Agent 4: Result Validator]
+            PP[Post-Processing: Answer + Viz Planner]
+            A1 --> A2 --> A3 -->|Valid| A4 --> PP
+            A3 -->|Retry| A2
+        end
+
+        DashSvc[Dashboard Service]
+    end
+
+    Backend -->|SQL Queries| DB
+    Backend -->|LLM API Calls| LLM
+    Backend -->|Schema Lookup| SKB
+
+    subgraph Data["Data Layer"]
+        DB[(PostgreSQL / Supabase\nUnified Schema + Materialized Views)]
+        SKB[Schema Knowledge Base]
+    end
+
+    subgraph LLM["LLM Providers"]
+        NVIDIA[NVIDIA Nemotron]
+        OpenAI[OpenAI GPT-4]
+        Grok[Grok / xAI]
+        Gemini[Google Gemini]
+    end
+
+    subgraph ETL["ETL Pipeline — Python"]
+        Toast[Toast POS Data]
+        DoorDash[DoorDash Data]
+        Square[Square Data]
+        Toast & DoorDash & Square -->|Normalize & Unify| DB
+    end
+
+    PP -->|Streaming Response| Frontend
+    DashSvc --> DB
+```
 
 ### Core Components
 
@@ -36,6 +92,229 @@ The system automatically:
 | **Dashboard Service** | FastAPI + PostgreSQL | Persistent query visualizations & widget management |
 | **Frontend** | Next.js 15 | Streaming UI with charts, tables & dashboards |
 | **LLM Layer** | Multi-provider | Supports NVIDIA, OpenAI, Grok, Gemini |
+
+---
+
+## 🔄 Data Flow
+
+```mermaid
+flowchart LR
+    subgraph Sources["Data Sources"]
+        T[Toast POS JSON]
+        D[DoorDash JSON]
+        S[Square JSON]
+    end
+
+    subgraph ETL["ETL Processing"]
+        Norm[Text Normalization\n& Emoji Removal]
+        Match[Product Matcher\nFuzzy Matching]
+        Load[DB Loader\npsycopg2]
+    end
+
+    subgraph Storage["Storage"]
+        UO[(unified_orders)]
+        UOI[(unified_order_items)]
+        MV[(Materialized Views\nmv_daily_sales_summary\nmv_product_performance\netc.)]
+    end
+
+    subgraph QueryFlow["Query Processing"]
+        NLQ([User NL Query])
+        ISA[Intent & Schema\nAnalyzer]
+        SKB[Schema\nKnowledge Base]
+        SQLGen[SQL\nGenerator]
+        SQLVal[SQL\nValidator]
+        Exec[SQL Execution]
+        AnsGen[Answer\nGenerator]
+        VizPlan[Visualization\nPlanner]
+    end
+
+    subgraph Output["Response"]
+        Results[Data Results]
+        NLAnswer[Natural Language\nAnswer]
+        Chart[Chart Config\nChart.js]
+    end
+
+    T & D & S --> Norm --> Match --> Load
+    Load --> UO & UOI
+    UO & UOI --> MV
+
+    NLQ --> ISA
+    SKB --> ISA
+    ISA --> SQLGen --> SQLVal -->|Valid| Exec
+    SQLVal -->|Retry| SQLGen
+    MV & UO --> Exec
+    Exec --> AnsGen --> NLAnswer
+    Exec --> VizPlan --> Chart
+    Exec --> Results
+```
+
+---
+
+## 🧩 Architecture Components
+
+### 1. ETL Pipeline (`etl/`)
+
+Processes raw POS data from three sources into a unified PostgreSQL schema:
+
+| Module | Responsibility |
+|--------|---------------|
+| `scripts/ingest_unified_data.py` | Orchestrates full ingestion pipeline |
+| `utils/text_normalization.py` | Removes emojis, corrects typos, normalizes categories |
+| `utils/product_matcher.py` | Fuzzy-matches products across sources |
+| `config/product_matching_config.py` | Typo corrections, category & location maps |
+| `scripts/materialized_views/` | Creates pre-aggregated views for fast analytics |
+
+**Output schema:**
+- `unified_orders` — Normalized order records from all POS sources
+- `unified_order_items` — Line items linked to orders
+- Materialized views: `mv_daily_sales_summary`, `mv_product_performance`, `mv_hourly_sales`, etc.
+
+---
+
+### 2. Backend — FastAPI + LangGraph (`restaurant-analytics-agent/backend/`)
+
+| Module | Responsibility |
+|--------|---------------|
+| `main.py` | API entry point, streaming, post-processing agents |
+| `agent_framework.py` | LangGraph graph definition & state routing |
+| `agents/intent_and_schema_agent.py` | Agent 1: Intent detection + schema selection |
+| `agents/sql_generator.py` | Agent 2: SQL query generation |
+| `agents/sql_validator.py` | Agent 3: Deterministic safety + correctness checks |
+| `agents/result_validator.py` | Agent 4: Result verification (pass-through currently) |
+| `services/dashboard_service.py` | Persistent dashboard & widget management |
+| `utils/validators.py` | Rule-based SQL validation utilities |
+| `database.py` | Supabase/PostgreSQL async connection pool |
+| `visualization.py` | Chart.js config generation |
+
+**Agent State** (shared `AgentState` TypedDict):
+
+```
+user_query → intent → entities → relevant_tables/columns → sql → validation → results → answer → chart_config
+```
+
+---
+
+### 3. Multi-Agent Workflow Detail
+
+```mermaid
+flowchart TD
+    Q([User Query]) --> A1
+
+    subgraph A1["Agent 1: Intent & Schema Analyzer"]
+        IC[Intent Classification\nRule-Based → LLM Fallback]
+        EE[Entity Extraction\nDates · Locations · Products]
+        SS[Schema Selection\nRelevant tables only]
+        CD{Needs\nClarification?}
+        IC --> EE --> SS --> CD
+    end
+
+    CD -->|Yes| ClarReq([Ask User for Clarification])
+    CD -->|No| A2
+
+    subgraph A2["Agent 2: SQL Generator"]
+        BQ[Build SELECT Statement]
+        WC[Add WHERE / GROUP BY / ORDER BY]
+        MV[Prefer Materialized Views]
+        BQ --> WC --> MV
+    end
+
+    subgraph A3["Agent 3: SQL Validator — 100% Deterministic"]
+        SC[Safety Check\nBlock DROP/DELETE/INSERT etc.]
+        INJ[SQL Injection Detection]
+        CR[Correctness Rules\nvoided=FALSE · date ranges · cents conversion]
+        IA[Intent Alignment]
+        SC --> INJ --> CR --> IA
+    end
+
+    A2 --> A3
+    A3 -->|Pass| A4
+    A3 -->|Fail — max 1 retry| A2
+
+    subgraph A4["Agent 4: Result Validator\n(pass-through — future enhancement)"]
+        RV[Execute SQL\nVerify results answer question]
+    end
+
+    A4 --> PP
+
+    subgraph PP["Post-Processing in main.py"]
+        AG[Answer Generator\nNatural language summary]
+        VP[Visualization Planner\nBar · Line · Pie · Table]
+    end
+
+    PP --> Resp([Streaming Response\nResults + Answer + Chart])
+```
+
+---
+
+### 4. Dashboard Service
+
+Provides persistent storage for query results and custom dashboards:
+
+- **API endpoints:** `GET/POST /api/dashboards`, `POST /api/dashboards/{id}/widgets`, `DELETE .../widgets/{widget_id}`
+- **Storage:** `dashboards` + `widgets` + `query_history` tables in PostgreSQL
+- **Performance:** 5 DB indexes → widget addition reduced from 3–5 s → <100 ms (97% faster)
+- **UI:** Optimistic updates; up to 12 widgets per dashboard; customizable sizing
+
+---
+
+### 5. Frontend (`frontend/`)
+
+Built with Next.js 15 + React + TailwindCSS:
+
+| Component | Description |
+|-----------|-------------|
+| Chat Interface | Streaming query input & response display |
+| Data Tables | Paginated result rendering |
+| Chart Widgets | Recharts integration (bar, line, pie) |
+| Dashboard View | Drag-and-drop widget management |
+| Query History | Browse and replay past queries |
+
+---
+
+## 🔁 How the System Works End-to-End
+
+```mermaid
+sequenceDiagram
+    actor User
+    participant FE as Frontend (Next.js)
+    participant API as FastAPI Backend
+    participant LG as LangGraph Agents
+    participant LLM as LLM Provider
+    participant DB as PostgreSQL (Supabase)
+
+    User->>FE: Types natural language query
+    FE->>API: POST /api/query (stream_answer: true)
+
+    API->>LG: Start agent workflow
+
+    Note over LG: Agent 1 — Intent & Schema Analyzer
+    LG->>LLM: Classify intent (if rule-based < 0.75 confidence)
+    LLM-->>LG: Intent + relevant schema subset
+
+    Note over LG: Agent 2 — SQL Generator
+    LG->>LLM: Generate SQL using schema subset
+    LLM-->>LG: Generated SQL
+
+    Note over LG: Agent 3 — SQL Validator (deterministic)
+    LG->>LG: Rule-based safety + correctness checks
+    alt Validation fails (max 1 retry)
+        LG->>LLM: Regenerate SQL with error context
+        LLM-->>LG: Corrected SQL
+    end
+
+    Note over LG: Agent 4 — Result Validator (pass-through)
+    LG-->>API: Validated SQL + metadata
+
+    API->>DB: Execute SQL query
+    DB-->>API: Raw results
+
+    Note over API: Post-processing
+    API->>LLM: Generate natural language answer (streamed)
+    API->>LLM: Plan visualization (async)
+
+    API-->>FE: Stream: results → answer chunks → chart config
+    FE-->>User: Progressive display (results ~3-5s, answer ~6-8s)
+```
 
 ---
 
@@ -125,6 +404,50 @@ npm run dev
 | **[frontend/README.md](frontend/README.md)** | Frontend setup and component documentation |
 | **[docs/PROJECT_STRUCTURE.md](docs/PROJECT_STRUCTURE.md)** | Directory layout and codebase organization |
 | **[docs/EXAMPLE_QUERIES.md](docs/EXAMPLE_QUERIES.md)** | Sample queries to test system capabilities |
+
+---
+
+## 🗺️ Deployment Architecture
+
+```mermaid
+flowchart TD
+    subgraph Dev["Developer Machine / CI"]
+        ETL[ETL Pipeline\npython etl_pipeline.py]
+    end
+
+    subgraph Cloud["Cloud / Production"]
+        subgraph Supabase["Supabase (managed PostgreSQL)"]
+            PG[(PostgreSQL\nUnified Schema)]
+            MV[(Materialized Views)]
+            QH[(query_history)]
+            DASH[(dashboards + widgets)]
+        end
+
+        subgraph BackendContainer["Backend Container"]
+            ASGI[uvicorn ASGI]
+            FA[FastAPI App]
+            LG2[LangGraph Agent Graph]
+            ASGI --> FA --> LG2
+        end
+
+        subgraph FrontendContainer["Frontend Container / Vercel"]
+            NX[Next.js 15 App\nnpm run dev / start]
+        end
+    end
+
+    subgraph ExternalAPIs["External LLM APIs"]
+        NVAPI[NVIDIA NIM API]
+        OAIAPI[OpenAI API]
+        GrokAPI[Grok API]
+        GemAPI[Gemini API]
+    end
+
+    Dev -->|psycopg2 + SSL| Supabase
+    NX -->|HTTP / SSE| BackendContainer
+    BackendContainer -->|asyncpg + SSL| Supabase
+    LG2 -->|HTTPS| ExternalAPIs
+    BackendContainer -->|Docker Compose| FrontendContainer
+```
 
 ---
 
