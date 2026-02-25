@@ -130,6 +130,32 @@ flowchart TD
 
     PP -->|Streaming Response| Frontend
     DashSvc --> DB
+
+    classDef userNode fill:#3B82F6,stroke:#1D4ED8,color:#fff
+    classDef frontendNode fill:#6366F1,stroke:#4338CA,color:#fff
+    classDef backendNode fill:#0EA5E9,stroke:#0369A1,color:#fff
+    classDef agent1Node fill:#7C3AED,stroke:#5B21B6,color:#fff
+    classDef agent2Node fill:#2563EB,stroke:#1D4ED8,color:#fff
+    classDef agent3Node fill:#D97706,stroke:#92400E,color:#fff
+    classDef agent4Node fill:#059669,stroke:#065F46,color:#fff
+    classDef ppNode fill:#0891B2,stroke:#0E7490,color:#fff
+    classDef dataNode fill:#16A34A,stroke:#14532D,color:#fff
+    classDef llmNode fill:#EA580C,stroke:#9A3412,color:#fff
+    classDef etlNode fill:#CA8A04,stroke:#78350F,color:#fff
+    classDef dashNode fill:#0EA5E9,stroke:#0369A1,color:#fff
+
+    class User userNode
+    class UI,Charts,Stream frontendNode
+    class API,Auth backendNode
+    class A1 agent1Node
+    class A2 agent2Node
+    class A3 agent3Node
+    class A4 agent4Node
+    class PP ppNode
+    class DB,SKB dataNode
+    class NVIDIA,OpenAI,Grok,Gemini llmNode
+    class Toast,DoorDash,Square etlNode
+    class DashSvc dashNode
 ```
 
 ### Core Components
@@ -196,6 +222,24 @@ flowchart LR
     Exec --> AnsGen --> NLAnswer
     Exec --> VizPlan --> Chart
     Exec --> Results
+
+    classDef sourceNode fill:#CA8A04,stroke:#78350F,color:#fff
+    classDef etlProcNode fill:#7C3AED,stroke:#5B21B6,color:#fff
+    classDef storageNode fill:#16A34A,stroke:#14532D,color:#fff
+    classDef userNode fill:#3B82F6,stroke:#1D4ED8,color:#fff
+    classDef agentNode fill:#2563EB,stroke:#1D4ED8,color:#fff
+    classDef validatorNode fill:#D97706,stroke:#92400E,color:#fff
+    classDef skbNode fill:#059669,stroke:#065F46,color:#fff
+    classDef outputNode fill:#0891B2,stroke:#0E7490,color:#fff
+
+    class T,D,S sourceNode
+    class Norm,Match,Load etlProcNode
+    class UO,UOI,MV storageNode
+    class NLQ userNode
+    class ISA,SQLGen,Exec,AnsGen,VizPlan agentNode
+    class SQLVal validatorNode
+    class SKB skbNode
+    class Results,NLAnswer,Chart outputNode
 ```
 
 ---
@@ -292,6 +336,22 @@ flowchart TD
     end
 
     PP --> Resp([Streaming Response\nResults + Answer + Chart])
+
+    classDef userNode fill:#3B82F6,stroke:#1D4ED8,color:#fff
+    classDef agent1Node fill:#7C3AED,stroke:#5B21B6,color:#fff
+    classDef decisionNode fill:#6D28D9,stroke:#4C1D95,color:#fff
+    classDef agent2Node fill:#2563EB,stroke:#1D4ED8,color:#fff
+    classDef agent3Node fill:#D97706,stroke:#92400E,color:#fff
+    classDef agent4Node fill:#059669,stroke:#065F46,color:#fff
+    classDef ppNode fill:#0891B2,stroke:#0E7490,color:#fff
+
+    class Q,ClarReq,Resp userNode
+    class IC,EE,SS agent1Node
+    class CD decisionNode
+    class BQ,WC,MV agent2Node
+    class SC,INJ,CR,IA agent3Node
+    class RV agent4Node
+    class AG,VP ppNode
 ```
 
 ---
@@ -324,6 +384,7 @@ Built with Next.js 15 + React + TailwindCSS:
 ## 🔁 How the System Works End-to-End
 
 ```mermaid
+%%{init: {'theme': 'base', 'themeVariables': {'actorBkg': '#6366F1', 'actorTextColor': '#ffffff', 'actorBorder': '#4338CA', 'noteBkgColor': '#E0F2FE', 'noteTextColor': '#0369A1', 'activationBkgColor': '#7C3AED', 'activationBorderColor': '#5B21B6', 'sequenceNumberColor': '#ffffff'}}}%%
 sequenceDiagram
     actor User
     participant FE as Frontend (Next.js)
@@ -497,6 +558,20 @@ flowchart TD
     BackendContainer -->|asyncpg + SSL| Supabase
     LG2 -->|HTTPS| ExternalAPIs
     BackendContainer -->|Docker Compose| FrontendContainer
+
+    classDef etlNode fill:#CA8A04,stroke:#78350F,color:#fff
+    classDef dbNode fill:#16A34A,stroke:#14532D,color:#fff
+    classDef backendNode fill:#0EA5E9,stroke:#0369A1,color:#fff
+    classDef agentNode fill:#7C3AED,stroke:#5B21B6,color:#fff
+    classDef frontendNode fill:#6366F1,stroke:#4338CA,color:#fff
+    classDef llmNode fill:#EA580C,stroke:#9A3412,color:#fff
+
+    class ETL etlNode
+    class PG,MV,QH,DASH dbNode
+    class ASGI,FA backendNode
+    class LG2 agentNode
+    class NX frontendNode
+    class NVAPI,OAIAPI,GrokAPI,GemAPI llmNode
 ```
 
 ---
